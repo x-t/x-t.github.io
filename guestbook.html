@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--This file created 4/26/21 8:35 PM by Claris Home Page version 2.0-->
+<HTML>
+<HEAD>
+   <TITLE>zxyz - Guestbook</TITLE>
+   <META NAME=GENERATOR CONTENT="Claris Home Page 2.0">
+   <X-SAS-WINDOW TOP=53 BOTTOM=600 LEFT=152 RIGHT=682 />
+   <META NAME="viewport" CONTENT="width=device-width,initial-scale=1" />
+   <META NAME="twitter:title" CONTENT="zxyz's guestbook" />
+   <META NAME="og:title" CONTENT="zxyz's guestbook" />
+   <META CONTENT="object" PROPERTY="og:type" />
+   <META CONTENT="x-t.github.io" PROPERTY="og:site_name" />
+   <META NAME="description" CONTENT="Guestbook on zxyz's personal site" />
+   <META NAME="twitter:description" CONTENT="Guestbook on zxyz's personal site" />
+   <META NAME="og:description" CONTENT="Guestbook on zxyz's personal site" />
+   <META CONTENT="128" PROPERTY="og:image:width" />
+   <META CONTENT="128" PROPERTY="og:image:height" />
+   <META NAME="og:image" CONTENT="img/favicon@128.jpg" />
+   <META NAME="twitter:image" CONTENT="img/favicon@128.jpg" />
+   <META CONTENT="summary" PROPERTY="twitter:card" />
+   <LINK REL="shortcut icon" HREF="img/favicon@64.jpg" TYPE="image/jpeg" />
+   <LINK REL="manifest" HREF="/manifest.json" />
+   <SCRIPT SRC="https://hcaptcha.com/1/api.js" ASYNC DEFER></SCRIPT>
+   <SCRIPT SRC="client.js" ASYNC DEFER></SCRIPT>
+   <STYLE>
+      h1, p {
+         text-align: center;
+      }
+
+      table {
+         margin-left: auto;
+         margin-right: auto;
+      }
+
+      #guestbookPosts {
+         padding-top: 40px;
+         display: none;
+      }
+
+      #postDialog > table > tbody > tr > td:first-of-type > p {
+         text-align: left;
+      }
+
+      .h-captcha {
+         text-align: center;
+      }
+
+      #W {
+         width: 100vw;
+      }
+   </STYLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" background="img/chillibk.gif">
+
+<P id="W"><TABLE WIDTH="80%">
+   <TR>
+      <TD HEIGHT=438>
+         <H1><IMG SRC="img/notepad.gif" WIDTH=30 HEIGHT=33
+         X-SAS-UseImageWidth X-SAS-UseImageHeight ALIGN=bottom>
+         </H1>
+         
+         <H1>Guestbook</H1>
+         
+         <P>Feel free to write something! Look at the <A HREF="https://github.com/x-t/guestbook">source code</A>, too.</P>
+         
+         <P><DIV ID="postDialog"><TABLE BORDER=0>
+            <TR>
+               <TD>
+                  <P>Name</P>
+               </TD><TD>
+                  <P><INPUT TYPE="text" NAME="name" VALUE="" SIZE=25
+                  MAXLENGTH=32 id="guestbookName" /></P>
+               </TD></TR>
+            <TR>
+               <TD>
+                  <P>Comment</P>
+               </TD><TD>
+                  <P><INPUT TYPE="text" NAME="name" VALUE="" SIZE=25
+                  MAXLENGTH=128 id="guestbookComment" /></P>
+               </TD></TR>
+         </TABLE>
+         <P><DIV ARIA-LABEL="Captcha to prove you're not a robot." CLASS="h-captcha" data-sitekey="daab6e66-9048-4b5b-bdab-02a1f5bc2466" data-callback="captchaCallback"></DIV></P>
+      </DIV></P>
+         
+         <DIV ID="guestbookLoading">
+            <P>Loading...</P>
+         </DIV>
+         <DIV ID="guestbookPosts">
+         <TABLE BORDER=1>
+         </TABLE></P>
+      </DIV>
+      </TD></TR>
+</TABLE></P>
+<SCRIPT DEFER>
+  var ce = "createElement", ac = "appendChild";
+
+   function captchaCallback(responseKey) {
+      window.postFunction();
+   }
+
+   function mth() {
+     var a = document[ce]("tr");
+     var b = document[ce]("td");
+     var c = document[ce]("td");
+     var d = document[ce]("td");
+     var e = document[ce]("b");
+     var f = document[ce]("b");
+     var g = document[ce]("b");
+     b.style.paddingLeft = "5px";
+     c.style.paddingLeft = "5px";
+     d.style.paddingLeft = "5px";
+     b.style.paddingRight = "5px";
+     c.style.paddingRight = "5px";
+     d.style.paddingRight = "5px";
+     e.innerText = "Date";
+     f.innerText = "Name";
+     g.innerText = "Comment";
+     b[ac](e);
+     c[ac](f);
+     d[ac](g);
+     a[ac](b);
+     a[ac](c);
+     a[ac](d);
+     return a;
+   }
+window.onload = function() {
+window.guestbook_init({
+  provider: "https://zxyz-guestbook.azurewebsites.net/api/RestfulGuestbook",
+  id: "60871aabf20a7d531265f670",
+  render: function (time, name, comment) {
+      var a = document[ce]("tr");
+      var b = document[ce]("td");
+      var c = document[ce]("td");
+      var d = document[ce]("td");
+      b.innerText = time;
+      c.innerText = name;
+      d.innerText = comment;
+      b.style.paddingLeft = "5px";
+      c.style.paddingLeft = "5px";
+      d.style.paddingLeft = "5px";
+      b.style.paddingRight = "5px";
+      c.style.paddingRight = "5px";
+      d.style.paddingRight = "5px";
+      a[ac](b);
+      a[ac](c);
+      a[ac](d);
+      document.querySelector("#guestbookPosts > table").prepend(a);
+  },
+  clearFrame: function () {
+     document.getElementById("guestbookPosts").style.display = "none";
+     var table = document[ce]("table");
+     table.setAttribute("border", 1);
+     document.getElementById("guestbookPosts").innerHTML = "";
+     document.getElementById("guestbookPosts")[ac](table);
+     document.getElementById("guestbookLoading").style.display = "block";
+  },
+  post: {
+    attachUsing: function (postFunction) {
+      window.postFunction = postFunction;
+    },
+    fields: {
+      name: document.getElementById("guestbookName"),
+      comment: document.getElementById("guestbookComment"),
+      captcha: document.getElementsByClassName("h-captcha")[0],
+    },
+  },
+  hooks: {
+    duringPost: function () {
+      document.querySelector(
+        "#postDialog"
+      ).style.display = "none";
+    },
+    afterPost: function () {
+      document.querySelector(
+        "#postDialog"
+      ).style.display = "initial";
+    },
+    afterRender: function () {
+      document.querySelector("#guestbookPosts > table").prepend(mth());
+      document.getElementById("guestbookPosts").style.display = "block";
+      document.getElementById("guestbookLoading").style.display = "none";
+    },
+  },
+});
+}
+</SCRIPT>
+</BODY>
+</HTML>
