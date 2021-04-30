@@ -19,9 +19,15 @@
    <META NAME="og:image" CONTENT="img/favicon@128.jpg" />
    <META NAME="twitter:image" CONTENT="img/favicon@128.jpg" />
    <META CONTENT="summary" PROPERTY="twitter:card" />
+   <LINK REL="shortcut icon" HREF="favicon.ico" TYPE="image/x-icon" />
    <LINK REL="shortcut icon" HREF="img/favicon@64.jpg" TYPE="image/jpeg" />
+   <LINK REL="shortcut icon" HREF="img/favicon@64.webp" TYPE="image/webp" />
    <LINK REL="manifest" HREF="/manifest.json" />
    <STYLE>
+      body {
+         font-family: Georgia, 'Times New Roman', Times, serif;
+      }
+
       h1, h2, p {
          text-align: center;
       }
@@ -81,10 +87,31 @@
          <P><TABLE BORDER=1 WIDTH=156 CLASS="LINKS">
             <TR>
                <TD WIDTH=45 HEIGHT=22>
+                  <P><PICTURE><SOURCE SRCSET="img/Mail-Old-icon.webp" TYPE="image/webp" /><IMG SRC="img/Mail-Old-icon.png" ALT="Phone icon" WIDTH=16
+                  HEIGHT=14 ALIGN=bottom></PICTURE></P>
+               </TD><TD WIDTH=111 HEIGHT=23>
+                  <P><A HREF="https://mailhide.io/e/4yuR1lfK">E-mail</A></P>
+               </TD></TR>
+            <TR>
+               <TD WIDTH=45 HEIGHT=22>
+                  <P><PICTURE><SOURCE SRCSET="img/old-key-icon.webp" TYPE="image/webp" /><IMG SRC="img/old-key-icon.png" ALT="Phone icon" WIDTH=16
+                  HEIGHT=14 ALIGN=bottom></PICTURE></P>
+               </TD><TD WIDTH=111 HEIGHT=23>
+                  <P><A ID="zzy">GPG Key</A></P>
+               </TD></TR>
+            <TR>
+               <TD WIDTH=45 HEIGHT=22>
                   <P><PICTURE><SOURCE SRCSET="img/phone.webp" TYPE="image/webp" /><IMG SRC="img/phone.gif" ALT="Phone icon" WIDTH=16
                   HEIGHT=14 ALIGN=bottom></PICTURE></P>
                </TD><TD WIDTH=111 HEIGHT=23>
-                  <P><A id="4Ad8oX">E-mail</A></P>
+                  <P><A HREF="https://mailhide.io/e/B2gY6MgZ">XMPP</A></P>
+               </TD></TR>
+            <TR>
+               <TD WIDTH=45 HEIGHT=22>
+                  <P><PICTURE><SOURCE SRCSET="img/key-icon.webp" TYPE="image/webp" /><IMG SRC="img/key-icon.png" ALT="Phone icon" WIDTH=16
+                  HEIGHT=14 ALIGN=bottom></PICTURE></P>
+               </TD><TD WIDTH=111 HEIGHT=23>
+                  <P><A ID="zzz">OMEMO Fingerprints</A> (<A ID="zzx">signature</A>)</P>
                </TD></TR>
             <TR>
                <TD WIDTH=45 HEIGHT=22>
@@ -118,16 +145,19 @@
 <P>&nbsp;</P>
 
 <SCRIPT>
-function v7LgxF() {
+var a = "==Ad4RnLwBXb49yc5V2a", b = "=cWaz5Cd4RnLwBXb49yc5V2a", c = "=QHe05CbpFWbl9yc5V2a";
+function v7LgxF(v) {
    location.href = atob(
-      "=QWZkJXYjNXakBSZiBCbsl2dgwWah1WZgIXdvlHIy9GImxWZzJXdvlHIlNWdk9mc05WagkHbyVGcvJHcg8GdgIXZi1WZtVmU9kHZvJmJ5JXa1FnbJBSZ0l2ciV2V9Q3YlpmY1N3PjNmLslWYtJXahBEctNmOvRHbpFWb"
+      v
      .split("")
      .reverse()
      .join("")
  );
 }
 window.onload = function() {
-   document.getElementById("4Ad8oX").setAttribute("href", "javascript:v7LgxF()")
+   document.getElementById("zzz").setAttribute("href", "javascript:v7LgxF(a)")
+   document.getElementById("zzy").setAttribute("href", "javascript:v7LgxF(c)")
+   document.getElementById("zzx").setAttribute("href", "javascript:v7LgxF(b)")
 }
 </SCRIPT>
 </BODY>
