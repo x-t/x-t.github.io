@@ -67,3 +67,5 @@ $RECYCLE.BIN/
 *.lnk
 
 node_modules/
+
+client.src.js
