@@ -69,3 +69,4 @@ $RECYCLE.BIN/
 node_modules/
 
 client.src.js
+.idea

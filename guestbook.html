@@ -138,9 +138,10 @@ window.guestbook_init({
       var b = document[ce]("td");
       var c = document[ce]("td");
       var d = document[ce]("td");
-      b.innerText = time;
-      c.innerText = name;
-      d.innerText = comment;
+      // Converted to HTML-safe text server-side
+      b.innerHTML = time;
+      c.innerHTML = name;
+      d.innerHTML = comment;
       b.style.paddingLeft = "5px";
       c.style.paddingLeft = "5px";
       d.style.paddingLeft = "5px";
