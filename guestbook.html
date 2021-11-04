@@ -7,7 +7,6 @@
    <X-SAS-WINDOW TOP=53 BOTTOM=600 LEFT=152 RIGHT=682 />
    <META NAME="viewport" CONTENT="width=device-width,initial-scale=1" />
    <META HTTP-EQUIV="Onion-Location" CONTENT="http://ekyqwivtmuaiwsy3znhc754hyjrimtwl74pxsgbdjbar3yd5boiiz6qd.onion" />
-   <META HTTP-EQUIV="Content-Security-Policy" CONTENT="upgrade-insecure-requests" />
    <META NAME="twitter:title" CONTENT="zxyz's guestbook" />
    <META NAME="og:title" CONTENT="zxyz's guestbook" />
    <META CONTENT="object" PROPERTY="og:type" />
@@ -29,6 +28,8 @@
    <STYLE>
       body {
          font-family: Georgia, 'Times New Roman', Times, serif;
+         background-image: url('img/chillibk.gif');
+         background-color: #FFFFCA;
       }
 
       h1, p {
@@ -56,6 +57,22 @@
       #W {
          width: 100vw;
       }
+
+      @media (prefers-color-scheme: dark) {
+         body {
+            background-image: url('img/chillibk_dark.png');
+            color: white;
+            background-color: #141d50;
+         }
+
+         a {
+            color: lightskyblue;
+         }
+
+         a:visited {
+            color: violet;
+         }
+      }
    </STYLE>
 </HEAD>
 <BODY BGCOLOR="#FFFFFF" background="img/chillibk.gif">
@@ -63,14 +80,14 @@
 <P id="W"><TABLE WIDTH="80%">
    <TR>
       <TD HEIGHT=438>
-         <H1><IMG SRC="img/notepad.gif" WIDTH=30 HEIGHT=33
+         <H1><IMG SRC="img/notepad.gif" WIDTH=30 HEIGHT=33 ALT="Notepad with pen"
          X-SAS-UseImageWidth X-SAS-UseImageHeight ALIGN=bottom>
          </H1>
-         
+
          <H1>Guestbook</H1>
-         
+
          <P>Feel free to write something! Look at the <A HREF="https://github.com/x-t/guestbook">source code</A>, too.</P>
-         
+
          <P><DIV ID="postDialog"><TABLE BORDER=0>
             <TR>
                <TD>
@@ -89,7 +106,7 @@
          </TABLE>
          <P><DIV ARIA-LABEL="Captcha to prove you're not a robot." CLASS="h-captcha" data-sitekey="daab6e66-9048-4b5b-bdab-02a1f5bc2466" data-callback="captchaCallback"></DIV></P>
       </DIV></P>
-         
+
          <DIV ID="guestbookLoading">
             <P>Loading...</P>
          </DIV>
@@ -99,7 +116,6 @@
       </DIV>
       </TD></TR>
 </TABLE></P>
-<P><A HREF="http://ekyqwivtmuaiwsy3znhc754hyjrimtwl74pxsgbdjbar3yd5boiiz6qd.onion"><PICTURE><SOURCE SRCSET="img/onion_small.webp" TYPE="image/webp" /><IMG SRC="img/onion_small.png" ALT="Tor Onion Logo" WIDTH=14 HEIGHT=20 ALIGN=bottom /></PICTURE> Available on Tor too!</A></P>
 <SCRIPT DEFER>
   var ce = "createElement", ac = "appendChild";
 
