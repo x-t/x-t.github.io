@@ -12,9 +12,9 @@
    <META NAME="og:title" CONTENT="zxyz" />
    <META CONTENT="object" PROPERTY="og:type" />
    <META CONTENT="x-t.github.io" PROPERTY="og:site_name" />
-   <META NAME="description" CONTENT="Personal website about zxyz" />
-   <META NAME="twitter:description" CONTENT="Personal website about zxyz" />
-   <META NAME="og:description" CONTENT="Personal website about zxyz" />
+   <META NAME="description" CONTENT="personal website about zxyz" />
+   <META NAME="twitter:description" CONTENT="personal website about zxyz" />
+   <META NAME="og:description" CONTENT="personal website about zxyz" />
    <META CONTENT="128" PROPERTY="og:image:width" />
    <META CONTENT="128" PROPERTY="og:image:height" />
    <META NAME="og:image" CONTENT="img/favicon@128.jpg" />
@@ -29,10 +29,20 @@
          font-family: Georgia, 'Times New Roman', Times, serif;
          background-image: url('img/chillibk.gif');
          background-color: #FFFFCA;
+         cursor: url('img/Pointer.png') 6 2, auto;
       }
 
       h1, h2, p {
          text-align: center;
+         cursor: url('img/IBeam.png') 6 2, auto;
+      }
+
+      a, a img {
+         cursor: url('img/FollowLink.png') 6 2, auto;
+      }
+
+      img {
+         cursor: url('img/Pointer.png') 6 2, auto;
       }
 
       table.LINKS > tbody > tr > td:nth-child(2) > p {
@@ -50,6 +60,11 @@
       table {
          margin-left: auto;
          margin-right: auto;
+      }
+
+      #FSP {
+         border-bottom: 1px dotted;
+         cursor: url('img/Help.png') 6 2, auto;
       }
 
       #W {
@@ -138,27 +153,27 @@
          <A ID="REVIEWSPROMOTION" HREF="https://zxyz.gay/reviews/index.html">📖 Read my OS reviews!</A>
          </DIV>
 
-         <H2><A HREF="guestbook.html"><PICTURE><SOURCE SRCSET="img/notepad.webp" TYPE="image/webp" /><IMG SRC="img/notepad.gif" ALT="Notepad icon" WIDTH=25
+         <H2><A HREF="guestbook.html"><PICTURE><SOURCE SRCSET="img/guestbook.webp" TYPE="image/webp" /><IMG SRC="img/guestbook.png" ALT="Notepad icon" WIDTH=25
             HEIGHT=25 ALIGN=bottom></PICTURE> Sign the guestbook!</A></H2>
 
          <P><TABLE BORDER=1 WIDTH=156 CLASS="LINKS">
             <TR>
                <TD WIDTH=45 HEIGHT=22>
-                  <P><PICTURE><SOURCE SRCSET="img/Mail-Old-icon.webp" TYPE="image/webp" /><IMG SRC="img/Mail-Old-icon.png" ALT="Phone icon" WIDTH=16
+                  <P><PICTURE><SOURCE SRCSET="img/email.webp" TYPE="image/webp" /><IMG SRC="img/email.png" ALT="Phone icon" WIDTH=16
                   HEIGHT=14 ALIGN=bottom></PICTURE></P>
                </TD><TD WIDTH=111 HEIGHT=23>
                   <P><A HREF="https://captcha.zxyz.gay/email" TARGET="_blank">E-mail</A></P>
                </TD></TR>
             <TR>
                <TD WIDTH=45 HEIGHT=22>
-                  <P><PICTURE><SOURCE SRCSET="img/person.webp" TYPE="image/webp" /><IMG SRC="img/person.gif" ALT="People icon" WIDTH=14
+                  <P><PICTURE><SOURCE SRCSET="img/twit.webp" TYPE="image/webp" /><IMG SRC="img/twit.png" ALT="People icon" WIDTH=14
                   HEIGHT=14 ALIGN=bottom></PICTURE></P>
                </TD><TD WIDTH=111 HEIGHT=22>
                   <P><A HREF="https://twitter.com/zedeckswhyzed">Twitter</A>*</P>
                </TD></TR>
             <TR>
                <TD WIDTH=45 HEIGHT=22>
-                  <P><PICTURE><SOURCE SRCSET="img/computer.webp" TYPE="image/webp" /><IMG SRC="img/computer.png" ALT="Notepad icon" WIDTH=17
+                  <P><PICTURE><SOURCE SRCSET="img/github.webp" TYPE="image/webp" /><IMG SRC="img/github.png" ALT="Computer icon" WIDTH=17
                   HEIGHT=15 ALIGN=bottom></PICTURE></P>
                </TD><TD WIDTH=111 HEIGHT=20>
                   <P><A HREF="https://github.com/x-t">GitHub</A></P>
@@ -175,7 +190,7 @@
                X-SAS-UseImageWidth X-SAS-UseImageHeight ALIGN=bottom></PICTURE></A>
          </P>
 
-         <P>(C) 2017-2021 zxyz. Copy it, I won't be mad.</P>
+         <P>(C) 2017-2021 zxyz. <SPAN ID="FSP" TITLE="Icons & cursor licensed under the MIT license, by Haiku.">Copy it</SPAN>, I won't be mad.</P>
       </TD></TR>
 </TABLE></P>
 

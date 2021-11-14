@@ -30,10 +30,20 @@
          font-family: Georgia, 'Times New Roman', Times, serif;
          background-image: url('img/chillibk.gif');
          background-color: #FFFFCA;
+         cursor: url('img/Pointer.png') 6 2, auto;
       }
 
       h1, p {
          text-align: center;
+         cursor: url('img/IBeam.png') 6 2, auto;
+      }
+
+      a, a img {
+         cursor: url('img/FollowLink.png') 6 2, auto;
+      }
+
+      img {
+         cursor: url('img/Pointer.png') 6 2, auto;
       }
 
       table {
@@ -80,8 +90,9 @@
 <P id="W"><TABLE WIDTH="80%">
    <TR>
       <TD HEIGHT=438>
-         <H1><IMG SRC="img/notepad.gif" WIDTH=30 HEIGHT=33 ALT="Notepad with pen"
-         X-SAS-UseImageWidth X-SAS-UseImageHeight ALIGN=bottom>
+         <H1>
+            <A HREF="/" ARIA-LABEL="Go back"><PICTURE><SOURCE SRCSET="img/guestbook.webp" TYPE="image/webp" /><IMG SRC="img/guestbook.png" WIDTH=30 HEIGHT=33 ALT=""
+               X-SAS-UseImageWidth X-SAS-UseImageHeight ALIGN=bottom></PICTURE></A>
          </H1>
 
          <H1>Guestbook</H1>
@@ -157,7 +168,6 @@ window.guestbook_init({
       var b = document[ce]("td");
       var c = document[ce]("td");
       var d = document[ce]("td");
-      // Converted to HTML-safe text server-side
       b.innerHTML = time;
       c.innerHTML = name;
       d.innerHTML = comment;
