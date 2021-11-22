@@ -2,7 +2,7 @@
 <!--This file created 4/26/21 8:35 PM by Claris Home Page version 2.0-->
 <HTML>
 <HEAD>
-   <TITLE>zxyz - Guestbook</TITLE>
+   <TITLE>zxyz's guestbook</TITLE>
    <META NAME=GENERATOR CONTENT="Claris Home Page 2.0">
    <X-SAS-WINDOW TOP=53 BOTTOM=600 LEFT=152 RIGHT=682 />
    <META NAME="viewport" CONTENT="width=device-width,initial-scale=1" />
@@ -25,32 +25,8 @@
    <LINK REL="manifest" HREF="/manifest.json" />
    <SCRIPT SRC="https://hcaptcha.com/1/api.js" ASYNC DEFER></SCRIPT>
    <SCRIPT SRC="client.js" ASYNC DEFER></SCRIPT>
+   <LINK REL="stylesheet" HREF="style.css" />
    <STYLE>
-      body {
-         font-family: Georgia, 'Times New Roman', Times, serif;
-         background-image: url('img/chillibk.gif');
-         background-color: #FFFFCA;
-         cursor: url('img/Pointer.png') 6 2, auto;
-      }
-
-      h1, p {
-         text-align: center;
-         cursor: url('img/IBeam.png') 6 2, auto;
-      }
-
-      a, a img {
-         cursor: url('img/FollowLink.png') 6 2, auto;
-      }
-
-      img {
-         cursor: url('img/Pointer.png') 6 2, auto;
-      }
-
-      table {
-         margin-left: auto;
-         margin-right: auto;
-      }
-
       #guestbookPosts {
          padding-top: 40px;
          display: none;
@@ -62,26 +38,6 @@
 
       .h-captcha {
          text-align: center;
-      }
-
-      #W {
-         width: 100vw;
-      }
-
-      @media (prefers-color-scheme: dark) {
-         body {
-            background-image: url('img/chillibk_dark.png');
-            color: white;
-            background-color: #141d50;
-         }
-
-         a {
-            color: lightskyblue;
-         }
-
-         a:visited {
-            color: violet;
-         }
       }
    </STYLE>
 </HEAD>
@@ -97,7 +53,15 @@
 
          <H1>Guestbook</H1>
 
-         <P>Feel free to write something! Look at the <A HREF="https://github.com/x-t/guestbook">source code</A>, too.</P>
+         <noscript>
+            <hr />
+            For full functionality of this site it is necessary to enable JavaScript.
+            Here are the <a href="https://www.enable-javascript.com/">
+            instructions how to enable JavaScript in your web browser</a>.
+            <hr />
+           </noscript>
+
+         <P>Feel free to write something! Look at the <A HREF="https://github.com/x-t/guestbook">source code</A> for the backend, too.</P>
 
          <P><DIV ID="postDialog"><TABLE BORDER=0>
             <TR>
@@ -127,6 +91,7 @@
       </DIV>
       </TD></TR>
 </TABLE></P>
+<P>(C) 2017-2021 zxyz. <SPAN ID="FSP" TITLE="Icons & cursor licensed under the MIT license, by Haiku.">Copy it</SPAN>, I won't be mad.</P>
 <SCRIPT DEFER>
   var ce = "createElement", ac = "appendChild";
 
