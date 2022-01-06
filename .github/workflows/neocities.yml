@@ -14,10 +14,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: Clean up for Neocities
       run: |
-        rm CNAME
+        mkdir public
+        cp -r * public/
+        rm public/CNAME
     - name: Deploy to Neocities
       uses: bcomnes/deploy-to-neocities@master
       with:
         api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
         cleanup: true
-        dist_dir: .
