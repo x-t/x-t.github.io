@@ -12,6 +12,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Clean up for Neocities
+      run: |
+        rm CNAME
     - name: Deploy to Neocities
       uses: bcomnes/deploy-to-neocities@master
       with:
