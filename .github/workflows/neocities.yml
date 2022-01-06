@@ -14,9 +14,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: Clean up for Neocities
       run: |
-        mkdir public
-        cp -r * public/
-        rm public/CNAME
+        mkdir .public
+        cp -r * .public/
+        rm .public/CNAME
+        mv .public public
     - name: Deploy to Neocities
       uses: bcomnes/deploy-to-neocities@master
       with:
