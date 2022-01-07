@@ -3,7 +3,7 @@ const { defineConfig } = require("vite");
 import legacy from "@vitejs/plugin-legacy";
 
 module.exports = defineConfig({
-  base: "./",
+  base: "/",
   build: {
     rollupOptions: {
       input: {
