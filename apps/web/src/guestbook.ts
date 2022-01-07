@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/browser";
 import { createClient } from "@supabase/supabase-js";
 
 /* Real JAMStack s*** hours!
@@ -102,6 +103,7 @@ const main = async () => {
     unhide_element("guestbookPosts");
     hide_element("guestbookLoading");
   } catch (error: any) {
+    Sentry.captureException(error);
     unhide_element("guestbookLoading");
     document.getElementById("guestbookLoading")!.innerText = error;
   }
