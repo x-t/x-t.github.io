@@ -73,14 +73,14 @@ const get_posts = async (force_update = false): Promise<PostsSchema[]> => {
     const last_updated_date = new Date(last_updated);
     const now = new Date();
     const diff = now.getTime() - last_updated_date.getTime();
-    if (diff > 1000 * 60 * 60 * 24 * 7) {
+    if (diff >= 1000 * 60 * 60) {
       // Posts are stale, so update them
       localStorage.removeItem("posts");
       localStorage.removeItem("last_updated");
       posts = [];
       last_updated = "";
     }
-    if (diff < 1000 * 60 * 10) return posts;
+    if (diff < 1000 * 60 * 5) return posts;
   }
 
   const { error, data } = await supabase
