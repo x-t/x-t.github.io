@@ -1,21 +1,21 @@
 body {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  background-image: url('img/chillibk.gif');
+  background-image: url('/img/chillibk.gif');
   background-color: #FFFFCA;
-  cursor: url('img/Pointer.png') 6 2, auto;
+  cursor: url('/img/Pointer.png') 6 2, auto;
 }
 
 h1, h2, p {
   text-align: center;
-  cursor: url('img/IBeam.png') 6 2, auto;
+  cursor: url('/img/IBeam.png') 6 2, auto;
 }
 
 a, a img {
-  cursor: url('img/FollowLink.png') 6 2, auto;
+  cursor: url('/img/FollowLink.png') 6 2, auto;
 }
 
 img {
-  cursor: url('img/Pointer.png') 6 2, auto;
+  cursor: url('/img/Pointer.png') 6 2, auto;
 }
 
 table.LINKS > tbody > tr > td:nth-child(2) > p {
@@ -42,7 +42,7 @@ table {
 
 #FSP {
   border-bottom: 1px dotted;
-  cursor: url('img/Help.png') 6 2, auto;
+  cursor: url('/img/Help.png') 6 2, auto;
 }
 
 #W {
@@ -85,7 +85,7 @@ table {
 
 @media (prefers-color-scheme: dark) {
   body {
-     background-image: url('img/chillibk_dark.png');
+     background-image: url('/img/chillibk_dark.png');
      color: white;
      background-color: #141d50;
   }
