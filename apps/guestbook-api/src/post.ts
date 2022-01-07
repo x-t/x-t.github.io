@@ -6,12 +6,14 @@ import { Request, Response } from "express";
 import { send_notification } from "./notification";
 
 export default async (req: Request, res: Response) => {
-  const { name, comment, captcha_response } = req.body as Body;
+  let { name, comment, captcha_response } = req.body as Body;
   const ip =
     (req.headers["x-forwarded-for"] ?? "").toString() ||
     req.socket.remoteAddress;
 
-  if (!name || !comment || !captcha_response) {
+  if (name == null) name = "";
+
+  if (!comment || !captcha_response) {
     res.status(400).send("Missing name, comment or captcha_response");
     return;
   }
