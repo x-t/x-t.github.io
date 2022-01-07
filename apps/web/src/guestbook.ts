@@ -45,7 +45,7 @@ const render = (data: PostsSchema[]) => {
       hour: "2-digit",
       minute: "2-digit",
     });
-    const nameString = name ?? "Anonymous";
+    const nameString = name || "Anonymous";
     const row = document.createElement("tr");
     const nameCell = document.createElement("td");
     const commentCell = document.createElement("td");
@@ -86,12 +86,12 @@ const get_posts = async (force_update = false): Promise<PostsSchema[]> => {
   const { error, data } = await supabase
     .from<PostsSchema>("Posts")
     .select("created_at,name,comment")
-    .gte("created_at", last_updated ?? "1970-01-01")
+    .gte("created_at", last_updated || "1970-01-01")
     .order("created_at", { ascending: false });
 
   if (error) throw error.message;
 
-  const concat = [...(data ?? []), ...(posts ?? [])];
+  const concat = [...(data || []), ...(posts || [])];
   memoize_posts(concat);
   return concat;
 };
