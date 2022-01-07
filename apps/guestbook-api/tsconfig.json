@@ -1,0 +1,23 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+      "sourceMap": true,
+      "declaration": false,
+      "declarationMap": false,
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "target": "es5",
+      "types": ["node"],
+      "typeRoots": [
+          "node_modules/@types"
+      ],
+      "lib": [
+          "es2016",
+          "ESNext.BigInt",
+          "dom",
+          "esnext.asynciterable"
+      ]
+  }
+}

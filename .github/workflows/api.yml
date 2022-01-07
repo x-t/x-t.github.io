@@ -1,0 +1,22 @@
+name: Build and deploy backend
+
+on:
+  push:
+    paths:
+      - "apps/guestbook-api/**"
+      - ".github/workflows/api.yml"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Deploy to fly.io
+        uses: superfly/flyctl-actions@master
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          FLY_PROJECT_PATH: apps/guestbook-api
+        with:
+          args: "deploy"

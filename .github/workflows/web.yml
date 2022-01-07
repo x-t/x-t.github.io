@@ -1,0 +1,39 @@
+name: Build and deploy frontend
+
+on:
+  push:
+    paths:
+      - "apps/web/**"
+      - ".github/workflows/web.yml"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install and Build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: apps/web/dist
+
+      - name: Clean up for Neocities
+        run: |
+          rm app/web/dist/CNAME
+
+      - name: Deploy to Neocities
+        uses: bcomnes/deploy-to-neocities@master
+        with:
+          api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
+          cleanup: true

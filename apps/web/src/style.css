@@ -35,6 +35,11 @@ table {
   margin-right: auto;
 }
 
+#guestbookPosts > table > tbody > tr > td {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 #FSP {
   border-bottom: 1px dotted;
   cursor: url('img/Help.png') 6 2, auto;

@@ -3,7 +3,7 @@
 <HTML>
 <HEAD>
    <TITLE>zxyz's guestbook</TITLE>
-   <META NAME=GENERATOR CONTENT="Claris Home Page 2.0">
+   <META NAME=GENERATOR CONTENT="Claris Home Page 2.0" />
    <X-SAS-WINDOW TOP=53 BOTTOM=600 LEFT=152 RIGHT=682 />
    <META NAME="viewport" CONTENT="width=device-width,initial-scale=1" />
    <META NAME="twitter:title" CONTENT="zxyz's guestbook" />
@@ -21,10 +21,8 @@
    <LINK REL="shortcut icon" HREF="favicon.ico" TYPE="image/x-icon" />
    <LINK REL="shortcut icon" HREF="img/favicon@64.jpg" TYPE="image/jpeg" />
    <LINK REL="shortcut icon" HREF="img/favicon@64.webp" TYPE="image/webp" />
-   <LINK REL="manifest" HREF="/manifest.json" />
+   <LINK REL="manifest" HREF="./manifest.json" />
    <SCRIPT SRC="https://hcaptcha.com/1/api.js" ASYNC DEFER></SCRIPT>
-   <SCRIPT SRC="client.js" ASYNC DEFER></SCRIPT>
-   <LINK REL="stylesheet" HREF="style.css" />
    <STYLE>
       #guestbookPosts {
          padding-top: 40px;
@@ -47,7 +45,7 @@
       <TD HEIGHT=438>
          <H1>
             <A HREF="/" ARIA-LABEL="Go back"><PICTURE><SOURCE SRCSET="img/guestbook.webp" TYPE="image/webp" /><IMG SRC="img/guestbook.png" WIDTH=30 HEIGHT=33 ALT=""
-               X-SAS-UseImageWidth X-SAS-UseImageHeight ALIGN=bottom></PICTURE></A>
+               X-SAS-UseImageWidth X-SAS-UseImageHeight ALIGN=bottom /></PICTURE></A>
          </H1>
 
          <H1>Guestbook</H1>
@@ -60,7 +58,7 @@
             <hr />
            </noscript>
 
-         <P>Feel free to write something! Look at the <A HREF="https://github.com/x-t/guestbook">source code</A> for the backend, too.</P>
+         <P>Feel free to write something! Look at the <A HREF="https://github.com/x-t/x-t.github.io">source code</A> for the backend, too.</P>
 
          <P><DIV ID="postDialog"><TABLE BORDER=0>
             <TR>
@@ -80,109 +78,41 @@
          </TABLE>
          <P><DIV ARIA-LABEL="Captcha to prove you're not a robot." CLASS="h-captcha" data-sitekey="daab6e66-9048-4b5b-bdab-02a1f5bc2466" data-callback="captchaCallback"></DIV></P>
       </DIV></P>
+      <P>
+         <DIV ID="errorPosting" STYLE="display: none;">
+            <HR />
+            <TABLE BORDER=0>
+               <TR><TD>
+                  <P><SPAN ID="guestbookError"></SPAN></P>
+               </TD></TR>
+            </TABLE>
+            <P><BUTTON ONCLICK="window.retryForm()">Try again</BUTTON></P>
+            <HR />
+         </DIV>
+      </P>
+      <DIV ID="postSubmitting" STYLE="display: none; text-align: center;"><HR />Submitting post...<HR /></DIV>
 
          <DIV ID="guestbookLoading">
             <P>Loading...</P>
          </DIV>
          <DIV ID="guestbookPosts">
-         <TABLE BORDER=1>
-         </TABLE></P>
-      </DIV>
+            <TABLE BORDER=1>
+               <TR>
+                  <TH>Date</TH>
+                  <TH>Name</TH>
+                  <TH>Comment</TH>
+               </TR>
+            </TABLE>
+         </DIV>
       </TD></TR>
 </TABLE></P>
 <P>(C) 2017-2022 zxyz. <SPAN ID="FSP" TITLE="Icons & cursor licensed under the MIT license, by Haiku.">Copy it</SPAN>, I won't be mad.</P>
-<SCRIPT DEFER>
-  var ce = "createElement", ac = "appendChild";
-
+<script type="module" src="/src/main.ts"></script>
+<script type="module" src="/src/guestbook.ts"></script>
+<script>
    function captchaCallback(responseKey) {
-      window.postFunction();
+      window.postFunction(responseKey);
    }
-
-   function mth() {
-     var a = document[ce]("tr");
-     var b = document[ce]("td");
-     var c = document[ce]("td");
-     var d = document[ce]("td");
-     var e = document[ce]("b");
-     var f = document[ce]("b");
-     var g = document[ce]("b");
-     b.style.paddingLeft = "5px";
-     c.style.paddingLeft = "5px";
-     d.style.paddingLeft = "5px";
-     b.style.paddingRight = "5px";
-     c.style.paddingRight = "5px";
-     d.style.paddingRight = "5px";
-     e.innerText = "Date";
-     f.innerText = "Name";
-     g.innerText = "Comment";
-     b[ac](e);
-     c[ac](f);
-     d[ac](g);
-     a[ac](b);
-     a[ac](c);
-     a[ac](d);
-     return a;
-   }
-window.onload = function() {
-window.guestbook_init({
-  provider: "https://guestbook.zxyz.gay/api/RestfulGuestbook",
-  id: "60871aabf20a7d531265f670",
-  render: function (time, name, comment) {
-      var a = document[ce]("tr");
-      var b = document[ce]("td");
-      var c = document[ce]("td");
-      var d = document[ce]("td");
-      b.innerHTML = time;
-      c.innerHTML = name;
-      d.innerHTML = comment;
-      b.style.paddingLeft = "5px";
-      c.style.paddingLeft = "5px";
-      d.style.paddingLeft = "5px";
-      b.style.paddingRight = "5px";
-      c.style.paddingRight = "5px";
-      d.style.paddingRight = "5px";
-      a[ac](b);
-      a[ac](c);
-      a[ac](d);
-      document.querySelector("#guestbookPosts > table").prepend(a);
-  },
-  clearFrame: function () {
-     document.getElementById("guestbookPosts").style.display = "none";
-     var table = document[ce]("table");
-     table.setAttribute("border", 1);
-     document.getElementById("guestbookPosts").innerHTML = "";
-     document.getElementById("guestbookPosts")[ac](table);
-     document.getElementById("guestbookLoading").style.display = "block";
-  },
-  post: {
-    attachUsing: function (postFunction) {
-      window.postFunction = postFunction;
-    },
-    fields: {
-      name: document.getElementById("guestbookName"),
-      comment: document.getElementById("guestbookComment"),
-      captcha: document.getElementsByClassName("h-captcha")[0],
-    },
-  },
-  hooks: {
-    duringPost: function () {
-      document.querySelector(
-        "#postDialog"
-      ).style.display = "none";
-    },
-    afterPost: function () {
-      document.querySelector(
-        "#postDialog"
-      ).style.display = "initial";
-    },
-    afterRender: function () {
-      document.querySelector("#guestbookPosts > table").prepend(mth());
-      document.getElementById("guestbookPosts").style.display = "block";
-      document.getElementById("guestbookLoading").style.display = "none";
-    },
-  },
-});
-}
-</SCRIPT>
+</script>
 </BODY>
 </HTML>
