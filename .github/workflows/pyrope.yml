@@ -1,0 +1,22 @@
+name: Deploy URL shortener
+
+on:
+  push:
+    paths:
+      - "apps/pyrope/**"
+      - ".github/workflows/pyrope.yml"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Deploy to Deta.sh
+        uses: BogDAAAMN/deta-deploy-action@v1.0.1
+        with:
+          deta-access-token: ${{ secrets.DETA_TOKEN }}
+          deta-name: 'Pyrope'
+          deta-project: 'Pyrope'
+          deta-project-dir: 'apps/pyrope'
