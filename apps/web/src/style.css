@@ -49,6 +49,21 @@ table {
   width: 100vw;
 }
 
+.GITHUBRIBBON {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+#GBRDARK {
+  display: block;
+}
+
+#GBRLIGHT {
+  display: none;
+}
+
 #REVIEWSPROMITIONDIV {
   display: flex;
   justify-content: center;
@@ -96,5 +111,13 @@ table {
 
   a:visited {
      color: violet;
+  }
+
+  #GBRDARK {
+    display: none;
+  }
+
+  #GBRLIGHT {
+    display: block;
   }
 }
