@@ -195,3 +195,10 @@ $RECYCLE.BIN/
 *.lnk
 
 .deta
+
+.cache
+.vercel
+.output
+
+**/public/build
+**/api/_build
