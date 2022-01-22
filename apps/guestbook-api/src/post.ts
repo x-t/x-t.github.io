@@ -1,9 +1,10 @@
-import { PostsSchema, IPsSchema, Body } from "./types";
-import { client as supabase } from "./create_client";
+import { PostsSchema, Body } from "./types";
+import { client } from "./create_client";
 import { verifier } from "./captcha_verifier";
 import { profanity as filter } from "@2toad/profanity";
 import { Request, Response } from "express";
 import { send_notification } from "./notification";
+import { gql } from "@urql/core";
 
 export default async (req: Request, res: Response) => {
   let { name, comment, captcha_response } = req.body as Body;
@@ -46,22 +47,30 @@ export default async (req: Request, res: Response) => {
     return;
   }
 
-  const { error, data } = await supabase
-    .from<PostsSchema>("Posts")
-    .insert(name == "" ? [{ comment }] : [{ name, comment }])
-    .limit(1)
-    .single();
+  const { error } = await client
+    .mutation<{ insert_posts_one: PostsSchema }>(
+      gql`
+        mutation InsertPost(
+          $name: String
+          $comment: String
+          $poster_ips: String
+        ) {
+          insert_posts_one(
+            object: { name: $name, comment: $comment, poster_ips: $poster_ips }
+          ) {
+            id
+          }
+        }
+      `,
+      {
+        name: name === "" ? null : name,
+        comment,
+        poster_ips: ip,
+      }
+    )
+    .toPromise();
 
   if (error) throw new Error(error.message);
-
-  const { id } = data!;
-
-  if (ip) {
-    const { error } = await supabase
-      .from<IPsSchema>("PostIPs")
-      .insert([{ post_id: id, ip }]);
-    if (error) throw new Error(error.message);
-  }
 
   res.status(201).send();
 

@@ -10,8 +10,3 @@ export interface PostsSchema {
   comment: string;
   created_at: string;
 }
-
-export interface IPsSchema {
-  post_id: string;
-  ip: string;
-}

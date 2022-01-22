@@ -1,5 +1,5 @@
 import * as Sentry from "@sentry/browser";
-import { createClient } from "@supabase/supabase-js";
+import { NhostClient } from "@nhost/nhost-js";
 
 /* Real JAMStack s*** hours!
    The fact that it's vanilla JS is raw pain.
@@ -13,12 +13,12 @@ interface PostsSchema {
   created_at: string;
 }
 
-const supabaseUrl = "https://aofovxzhgpxfmlnhsaap.supabase.co";
-const supabaseAnonKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTUwNDM3MiwiZXhwIjoxOTU3MDgwMzcyfQ.v35MEidCtffHN1KTZVUOYgzCpx3S3PGn-d3TmpoDcfk";
+const nhostUrl = "https://uxtafleoaetvphdawoed.nhost.run";
 const postBackendUrl = "https://old-flower-8394.fly.dev/post";
 
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+const nhost = new NhostClient({
+  backendUrl: nhostUrl,
+});
 
 const hide_element = (id: string): void => {
   const element = document.getElementById(id)!;
@@ -84,15 +84,32 @@ const get_posts = async (force_update = false): Promise<PostsSchema[]> => {
     if (diff < 1000 * 60 * 5) return posts;
   }
 
-  const { error, data } = await supabase
-    .from<PostsSchema>("Posts")
-    .select("created_at,name,comment")
-    .gte("created_at", last_updated || "1970-01-01")
-    .order("created_at", { ascending: false });
+  const { error, data } = await nhost.graphql.request(
+    `
+  query Posts(
+    $timesincemodified: timestamptz = ""
+  ) {
+    posts(order_by: {created_at: desc},
+      where: {created_at: {
+        _gte: $timesincemodified
+      }}) {
+      name
+      created_at
+      comment
+    }
+  }
+  `,
+    {
+      timesincemodified: last_updated || "1970-01-01",
+    }
+  );
 
-  if (error) throw error.message;
+  if (error) throw error;
 
-  const concat = [...(data || []), ...(posts || [])];
+  const concat = [
+    ...((data as { posts: PostsSchema[] }).posts || []),
+    ...(posts || []),
+  ];
   memoize_posts(concat);
   return concat;
 };

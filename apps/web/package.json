@@ -12,8 +12,8 @@
     "vite": "^2.7.2"
   },
   "dependencies": {
+    "@nhost/nhost-js": "^0.3.5",
     "@sentry/browser": "^6.16.1",
-    "@sentry/tracing": "^6.16.1",
-    "@supabase/supabase-js": "^1.29.1"
+    "@sentry/tracing": "^6.16.1"
   }
 }
