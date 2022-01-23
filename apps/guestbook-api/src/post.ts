@@ -47,6 +47,37 @@ export default async (req: Request, res: Response) => {
     return;
   }
 
+  const { error: _error, data } = await client
+    .query<{ posts: PostsSchema[] }>(
+      gql`
+        query GetLastPostTime($poster_ips: String!) {
+          posts(
+            limit: 1
+            order_by: { created_at: desc }
+            where: { poster_ips: { _eq: $poster_ips } }
+          ) {
+            created_at
+          }
+        }
+      `,
+      {
+        poster_ips: ip,
+      }
+    )
+    .toPromise();
+
+  if (_error) throw _error.message;
+
+  if (data.posts[0]) {
+    const last_post_time = data.posts[0].created_at;
+    const time_since_last_post =
+      new Date().getTime() - new Date(last_post_time).getTime();
+    if (time_since_last_post < 1000 * 60 * 30) {
+      res.status(400).send("You must wait at least 30 minutes between posts");
+      return;
+    }
+  }
+
   const { error } = await client
     .mutation<{ insert_posts_one: PostsSchema }>(
       gql`
@@ -70,7 +101,7 @@ export default async (req: Request, res: Response) => {
     )
     .toPromise();
 
-  if (error) throw new Error(error.message);
+  if (error) throw error.message;
 
   res.status(201).send();
 
