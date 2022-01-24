@@ -38,3 +38,4 @@ jobs:
           api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
           dist_dir: apps/web/dist
           cleanup: true
+          protected_files: 'reviews/**/*'
