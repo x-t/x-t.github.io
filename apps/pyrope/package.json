@@ -20,5 +20,8 @@
   "dependencies": {
     "deta": "^1.0.1",
     "express": "^4.17.2"
+  },
+  "overrides": {
+    "node-fetch": "^2.6.7"
   }
 }
