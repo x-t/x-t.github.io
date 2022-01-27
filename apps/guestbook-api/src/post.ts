@@ -6,47 +6,10 @@ import { Request, Response } from "express";
 import { send_notification } from "./notification";
 import { gql } from "@urql/core";
 
-export default async (req: Request, res: Response) => {
-  let { name, comment, captcha_response } = req.body as Body;
-  const ip =
-    (req.headers["x-forwarded-for"] ?? "").toString() ||
-    req.socket.remoteAddress;
+const get_ip = (req: Request) =>
+  (req.headers["x-forwarded-for"] ?? "").toString() || req.socket.remoteAddress;
 
-  if (name == null) name = "";
-
-  if (!comment || !captcha_response) {
-    res.status(400).send("Missing name, comment or captcha_response");
-    return;
-  }
-
-  if (name.length > 32 || comment.length > 128) {
-    res.status(400).send("Name or comment is too long");
-    return;
-  }
-
-  const { success: did_pass } = await verifier(captcha_response);
-  if (!did_pass) {
-    res.status(400).send("Captcha failed");
-    return;
-  }
-
-  const [is_clean_name, is_clean_comment] = [
-    !filter.exists(name),
-    !filter.exists(comment),
-  ];
-  if (!is_clean_name || !is_clean_comment) {
-    res
-      .status(400)
-      .send(
-        `Profanity found in ${
-          !is_clean_name ? `name: ${filter.censor(name)}` : ""
-        }${!is_clean_name && !is_clean_comment ? " and " : ""}${
-          !is_clean_comment ? `comment: ${filter.censor(comment)}` : ""
-        }`
-      );
-    return;
-  }
-
+const is_rate_limited = async (ip: string) => {
   const { error: _error, data } = await client
     .query<{ posts: PostsSchema[] }>(
       gql`
@@ -73,9 +36,62 @@ export default async (req: Request, res: Response) => {
     const time_since_last_post =
       new Date().getTime() - new Date(last_post_time).getTime();
     if (time_since_last_post < 1000 * 60 * 30) {
-      res.status(400).send("You must wait at least 30 minutes between posts");
-      return;
+      return true;
     }
+  }
+
+  return false;
+};
+
+const is_msg_clean = (name: string, comment: string): [boolean, string] => {
+  const [is_clean_name, is_clean_comment] = [
+    !filter.exists(name),
+    !filter.exists(comment),
+  ];
+  if (!is_clean_name || !is_clean_comment) {
+    return [
+      false,
+      `Profanity found in ${
+        !is_clean_name ? "name: " + filter.censor(name) : ""
+      }${!is_clean_name && !is_clean_comment ? " and " : ""}${
+        !is_clean_comment ? "comment: " + filter.censor(comment) : ""
+      }`,
+    ];
+  }
+  return [true, ""];
+};
+
+export default async (req: Request, res: Response) => {
+  let { name, comment, captcha_response } = req.body as Body;
+  const ip = get_ip(req);
+
+  if (name == null) name = "";
+
+  if (!comment || !captcha_response) {
+    res.status(400).send("Missing name, comment or captcha_response");
+    return;
+  }
+
+  if (name.length > 32 || comment.length > 128) {
+    res.status(400).send("Name or comment is too long");
+    return;
+  }
+
+  const { success: did_pass } = await verifier(captcha_response);
+  if (!did_pass) {
+    res.status(400).send("Captcha failed");
+    return;
+  }
+
+  const [is_clean, error_message] = is_msg_clean(name, comment);
+  if (!is_clean) {
+    res.status(400).send(error_message);
+    return;
+  }
+
+  if (await is_rate_limited(ip)) {
+    res.status(400).send("You must wait at least 30 minutes between posts");
+    return;
   }
 
   const { error } = await client

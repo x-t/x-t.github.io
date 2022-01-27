@@ -1,4 +1,5 @@
-import express, { Request, Response } from "express";
+import express, { Request } from "express";
+import helmet from "helmet";
 import * as Sentry from "@sentry/node";
 import * as Tracing from "@sentry/tracing";
 import post from "./post";
@@ -27,6 +28,7 @@ Sentry.init({
 });
 
 app.use(express.json());
+app.use(helmet());
 app.use(cors(corsOptions));
 // RequestHandler creates a separate execution context using domains, so that every
 // transaction/span/breadcrumb is attached to its own Hub instance

@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@nhost/nhost-js": "^0.3.6",
-    "@sentry/browser": "^6.17.1",
-    "@sentry/tracing": "^6.17.1"
+    "@sentry/browser": "^6.17.2",
+    "@sentry/tracing": "^6.17.2"
   }
 }

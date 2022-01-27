@@ -1,11 +1,13 @@
 const express = require("express");
 const { Deta } = require("deta");
+const helmet = require("helmet");
 
 const app = express();
 const deta = new Deta();
 const db = deta.Base("Pyrope");
 
 app.use(express.json());
+app.use(helmet());
 
 const random_id = () => {
   const chars =
@@ -31,7 +33,7 @@ app.get("/:id", async (req, res) => {
   const { id } = req.params;
   const dbres = await db.get(id);
   if (dbres.url) {
-    res.redirect(dbres.url);
+    res.redirect(303, dbres.url);
     return;
   }
 
@@ -40,7 +42,7 @@ app.get("/:id", async (req, res) => {
 });
 
 app.put("/", async (req, res) => {
-  const { url, id, secret } = req.body;
+  let { url, id, secret } = req.body;
 
   if (!can_put(secret)) {
     res.statusCode = 403;
@@ -60,7 +62,7 @@ app.put("/", async (req, res) => {
 
   try {
     await db.put({ url }, id);
-    res.send(id);
+    res.send({ id });
   } catch {
     res.statusCode = 500;
     res.send("Internal server error");

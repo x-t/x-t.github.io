@@ -1,5 +1,11 @@
 import { createClient } from "@urql/core";
-import fetch from "node-fetch";
+
+const _importDynamic = new Function("modulePath", "return import(modulePath)");
+
+async function fetch(...args: any) {
+  const { default: f } = await _importDynamic("node-fetch");
+  return f(...args);
+}
 
 export const client = (() => {
   const url = process.env.NHOST_URL || "";

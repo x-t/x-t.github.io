@@ -19,9 +19,7 @@
   "homepage": "https://github.com/x-t/Pyrope#readme",
   "dependencies": {
     "deta": "^1.0.1",
-    "express": "^4.17.2"
-  },
-  "overrides": {
-    "node-fetch": "^2.6.7"
+    "express": "^4.17.2",
+    "helmet": "^5.0.2"
   }
 }
