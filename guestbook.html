@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <!--This file created 4/26/21 8:35 PM by Claris Home Page version 2.0-->
-<HTML>
+<HTML LANG="en">
 <HEAD>
    <TITLE>zxyz's guestbook</TITLE>
    <META NAME=GENERATOR CONTENT="Claris Home Page 2.0" />
-   <X-SAS-WINDOW TOP=53 BOTTOM=600 LEFT=152 RIGHT=682 />
    <META NAME="viewport" CONTENT="width=device-width,initial-scale=1" />
    <META NAME="twitter:title" CONTENT="zxyz's guestbook" />
    <META NAME="og:title" CONTENT="zxyz's guestbook" />
@@ -21,29 +20,35 @@
    <LINK REL="shortcut icon" HREF="favicon.ico" TYPE="image/x-icon" />
    <LINK REL="shortcut icon" HREF="/img/favicon@64.jpg" TYPE="image/jpeg" />
    <LINK REL="shortcut icon" HREF="/img/favicon@64.webp" TYPE="image/webp" />
-   <LINK REL="manifest" HREF="./manifest.json" />
-   <SCRIPT SRC="https://hcaptcha.com/1/api.js" ASYNC DEFER></SCRIPT>
+   <LINK REL="manifest" HREF="/manifest.json" />
    <STYLE>
       #guestbookPosts {
          padding-top: 40px;
-         display: none;
       }
 
-      #postDialog > table > tbody > tr > td:first-of-type > p {
+      #postDialog > form > table > tbody > tr > td:first-of-type > p {
          text-align: left;
       }
 
-      .h-captcha {
-         text-align: center;
+      .error_cl {
+         color: rgb(173 57 57);
+         font-size: small;
+      }
+
+      @media (prefers-color-scheme: dark) {
+         .error_cl {
+            color: rgb(207 160 160);
+         }
       }
    </STYLE>
-  <script type="module" crossorigin src="/assets/guestbook.a8e15727.js"></script>
-  <link rel="modulepreload" href="/assets/vendor.1556d480.js">
-  <link rel="modulepreload" href="/assets/main.c17ac3e6.js">
-  <link rel="stylesheet" href="/assets/main.a857e046.css">
+   <X-SAS-WINDOW TOP=53 BOTTOM=600 LEFT=152 RIGHT=682 />
+  <script type="module" crossorigin src="/assets/guestbook.9b6e961a.js"></script>
+  <link rel="modulepreload" href="/assets/vendor.6c321b61.js">
+  <link rel="modulepreload" href="/assets/main.7fcfaea5.js">
+  <link rel="stylesheet" href="/assets/main.2dfb8279.css">
   <script type="module">!function(){try{new Function("m","return import(m)")}catch(o){console.warn("vite: loading legacy build because dynamic import is unsupported, syntax error above should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}}();</script>
 </HEAD>
-<BODY BGCOLOR="#FFFFFF" BACKGROUND="/img/chillibk.gif">
+<BODY BGCOLOR="#FFFFCA" BACKGROUND="/img/chillibk.gif">
    <DIV CLASS="GITHUBRIBBON" ID="GBRDARK"><a href="https://github.com/x-t/x-t.github.io"><img loading="lazy" width="149" height="149" src="/img/fork_black.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a></DIV>
    <DIV CLASS="GITHUBRIBBON" ID="GBRLIGHT"><a href="https://github.com/x-t/x-t.github.io"><img loading="lazy" width="149" height="149" src="/img/fork_white.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a></DIV>
 <P id="W"><TABLE WIDTH="80%">
@@ -66,48 +71,103 @@
 
          <P>Feel free to write something! Look at the <A HREF="https://github.com/x-t/x-t.github.io">source code</A> for the backend, too.</P>
 
-         <P><DIV ID="postDialog"><TABLE BORDER=0>
+         <P><DIV ID="postDialog">
+            <form
+            x-data="{submitting: false,
+               botdRequestId: '',
+               endpoint: window.endpoints.form,
+               error: ''}"
+            x-id="['name-field', 'comment-field', 'form']"
+            @submit.prevent="submitting = true;
+               window.botdPromise
+               .then(botd => botd.detect())
+               .then(result => {
+                  return new Promise((resolve, reject) => {
+                     resolve(
+                        (() => botdRequestId = result.requestId)())
+                  });
+               })
+               .then(() => {
+                  document.getElementById($id('form')).submit();
+               })
+               .catch((e) => {
+                  submitting = false;
+                  error = 'An error occured. Technical information: ' + JSON.stringify(e);
+                  window.Sentry.captureException(e);
+               });"
+            method="post"
+            :action="endpoint"
+            :id="$id('form')"
+            >
+            <TABLE BORDER=0>
+               <caption style="display: none;">Guestbook posting form</caption>
             <TR>
                <TD>
-                  <P>Name</P>
+                  <P><label :for="$id('name-field')">Name</label></P>
                </TD><TD>
-                  <P><INPUT TYPE="text" NAME="name" VALUE="" SIZE=25
+                  <P><INPUT :id="$id('name-field')"
+                  TYPE="text" NAME="name" VALUE="" SIZE=25
                   MAXLENGTH=32 id="guestbookName" placeholder="Anonymous" /></P>
                </TD></TR>
             <TR>
                <TD>
-                  <P>Comment</P>
+                  <P><label :for="$id('comment-field')">Comment</label></P>
                </TD><TD>
-                  <P><INPUT TYPE="text" NAME="name" VALUE="" SIZE=25
-                  MAXLENGTH=128 id="guestbookComment" /></P>
+                  <P><INPUT :id="$id('comment-field')"
+                  TYPE="text" NAME="comment" VALUE="" SIZE=25
+                  MAXLENGTH=128 id="guestbookComment" required /></P>
                </TD></TR>
+               <TR><TD></TD><TD style="text-align: right;">
+                  <input type="submit"
+                     :value="submitting ? 'Submitting...' : 'Post'"
+                     :disabled="submitting"
+                     style="width:100px;" value="Post" /></TD></TR>
          </TABLE>
-         <P><DIV ARIA-LABEL="Captcha to prove you're not a robot." CLASS="h-captcha" data-sitekey="daab6e66-9048-4b5b-bdab-02a1f5bc2466" data-callback="captchaCallback"></DIV></P>
+         <input type="hidden" name="botd_response" :value="botdRequestId" />
+         <template x-if="error">
+            <p class="error_cl"
+            x-text="error"></p>
+         </template>
+      </form>
       </DIV></P>
-      <P>
-         <DIV ID="errorPosting" STYLE="display: none;">
-            <HR />
-            <TABLE BORDER=0>
-               <TR><TD>
-                  <P><SPAN ID="guestbookError"></SPAN></P>
-               </TD></TR>
-            </TABLE>
-            <P><BUTTON ONCLICK="window.retryForm()">Try again</BUTTON></P>
-            <HR />
-         </DIV>
-      </P>
-      <DIV ID="postSubmitting" STYLE="display: none; text-align: center;"><HR />Submitting post...<HR /></DIV>
-
-         <DIV ID="guestbookLoading">
-            <P>Loading...</P>
-         </DIV>
          <DIV ID="guestbookPosts">
-            <TABLE BORDER=1>
+            <TABLE BORDER=1
+               x-data="{posts: [],
+                  loading: true,
+                  endpoint: window.endpoints.fetch,
+                  error: ''}"
+               x-init="fetch(endpoint)
+                  .then(response => response.json())
+                  .then(data => {posts = data.posts; loading = false;})
+                  .catch((e) => {
+                     loading = false;
+                     error = 'An error occured. Technical information: ' + JSON.stringify(e);
+                     window.Sentry.captureException(e);
+                  });"
+               >
+               <caption style="display: none;">Guestbook posts</caption>
                <TR>
                   <TH>Date</TH>
                   <TH>Name</TH>
                   <TH>Comment</TH>
                </TR>
+               <template x-if="loading || error">
+                  <TR><TD COLSPAN=3
+                     x-text="loading ? 'Loading...' : error"
+                     :class="error ? 'error_cl' : ''">Loading...</TD></TR>
+               </template>
+               <template x-for="post in posts">
+                  <tr>
+                     <td x-data="{date: new Date(post.created_at)}"
+                        x-text="
+                        date.toLocaleDateString()
+                        + ' ' + date
+                        .toLocaleTimeString([],
+                           {hour: '2-digit',minute: '2-digit'})"></td>
+                     <td x-text="post.name || 'Anonymous'"></td>
+                     <td x-text="post.comment"></td>
+                  </tr>
+               </template>
             </TABLE>
          </DIV>
       </TD></TR>
@@ -115,13 +175,8 @@
 <P>(C) 2017-2022 zxyz. <SPAN ID="FSP" TITLE="Icons & cursor licensed under the MIT license, by Haiku.">Copy it</SPAN>, I won't be mad.</P>
 
 
-<script>
-   function captchaCallback(responseKey) {
-      window.postFunction(responseKey);
-   }
-</script>
   <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
-  <script nomodule id="vite-legacy-polyfill" src="/assets/polyfills-legacy.cb8c59bf.js"></script>
-  <script nomodule id="vite-legacy-entry" data-src="/assets/guestbook-legacy.ff8cde94.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+  <script nomodule id="vite-legacy-polyfill" src="/assets/polyfills-legacy.48fa759b.js"></script>
+  <script nomodule id="vite-legacy-entry" data-src="/assets/guestbook-legacy.fd485c66.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
 </BODY>
 </HTML>
