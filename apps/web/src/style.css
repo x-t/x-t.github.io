@@ -1,8 +1,9 @@
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Garamond', 'Times New Roman', Times, serif;
   background-image: url('/img/chillibk.gif');
   background-color: #FFFFCA;
   cursor: url('/img/Pointer.png') 6 2, auto;
+  font-size: 18.5px;
 }
 
 h1, h2, p {
@@ -12,6 +13,10 @@ h1, h2, p {
 
 a, a img {
   cursor: url('/img/FollowLink.png') 6 2, auto;
+}
+
+a:visited {
+  color: #0000FF;
 }
 
 img {
@@ -64,45 +69,15 @@ table {
   display: none;
 }
 
-#REVIEWSPROMITIONDIV {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#REVIEWSPROMOTION {
-  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
-  padding: 1.25rem;
-  --tw-gradient-to: #ef4444;
-  --tw-gradient-stops: var(--tw-gradient-from), #ec4899, var(--tw-gradient-to, rgba(236, 72, 153, 0));
-  --tw-gradient-from: #a78bfa;
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
-  border-radius: 0.375rem;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  margin-top: 1rem;
-  text-decoration: inherit;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
-  width: 15rem;
-}
-
-#REVIEWSPROMOTION:hover {
-  --tw-gradient-to: #b91c1c;
-  --tw-gradient-stops: var(--tw-gradient-from), #be185d, var(--tw-gradient-to, rgba(190, 24, 93, 0));
-  --tw-gradient-from: #7c3aed;
+h2 > a {
+  text-decoration: none;
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-     background-image: url('/img/chillibk_dark.png');
+     background-image: url('/img/darkbg.jpeg');
      color: white;
-     background-color: #141d50;
+     background-color: #000;
   }
 
   a {
@@ -110,7 +85,7 @@ table {
   }
 
   a:visited {
-     color: violet;
+    color: lightskyblue;
   }
 
   #GBRDARK {

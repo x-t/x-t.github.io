@@ -1,0 +1,9 @@
+{% extends "layout.njk" %}
+{% block content %}
+  <h1>Submitted fields have errors</h1>
+  <ul>
+    {% for error in errors %}
+      <li>{{ error.param }} - {{ error.msg }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

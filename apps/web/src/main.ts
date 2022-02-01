@@ -1,5 +1,7 @@
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
+import Alpine from "alpinejs";
+import "./font.css";
 import "./style.css";
 
 Sentry.init({
@@ -9,5 +11,19 @@ Sentry.init({
   // Set tracesSampleRate to 1.0 to capture 100%
   // of transactions for performance monitoring.
   // We recommend adjusting this value in production
-  tracesSampleRate: 0.2,
+  tracesSampleRate: 0.1,
 });
+
+// @ts-ignore
+window.endpoints = {
+  fetch: import.meta.env.VITE_FETCH_ENDPOINT,
+  form: import.meta.env.VITE_FORM_ENDPOINT,
+};
+
+// @ts-ignore
+window.Alpine = Alpine;
+
+// @ts-ignore
+window.Sentry = Sentry;
+
+Alpine.start();

@@ -7,6 +7,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/alpinejs": "^3.7.0",
     "@vitejs/plugin-legacy": "^1.6.4",
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.5",
@@ -14,8 +15,9 @@
     "vite": "^2.7.13"
   },
   "dependencies": {
-    "@nhost/nhost-js": "^0.3.6",
+    "@fpjs-incubator/botd-agent": "^0.1.23",
     "@sentry/browser": "^6.17.2",
-    "@sentry/tracing": "^6.17.2"
+    "@sentry/tracing": "^6.17.2",
+    "alpinejs": "^3.8.1"
   }
 }

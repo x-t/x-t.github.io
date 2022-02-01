@@ -21,6 +21,9 @@ jobs:
         run: |
           npm ci -w web -w tsconfig -w config
           npx turbo run build --scope=web --include-dependencies --no-deps
+        env:
+          VITE_FETCH_ENDPOINT: ${{ secrets.BUILD_WEB_FETCH_ENDPOINT }}
+          VITE_FORM_ENDPOINT: ${{ secrets.BUILD_WEB_SUBMIT_ENDPOINT }}
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5

@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'Garamond';
+  src: url('/font/AppleGaramond.woff2') format('woff2'),
+    url('/font/AppleGaramond.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Garamond';
+  src: url('/font/AppleGaramond-Bold.woff2') format('woff2'),
+    url('/font/AppleGaramond-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Garamond';
+  src: url('/font/AppleGaramond-BoldItalic.woff2') format('woff2'),
+    url('/font/AppleGaramond-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Garamond';
+  src: url('/font/AppleGaramond-Italic.woff2') format('woff2'),
+    url('/font/AppleGaramond-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Garamond';
+  src: url('/font/AppleGaramond-Light.woff2') format('woff2'),
+    url('/font/AppleGaramond-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Garamond';
+  src: url('/font/AppleGaramond-LightItalic.woff2') format('woff2'),
+    url('/font/AppleGaramond-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
