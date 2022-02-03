@@ -7,6 +7,7 @@ import get_cors_list from "./get_cors_list";
 import { constraints, v2_post } from "./v2_post";
 import nunjucks from "nunjucks";
 import path from "path";
+import { get_posts } from "./get_posts";
 
 const app = express();
 const port = process.env.PORT || 3005;
@@ -42,8 +43,6 @@ app.use(cors(corsOptions));
 app.use(Sentry.Handlers.requestHandler());
 app.use(Sentry.Handlers.tracingHandler());
 
-console.log(path.resolve(__dirname, "../views"));
-
 nunjucks.configure(path.resolve(__dirname, "../views"), {
   autoescape: true,
   express: app,
@@ -53,6 +52,7 @@ app.get("/", async (req, res) => {
   res.redirect("https://zxyz.gay");
 });
 app.post("/api/post", ...constraints, v2_post);
+app.get("/api/get_posts", get_posts);
 
 app.use(Sentry.Handlers.errorHandler());
 

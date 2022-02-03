@@ -9,6 +9,9 @@
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "target": "es5",
+      "outDir": "./dist",
+      "module": "commonjs",
+      "baseUrl": "",
       "lib": [
           "es2016",
           "ESNext.BigInt",

@@ -1,39 +1,28 @@
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
 import { body, validationResult, CustomValidator } from "express-validator";
 import { Profanity, ProfanityOptions } from "@2toad/profanity";
 import { fetch } from "./import_fetch";
-import { client } from "./create_client";
-import { PostsSchema } from "./types";
-import { gql } from "@urql/core";
 import { send_notification } from "./notification";
+import { prisma } from "./prisma_client";
 
 export const get_ip = (req: Request) =>
   (req.headers["x-forwarded-for"] ?? "").toString() || req.socket.remoteAddress;
 
 export const is_rate_limited = async (ip: string) => {
-  const { error: _error, data } = await client
-    .query<{ posts: PostsSchema[] }>(
-      gql`
-        query GetLastPostTime($poster_ips: String!) {
-          posts(
-            limit: 1
-            order_by: { created_at: desc }
-            where: { poster_ips: { _eq: $poster_ips } }
-          ) {
-            created_at
-          }
-        }
-      `,
-      {
-        poster_ips: ip,
-      }
-    )
-    .toPromise();
+  const post = await prisma.posts.findFirst({
+    select: {
+      created_at: true,
+    },
+    where: {
+      poster_ips: ip,
+    },
+    orderBy: {
+      created_at: "desc",
+    },
+  });
 
-  if (_error) throw _error.message;
-
-  if (data.posts[0]) {
-    const last_post_time = data.posts[0].created_at;
+  if (post) {
+    const last_post_time = post.created_at;
     const time_since_last_post =
       new Date().getTime() - new Date(last_post_time).getTime();
     if (time_since_last_post < 1000 * 60 * 30) {
@@ -130,39 +119,20 @@ export const v2_post = async (req: Request, res: Response) => {
   const ip = get_ip(req);
 
   if (await is_rate_limited(ip)) {
-    res
-      .status(429)
-      .render("rate_limited.njk", {
-        title: "Guestbook - Rate Limited",
-        redirect,
-      });
+    res.status(429).render("rate_limited.njk", {
+      title: "Guestbook - Rate Limited",
+      redirect,
+    });
     return;
   }
 
-  const { error } = await client
-    .mutation<{ insert_posts_one: PostsSchema }>(
-      gql`
-        mutation InsertPost(
-          $name: String
-          $comment: String
-          $poster_ips: String
-        ) {
-          insert_posts_one(
-            object: { name: $name, comment: $comment, poster_ips: $poster_ips }
-          ) {
-            id
-          }
-        }
-      `,
-      {
-        name: name === "" ? null : name,
-        comment,
-        poster_ips: ip,
-      }
-    )
-    .toPromise();
-
-  if (error) throw error.message;
+  await prisma.posts.create({
+    data: {
+      name: name === "" ? null : name,
+      comment,
+      poster_ips: ip,
+    },
+  });
 
   res.redirect(redirect || "back");
 
