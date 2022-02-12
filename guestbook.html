@@ -34,23 +34,12 @@
       #postDialog > form > table > tbody > tr > td:first-of-type > p {
          text-align: left;
       }
-
-      .error_cl {
-         color: rgb(173 57 57);
-         font-size: small;
-      }
-
-      @media (prefers-color-scheme: dark) {
-         .error_cl {
-            color: rgb(207 160 160);
-         }
-      }
    </STYLE>
    <X-SAS-WINDOW TOP=53 BOTTOM=600 LEFT=152 RIGHT=682 />
-  <script type="module" crossorigin src="/assets/guestbook.e1d4c418.js"></script>
-  <link rel="modulepreload" href="/assets/vendor.6c321b61.js">
-  <link rel="modulepreload" href="/assets/main.a9dd9864.js">
-  <link rel="stylesheet" href="/assets/main.24281a72.css">
+  <script type="module" crossorigin src="/assets/guestbook.f7058b1e.js"></script>
+  <link rel="modulepreload" href="/assets/vendor.60e17140.js">
+  <link rel="modulepreload" href="/assets/main.224e537c.js">
+  <link rel="stylesheet" href="/assets/main.6b9619e6.css">
   <script type="module">!function(){try{new Function("m","return import(m)")}catch(o){console.warn("vite: loading legacy build because dynamic import is unsupported, syntax error above should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}}();</script>
 </HEAD>
 <BODY BGCOLOR="#FFFFCA" BACKGROUND="/img/chillibk.gif">
@@ -97,7 +86,8 @@
                })
                .catch((e) => {
                   submitting = false;
-                  error = 'An error occured. Technical information: ' + JSON.stringify(e);
+                  error = 'An error occured.';
+                  console.log(e);
                   window.Sentry.captureException(e);
                });"
             method="post"
@@ -146,7 +136,8 @@
                   .then(data => {posts = data.posts; loading = false;})
                   .catch((e) => {
                      loading = false;
-                     error = 'An error occured. Technical information: ' + JSON.stringify(e);
+                     error = 'An error occured.';
+                     console.log(e);
                      window.Sentry.captureException(e);
                   });"
                >
@@ -181,7 +172,7 @@
 
 
   <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
-  <script nomodule id="vite-legacy-polyfill" src="/assets/polyfills-legacy.48fa759b.js"></script>
-  <script nomodule id="vite-legacy-entry" data-src="/assets/guestbook-legacy.8fa34454.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+  <script nomodule id="vite-legacy-polyfill" src="/assets/polyfills-legacy.55205ecd.js"></script>
+  <script nomodule id="vite-legacy-entry" data-src="/assets/guestbook-legacy.f0acd683.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
 </BODY>
 </HTML>

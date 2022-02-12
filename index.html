@@ -26,11 +26,12 @@
    <link rel="preload" href="/font/AppleGaramond-Bold.woff2" as="font" type="font/woff2" crossorigin />
    <link rel="preload" href="/font/AppleGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin />
    <link rel="preload" href="/img/darkbg.jpeg" as="image" media="(prefers-color-scheme: dark)" />
+   <link rel="preload" href="https://blog.zxyz.gay" as="fetch" crossorigin />
    <X-SAS-WINDOW TOP=54 BOTTOM=601 LEFT=29 RIGHT=559 />
-  <script type="module" crossorigin src="/assets/main.2b6e6533.js"></script>
-  <link rel="modulepreload" href="/assets/vendor.6c321b61.js">
-  <link rel="modulepreload" href="/assets/main.a9dd9864.js">
-  <link rel="stylesheet" href="/assets/main.24281a72.css">
+  <script type="module" crossorigin src="/assets/main.41b1cc58.js"></script>
+  <link rel="modulepreload" href="/assets/vendor.60e17140.js">
+  <link rel="modulepreload" href="/assets/main.224e537c.js">
+  <link rel="stylesheet" href="/assets/main.6b9619e6.css">
   <script type="module">!function(){try{new Function("m","return import(m)")}catch(o){console.warn("vite: loading legacy build because dynamic import is unsupported, syntax error above should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}}();</script>
 </HEAD>
 <BODY BGCOLOR="#FFFFCA" BACKGROUND="/img/chillibk.gif">
@@ -66,6 +67,47 @@
 
          <H2><A HREF="/reviews/index.html"><PICTURE><SOURCE SRCSET="/img/book.webp" TYPE="image/webp" /><IMG SRC="/img/book.png" ALT="Book icon with Haiku logo" WIDTH=25
             HEIGHT=25 ALIGN=bottom /></PICTURE> <U>Read my OS reviews!</U></A></H2>
+
+         <H2><A HREF="https://blog.zxyz.gay/"><PICTURE><SOURCE SRCSET="/img/blog.webp" TYPE="image/webp" /><IMG SRC="/img/blog.png" ALT="Blog icon" WIDTH=25
+            HEIGHT=25 ALIGN=bottom /></PICTURE> <U>Visit the blog</U></A></H2>
+
+      <P style="margin-bottom:0;"><SMALL>Latest blog posts</SMALL></P>
+      
+      <div style="display:flex;justify-content:center;align-items:center;">
+      <ul style="margin-top:5px;"
+         x-data="{posts: [],
+         loading: true,
+         error: ''}"
+         x-init="fetch(window.endpoints.blog + '/api/posts')
+         .then(response => response.json())
+         .then(data => {posts = data; loading = false;})
+         .catch((e) => {
+            loading = false;
+            error = 'An error occured.';
+            console.log(e);
+            window.Sentry.captureException(e);
+         });">
+            <template x-if="loading || error">
+               <p
+                  x-text="loading ? 'Loading...' : error"
+                  :class="error ? 'error_cl' : ''">Loading...</p>
+            </template>
+            <template x-for="post in posts">
+               <li>
+                  <span x-data="{date: new Date(post.publishedAt)}"
+                     x-text="
+                     date.toLocaleDateString()
+                     + ' ' + date
+                     .toLocaleTimeString([],
+                        {hour: '2-digit',minute: '2-digit'})"></span>
+                  -
+                  <a x-text="post.title"
+                     :href="window.endpoints.blog + '/posts/' + post.slug"></a>
+               </li>
+            </template>
+         </ul>
+      </div>
+
 
          <P><TABLE BORDER=1 WIDTH=156 CLASS="LINKS">
             <TR>
@@ -110,7 +152,7 @@
 <P>&nbsp;</P>
 
   <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
-  <script nomodule id="vite-legacy-polyfill" src="/assets/polyfills-legacy.48fa759b.js"></script>
-  <script nomodule id="vite-legacy-entry" data-src="/assets/main-legacy.1655aeba.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+  <script nomodule id="vite-legacy-polyfill" src="/assets/polyfills-legacy.55205ecd.js"></script>
+  <script nomodule id="vite-legacy-entry" data-src="/assets/main-legacy.9d69d2d6.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
 </BODY>
 </HTML>
