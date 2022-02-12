@@ -16,7 +16,7 @@ module.exports = defineConfig({
   plugins: [
     legacy({
       targets: ["defaults", "not IE 11", "Firefox ESR"],
-      polyfills: ["queueMicrotask"],
+      polyfills: ["web.queue-microtask"],
     }),
   ],
 });
