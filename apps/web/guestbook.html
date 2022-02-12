@@ -34,17 +34,6 @@
       #postDialog > form > table > tbody > tr > td:first-of-type > p {
          text-align: left;
       }
-
-      .error_cl {
-         color: rgb(173 57 57);
-         font-size: small;
-      }
-
-      @media (prefers-color-scheme: dark) {
-         .error_cl {
-            color: rgb(207 160 160);
-         }
-      }
    </STYLE>
    <X-SAS-WINDOW TOP=53 BOTTOM=600 LEFT=152 RIGHT=682 />
 </HEAD>
@@ -92,7 +81,8 @@
                })
                .catch((e) => {
                   submitting = false;
-                  error = 'An error occured. Technical information: ' + JSON.stringify(e);
+                  error = 'An error occured.';
+                  console.log(e);
                   window.Sentry.captureException(e);
                });"
             method="post"
@@ -141,7 +131,8 @@
                   .then(data => {posts = data.posts; loading = false;})
                   .catch((e) => {
                      loading = false;
-                     error = 'An error occured. Technical information: ' + JSON.stringify(e);
+                     error = 'An error occured.';
+                     console.log(e);
                      window.Sentry.captureException(e);
                   });"
                >

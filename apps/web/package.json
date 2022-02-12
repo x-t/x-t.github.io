@@ -1,6 +1,7 @@
 {
   "name": "web",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "vite --host",
     "build": "tsc && vite build",
@@ -12,7 +13,9 @@
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.5",
     "typescript": "^4.5.5",
-    "vite": "^2.7.13"
+    "vite": "^2.7.13",
+    "tsconfig": "*",
+    "config": "*"
   },
   "dependencies": {
     "@fpjs-incubator/botd-agent": "^0.1.23",

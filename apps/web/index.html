@@ -26,6 +26,7 @@
    <link rel="preload" href="/font/AppleGaramond-Bold.woff2" as="font" type="font/woff2" crossorigin />
    <link rel="preload" href="/font/AppleGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin />
    <link rel="preload" href="/img/darkbg.jpeg" as="image" media="(prefers-color-scheme: dark)" />
+   <link rel="preload" href=import.meta.env.VITE_BLOG_ENDPOINT as="fetch" crossorigin />
    <X-SAS-WINDOW TOP=54 BOTTOM=601 LEFT=29 RIGHT=559 />
 </HEAD>
 <BODY BGCOLOR="#FFFFCA" BACKGROUND="/img/chillibk.gif">
@@ -61,6 +62,47 @@
 
          <H2><A HREF="/reviews/index.html"><PICTURE><SOURCE SRCSET="/img/book.webp" TYPE="image/webp" /><IMG SRC="/img/book.png" ALT="Book icon with Haiku logo" WIDTH=25
             HEIGHT=25 ALIGN=bottom /></PICTURE> <U>Read my OS reviews!</U></A></H2>
+
+         <H2><A HREF="https://blog.zxyz.gay/"><PICTURE><SOURCE SRCSET="/img/blog.webp" TYPE="image/webp" /><IMG SRC="/img/blog.png" ALT="Blog icon" WIDTH=25
+            HEIGHT=25 ALIGN=bottom /></PICTURE> <U>Visit the blog</U></A></H2>
+
+      <P style="margin-bottom:0;"><SMALL>Latest blog posts</SMALL></P>
+      
+      <div style="display:flex;justify-content:center;align-items:center;">
+      <ul style="margin-top:5px;"
+         x-data="{posts: [],
+         loading: true,
+         error: ''}"
+         x-init="fetch(window.endpoints.blog + '/api/posts')
+         .then(response => response.json())
+         .then(data => {posts = data; loading = false;})
+         .catch((e) => {
+            loading = false;
+            error = 'An error occured.';
+            console.log(e);
+            window.Sentry.captureException(e);
+         });">
+            <template x-if="loading || error">
+               <p
+                  x-text="loading ? 'Loading...' : error"
+                  :class="error ? 'error_cl' : ''">Loading...</p>
+            </template>
+            <template x-for="post in posts">
+               <li>
+                  <span x-data="{date: new Date(post.publishedAt)}"
+                     x-text="
+                     date.toLocaleDateString()
+                     + ' ' + date
+                     .toLocaleTimeString([],
+                        {hour: '2-digit',minute: '2-digit'})"></span>
+                  -
+                  <a x-text="post.title"
+                     :href="window.endpoints.blog + '/posts/' + post.slug"></a>
+               </li>
+            </template>
+         </ul>
+      </div>
+
 
          <P><TABLE BORDER=1 WIDTH=156 CLASS="LINKS">
             <TR>

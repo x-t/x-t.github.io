@@ -15,31 +15,37 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          cache: "yarn"
+          cache-dependency-path: yarn.lock
+          node-version: "16"
 
       - name: Install and Build
         run: |
-          npm ci -w web -w tsconfig -w config
+          yarn workspace web install --frozen-lockfile
           npx turbo run build --scope=web --include-dependencies --no-deps
         env:
           VITE_FETCH_ENDPOINT: ${{ secrets.BUILD_WEB_FETCH_ENDPOINT }}
           VITE_FORM_ENDPOINT: ${{ secrets.BUILD_WEB_SUBMIT_ENDPOINT }}
+          VITE_BLOG_ENDPOINT: ${{ secrets.BUILD_WEB_BLOG_ENDPOINT }}
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
+        if: github.event_name == 'push'
         with:
           branch: gh-pages
           folder: apps/web/dist
 
       - name: Clean up for Neocities
+        if: github.event_name == 'push'
         run: |
           rm apps/web/dist/CNAME
           mv apps/web/dist/404.html apps/web/dist/not_found.html
 
       - name: Deploy to Neocities
         uses: bcomnes/deploy-to-neocities@master
+        if: github.event_name == 'push'
         with:
           api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
           dist_dir: apps/web/dist
           cleanup: true
-          protected_files: 'reviews/**/*'
+          protected_files: "reviews/**/*"

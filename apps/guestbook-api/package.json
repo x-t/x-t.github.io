@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/main.js",
+  "private": true,
   "scripts": {
     "build": "prisma generate && tsc -p .",
     "prisma:generate": "prisma generate",
     "start": "node dist/index.js",
-    "dev": "tsc-watch --onSuccess \"node ./dist/index.js\""
+    "dev": "tsc-watch --preserveWatchOutput --onSuccess \"node ./dist/index.js\""
   },
   "repository": {
     "type": "git",
@@ -35,7 +36,6 @@
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.12",
-    "@types/node-fetch": "^3.0.2",
     "@types/nunjucks": "^3.2.1",
     "prisma": "^3.9.1",
     "tsc-watch": "^4.6.0",

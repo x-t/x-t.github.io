@@ -14,9 +14,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy to Deta.sh
+        if: github.event_name == 'push'
         uses: BogDAAAMN/deta-deploy-action@v1.0.1
         with:
           deta-access-token: ${{ secrets.DETA_TOKEN }}
-          deta-name: 'Pyrope'
-          deta-project: 'Pyrope'
-          deta-project-dir: 'apps/pyrope'
+          deta-name: "Pyrope"
+          deta-project: "Pyrope"
+          deta-project-dir: "apps/pyrope"
