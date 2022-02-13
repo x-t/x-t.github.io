@@ -11,10 +11,11 @@ export const Navbar = () => {
             <source srcSet="/images/favicon@128.webp" type="image/webp" />
             <img
               src="/images/favicon@128.jpg"
-              alt="Profile picture"
+              alt=""
               width={64}
               height={64}
               className="rounded-full"
+              aria-label="Go to personal site"
             />
           </picture>
           {/* eslint-enable @next/next/no-img-element */}
@@ -23,7 +24,7 @@ export const Navbar = () => {
       </div>
       <div className="flex gap-3 print:hidden">
         <Link href="/">
-          <a className={`w-8 navbar_link`}>
+          <a className={`w-8 navbar_link`} aria-label="Go to blog's homepage">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
