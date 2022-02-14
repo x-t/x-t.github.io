@@ -13,7 +13,7 @@
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.6",
     "typescript": "^4.5.5",
-    "vite": "^2.8.1",
+    "vite": "^2.8.2",
     "tsconfig": "*",
     "config": "*"
   },
