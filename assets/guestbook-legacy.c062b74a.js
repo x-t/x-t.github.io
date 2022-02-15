@@ -1,0 +1,1 @@
+System.register(["./main-legacy.d04636b8.js","./vendor-legacy.47f294af.js"],(function(){"use strict";var e;return{setters:[function(){},function(t){e=t.a}],execute:function(){window.botdPromise=e.load({publicKey:"lAwajiYjjM1uHZt9oJvdNBux"})}}}));
