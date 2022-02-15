@@ -27,6 +27,7 @@ jobs:
           VITE_FETCH_ENDPOINT: ${{ secrets.BUILD_WEB_FETCH_ENDPOINT }}
           VITE_FORM_ENDPOINT: ${{ secrets.BUILD_WEB_SUBMIT_ENDPOINT }}
           VITE_BLOG_ENDPOINT: ${{ secrets.BUILD_WEB_BLOG_ENDPOINT }}
+          VITE_SENTRY_DSN: ${{ secrets.BUILD_WEB_SENTRY_DSN }}
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.2.3

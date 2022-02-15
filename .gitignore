@@ -202,3 +202,6 @@ $RECYCLE.BIN/
 
 **/public/build
 **/api/_build
+
+# Sentry
+.sentryclirc

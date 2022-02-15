@@ -5,7 +5,7 @@ import "./font.css";
 import "./style.css";
 
 Sentry.init({
-  dsn: "https://e326f95780c043dd983b5cc22df8b116@o987960.ingest.sentry.io/6139490",
+  dsn: import.meta.env.VITE_SENTRY_DSN,
   integrations: [new Integrations.BrowserTracing()],
 });
 

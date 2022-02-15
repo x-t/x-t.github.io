@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { groq } from "next-sanity";
 import { getClient } from "../../lib/sanity.server";
 import { allowCors } from "../../lib/cors";
+import { withSentry } from "@sentry/nextjs";
 
 const apiQuery = groq`
 *[_type == "post"] | order(publishedAt desc) [0...5] {
@@ -16,4 +17,4 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   res.status(200).json(posts);
 }
 
-export default allowCors(handler);
+export default withSentry(allowCors(handler));
