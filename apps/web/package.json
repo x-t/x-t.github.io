@@ -13,14 +13,14 @@
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.6",
     "typescript": "^4.5.5",
-    "vite": "^2.8.2",
+    "vite": "^2.8.3",
     "tsconfig": "*",
     "config": "*"
   },
   "dependencies": {
     "@fpjs-incubator/botd-agent": "^0.1.23",
     "@sentry/browser": "^6.17.8",
-    "@sentry/tracing": "^6.17.7",
+    "@sentry/tracing": "^6.17.8",
     "alpinejs": "^3.9.0"
   }
 }
