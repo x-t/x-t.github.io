@@ -4,9 +4,9 @@ import Image from "next/image";
 import { urlFor } from "../lib/sanity";
 
 export const BlogImage = ({ props, preview }) => {
-  const imageProps = useNextSanityImage(getClient(preview), props.node);
+  const imageProps = useNextSanityImage(getClient(preview), props.value);
   return (
-    <a href={urlFor(props.node).url()} target="_blank" rel="noreferrer">
+    <a href={urlFor(props.value).url()} target="_blank" rel="noreferrer">
       <Image
         {...imageProps}
         layout="responsive"

@@ -2,7 +2,7 @@ import Highlight, { defaultProps } from "prism-react-renderer";
 
 export const BlogCode = ({ props }) => {
   const {
-    node: { language, code },
+    value: { language, code },
   } = props;
   const codeProps = {
     ...defaultProps,
