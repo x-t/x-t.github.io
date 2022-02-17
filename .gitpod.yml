@@ -1,0 +1,64 @@
+tasks:
+  - name: Install global node dependencies
+    init: |
+      npm install -g @sanity/cli
+      npm install -g npm@latest
+      gp sync-done global-node
+
+  - name: Install dependencies
+    init: |
+      gp sync-await global-node
+      yarn install
+
+  - name: Install Doppler
+    init: |
+      sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
+      curl -sLf --retry 3 --tlsv1.2 --proto "=https" 'https://packages.doppler.com/public/cli/gpg.DE2A7741A397C129.key' | sudo apt-key add -
+      echo "deb https://packages.doppler.com/public/cli/deb/debian any-version main" | sudo tee /etc/apt/sources.list.d/doppler-cli.list
+      sudo apt-get update && sudo apt-get install doppler -y
+      gp sync-done install-doppler
+
+  - name: Logins
+    command: |
+      gp sync-await install-doppler
+      echo $DOPPLER_SERVICE_TOKEN | doppler configure set token --scope /
+      gp sync-done logins
+
+  - name: Install Postgres
+    command: |
+      docker run --name guestbook -e POSTGRES_PASSWORD=password -e POSTGRES_DB=guestbook -d -p 5432:5432 postgres
+      printf 'su postgres\npsql -d guestbook\nCREATE EXTENSION IF NOT EXISTS "uuid-ossp";\n' | docker exec -i guestbook /bin/bash
+      yarn workspace guestbook-api prisma:push
+      yarn workspace guestbook-api prisma:seed
+    env:
+      DATABASE_URL: postgres://postgres:password@localhost:5432/guestbook
+
+ports:
+  - port: 3000
+    onOpen: ignore
+  - port: 3001
+    onOpen: ignore
+  - port: 3005
+    onOpen: ignore
+  - port: 3333
+    onOpen: ignore
+
+vscode:
+  extensions:
+    - sperovita.alpinejs-syntax-highlight
+    - adrianwilczynski.alpine-js-intellisense
+    - GitHub.copilot
+    - GraphQL.vscode-graphql
+    - eg2.vscode-npm-script
+    - christian-kohler.npm-intellisense
+    - eseom.nunjucks-template
+    - christian-kohler.path-intellisense
+    - esbenp.prettier-vscode
+    - Prisma.prisma
+    - jasonnutter.search-node-modules
+    - SonarSource.sonarlint-vscode
+    - bradlc.vscode-tailwindcss
+    - rangav.vscode-thunder-client
+    - redhat.vscode-yaml
+    - dbaeumer.vscode-eslint
+    - GitHub.vscode-pull-request-github

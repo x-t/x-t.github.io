@@ -205,3 +205,5 @@ $RECYCLE.BIN/
 
 # Sentry
 .sentryclirc
+
+**/prisma/migrations/
