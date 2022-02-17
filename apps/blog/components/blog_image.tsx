@@ -11,7 +11,7 @@ export const BlogImage = ({ props, preview }) => {
         {...imageProps}
         layout="responsive"
         sizes="(max-width: 800px) 100vw, 800px"
-        alt={props.node.alt}
+        alt={props.value.alt}
         className="rounded-sm"
       />
     </a>
