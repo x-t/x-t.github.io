@@ -1,7 +1,7 @@
 import ErrorPage from "next/error";
 import { useRouter } from "next/router";
 import { groq } from "next-sanity";
-import { usePreviewSubscription, urlFor, PortableText } from "../../lib/sanity";
+import { usePreviewSubscription, urlFor } from "../../lib/sanity";
 import { getClient } from "../../lib/sanity.server";
 import Image from "next/image";
 import { useNextSanityImage } from "next-sanity-image";
@@ -9,6 +9,7 @@ import Head from "next/head";
 import { postQuery } from "../../lib/queries";
 import { BlogImage } from "../../components/blog_image";
 import { BlogCode } from "../../components/blog_code";
+import { PortableText } from "@portabletext/react";
 
 export default function Post({ data, preview }) {
   const router = useRouter();
@@ -83,7 +84,7 @@ export default function Post({ data, preview }) {
           )}
         </div>
         <div className="prose prose-zinc dark:prose-invert mt-10">
-          <PortableText blocks={post?.body} serializers={serializers} />
+          <PortableText value={post?.body} components={serializers} />
         </div>
       </article>
     </>

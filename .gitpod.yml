@@ -32,8 +32,8 @@ tasks:
   - name: Install Postgres
     command: |
       docker run --name guestbook -e POSTGRES_PASSWORD=password -e POSTGRES_DB=guestbook -d -p 5432:5432 postgres
-      printf 'su postgres\npsql -d guestbook\nCREATE EXTENSION IF NOT EXISTS "uuid-ossp";\n' | docker exec -i guestbook /bin/bash
       gp sync-await deps
+      printf 'su postgres\npsql -d guestbook\nCREATE EXTENSION IF NOT EXISTS "uuid-ossp";\n' | docker exec -i guestbook /bin/bash
       yarn workspace guestbook-api prisma:push
       yarn workspace guestbook-api prisma:seed
       exit
