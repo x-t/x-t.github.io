@@ -4,11 +4,14 @@ tasks:
       npm install -g @sanity/cli
       npm install -g npm@latest
       gp sync-done global-node
+      exit
 
   - name: Install dependencies
     init: |
       gp sync-await global-node
       yarn install
+      gp sync-done deps
+      exit
 
   - name: Install Doppler
     init: |
@@ -17,19 +20,23 @@ tasks:
       echo "deb https://packages.doppler.com/public/cli/deb/debian any-version main" | sudo tee /etc/apt/sources.list.d/doppler-cli.list
       sudo apt-get update && sudo apt-get install doppler -y
       gp sync-done install-doppler
+      exit
 
   - name: Logins
     command: |
       gp sync-await install-doppler
       echo $DOPPLER_SERVICE_TOKEN | doppler configure set token --scope /
       gp sync-done logins
+      exit
 
   - name: Install Postgres
     command: |
       docker run --name guestbook -e POSTGRES_PASSWORD=password -e POSTGRES_DB=guestbook -d -p 5432:5432 postgres
       printf 'su postgres\npsql -d guestbook\nCREATE EXTENSION IF NOT EXISTS "uuid-ossp";\n' | docker exec -i guestbook /bin/bash
+      gp sync-await deps
       yarn workspace guestbook-api prisma:push
       yarn workspace guestbook-api prisma:seed
+      exit
     env:
       DATABASE_URL: postgres://postgres:password@localhost:5432/guestbook
 
