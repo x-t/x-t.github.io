@@ -35,6 +35,5 @@ export async function getStaticProps({ preview = false }) {
   const allPosts = await getClient(preview).fetch(indexQuery);
   return {
     props: { allPosts, preview },
-    revalidate: 60,
   };
 }

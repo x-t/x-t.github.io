@@ -101,7 +101,6 @@ export async function getStaticProps({ params, preview = false }) {
       preview,
       data: { post },
     },
-    revalidate: 43200,
   };
 }
 

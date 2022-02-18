@@ -9,6 +9,7 @@ export const BlogCode = ({ props }) => {
     code,
     language,
   };
+
   return (
     <Highlight {...codeProps}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (

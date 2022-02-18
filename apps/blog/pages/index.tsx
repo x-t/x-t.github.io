@@ -70,6 +70,5 @@ export async function getStaticProps({ preview = false }) {
       preview,
       data: { hero, otherPosts },
     },
-    revalidate: 60,
   };
 }
