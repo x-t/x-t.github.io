@@ -1291,7 +1291,7 @@
   resolved "https://registry.yarnpkg.com/@sanity/asset-utils/-/asset-utils-1.2.3.tgz#a90c7895c6506405d64c2363db131923ba1fa6ef"
   integrity sha512-0eOR0D6zcqd6nEmAGIJ93ibRGO6ocYzQ5aEuyYvngHy5MDDjUfC821UnF/YPIcxiMXg2DLDjWd4EPt9F8frKNQ==
 
-"@sanity/base@2.27.0", "@sanity/base@^2.27.0":
+"@sanity/base@2.27.0":
   version "2.27.0"
   resolved "https://registry.yarnpkg.com/@sanity/base/-/base-2.27.0.tgz#c99af276c4bef396425da676fe667a80e244c894"
   integrity sha512-svAVEZniAx+EaJpv+lH6IcYn6uVMytVOmVl/pfJyc6hQ4f0WNMJZjMm5fx7MZUDifgbwOFNgp7sZynIasm60Pw==
@@ -1352,6 +1352,66 @@
     shallow-equals "^1.0.0"
     use-device-pixel-ratio "^1.1.0"
 
+"@sanity/base@^2.27.1":
+  version "2.27.1"
+  resolved "https://registry.yarnpkg.com/@sanity/base/-/base-2.27.1.tgz#ad3edcfeb12caf849b9d3de2123a31a3afa8de78"
+  integrity sha512-6E3Jd8iJOX4Y1rL7OdYY+zGxYGanW5Umi4sCSronsyBU9HGSUz176LLe0orCk7MS8Nb9VGA/P4niZh0X79TP3w==
+  dependencies:
+    "@juggle/resize-observer" "^3.3.1"
+    "@popperjs/core" "^2.5.4"
+    "@reach/auto-id" "^0.13.2"
+    "@sanity/bifur-client" "^0.0.8"
+    "@sanity/client" "^3.0.1"
+    "@sanity/color" "^2.1.5"
+    "@sanity/generate-help-url" "^3.0.0"
+    "@sanity/icons" "^1.2.1"
+    "@sanity/image-url" "^1.0.1"
+    "@sanity/initial-value-templates" "2.27.0"
+    "@sanity/mutator" "2.21.0"
+    "@sanity/schema" "2.27.0"
+    "@sanity/state-router" "2.22.3"
+    "@sanity/structure" "2.27.0"
+    "@sanity/transaction-collator" "2.21.0"
+    "@sanity/types" "2.27.0"
+    "@sanity/ui" "^0.37.2"
+    "@sanity/util" "2.27.0"
+    "@sanity/validation" "2.27.0"
+    boundless-arrow-key-navigation "^1.1.0"
+    circular-at "^1.0.3"
+    classnames "^2.2.5"
+    dataloader "^2.0.0"
+    date-fns "^2.16.1"
+    dom-scroll-into-view "^1.2.1"
+    element-resize-detector "^1.1.14"
+    groq-js "^0.2.0"
+    history "^4.6.3"
+    json-reduce "^2.0.0"
+    lodash "^4.17.15"
+    nano-pubsub "^2.0.1"
+    nanoid "^3.1.30"
+    observable-callback "^1.0.1"
+    pluralize "^7.0.0"
+    polished "^4.0.5"
+    popper-max-size-modifier "^0.2.0"
+    raf "^3.4.1"
+    react-click-outside "^3.0.0"
+    react-fast-compare "^3.2.0"
+    react-icon-base "^2.1.2"
+    react-is "^17.0.2"
+    react-popper "^2.2.4"
+    react-props-stream "^1.0.0"
+    react-refractor "^2.1.2"
+    react-rx "^1.0.0-beta.6"
+    react-sortable-hoc "^1.11.0"
+    react-split-pane "^0.1.84"
+    refractor "^3.3.1"
+    rxjs "^6.5.3"
+    rxjs-etc "^10.6.0"
+    rxjs-exhaustmap-with-trailing "^1.0.0"
+    semver-compare "^1.0.0"
+    shallow-equals "^1.0.0"
+    use-device-pixel-ratio "^1.1.0"
+
 "@sanity/bifur-client@^0.0.8":
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/@sanity/bifur-client/-/bifur-client-0.0.8.tgz#99bc4ebaf2c660af9afa3d66b8220357c2454766"
@@ -1368,19 +1428,7 @@
     get-random-values "^1.2.2"
     lodash "^4.17.15"
 
-"@sanity/client@^3.0.1", "@sanity/client@^3.0.6":
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-3.0.6.tgz#62f0045ea06783fd98469c56b464d74509701f79"
-  integrity sha512-UzFCV7Wj5yL/FRlPrTM2yVpmJU//E3jevxhFPnO7OsfpEuTscDREPEdV/Fc873JL5PAm+uAATAK/Hx/zGCxctw==
-  dependencies:
-    "@sanity/eventsource" "^2.23.0"
-    "@sanity/generate-help-url" "^2.18.0"
-    get-it "^6.0.0"
-    make-error "^1.3.0"
-    object-assign "^4.1.1"
-    rxjs "^6.0.0"
-
-"@sanity/client@^3.1.0":
+"@sanity/client@^3.0.1", "@sanity/client@^3.0.6", "@sanity/client@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@sanity/client/-/client-3.1.0.tgz#f94ba548b8bbdb2eb159fc4dfacd1e5ca6cea386"
   integrity sha512-DtyCtAWNsDgLlEI8y4Zm9L2R1KBe5/BEVQoyD7V2ebScqH9n68nIq4cg//uTjyvvzSwZM2hmV6dd5ZXhvAdk7Q==
@@ -1574,7 +1622,7 @@
     eslint-plugin-react "^7.28.0"
     eslint-plugin-react-hooks "^4.3.0"
 
-"@sanity/eventsource@2.23.0", "@sanity/eventsource@^2.23.0":
+"@sanity/eventsource@2.23.0":
   version "2.23.0"
   resolved "https://registry.yarnpkg.com/@sanity/eventsource/-/eventsource-2.23.0.tgz#5c8b5dcc7aa440588c96f3e86ac97b5fe76360da"
   integrity sha512-MpQoV8FqnwnfBPQ29qcI1WA6MPZI1Z8rACFky5yU/8hol/Vv9g38PJbvHsGXsDkDartRXN5Wx5OjFk2imG4QPQ==
