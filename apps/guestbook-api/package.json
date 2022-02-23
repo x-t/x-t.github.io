@@ -27,7 +27,7 @@
   "homepage": "https://github.com/fly-examples/hellonode#readme",
   "dependencies": {
     "@2toad/profanity": "^1.3.1",
-    "@prisma/client": "^3.9.2",
+    "@prisma/client": "^3.10.0",
     "@sentry/node": "^6.17.9",
     "@sentry/tracing": "^6.17.9",
     "cors": "^2.8.5",
