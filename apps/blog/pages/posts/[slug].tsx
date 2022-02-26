@@ -83,7 +83,7 @@ export default function Post({ data, preview }) {
             </p>
           )}
         </div>
-        <div className="prose prose-zinc dark:prose-invert mt-10">
+        <div className="prose prose-zinc mt-10 dark:prose-invert">
           <PortableText value={post?.body} components={serializers} />
         </div>
       </article>

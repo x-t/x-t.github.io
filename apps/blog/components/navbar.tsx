@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const Navbar = () => {
   return (
-    <nav className="floatee mb-10 flex justify-between items-center">
+    <nav className="floatee mb-10 flex items-center justify-between">
       <div className="flex flex-row items-center gap-2">
         <a href="https://zxyz.gay">
           {/* next/image doesn't work here, imports an empty 0px GIF for no reason */}
@@ -20,11 +20,11 @@ export const Navbar = () => {
           </picture>
           {/* eslint-enable @next/next/no-img-element */}
         </a>
-        <p className="hidden md:block print:block">zxyz&apos;s blog</p>
+        <p className="hidden print:block md:block">zxyz&apos;s blog</p>
       </div>
       <div className="flex gap-3 print:hidden">
         <Link href="/">
-          <a className={`w-8 navbar_link`} aria-label="Go to blog's homepage">
+          <a className={`navbar_link w-8`} aria-label="Go to blog's homepage">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -36,7 +36,7 @@ export const Navbar = () => {
           </a>
         </Link>
         <Link href="/posts">
-          <a className={`w-14 navbar_link`}>Posts</a>
+          <a className={`navbar_link w-14`}>Posts</a>
         </Link>
       </div>
     </nav>

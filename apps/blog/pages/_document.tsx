@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
             type="image/webp"
           />
         </Head>
-        <body className="bg-slate-300 dark:bg-zinc-900 dark:text-zinc-200 print:text-black print:bg-white">
+        <body className="bg-slate-300 dark:bg-zinc-900 dark:text-zinc-200 print:bg-white print:text-black">
           <Navbar />
           <Main />
           <NextScript />

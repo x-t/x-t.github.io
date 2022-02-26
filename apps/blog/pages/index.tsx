@@ -23,8 +23,8 @@ export default function BlogIndex({ data, preview }) {
         <meta name="og:description" content={seo.description} />
       </Head>
       <div className="grid">
-        <div className="relative group">
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+        <div className="group relative">
+          <div className="absolute -inset-0.5 animate-tilt rounded-lg bg-gradient-to-r from-pink-600 to-purple-600 opacity-75 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
           <PostCard post={data.hero} preview={preview}>
             <p className="font-bold">Latest post</p>
           </PostCard>
@@ -40,11 +40,11 @@ export default function BlogIndex({ data, preview }) {
           ))}
         <div className="mt-10">
           <Link href="/posts">
-            <a className="floatee flex items-center justify-center space-x-1 flex-row">
+            <a className="floatee flex flex-row items-center justify-center space-x-1">
               <span>View all posts</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 mt-[5.2px]"
+                className="mt-[5.2px] h-5 w-5"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >

@@ -20,17 +20,17 @@ export const PostCard = ({
   return (
     <Link href={`/posts/${post.slug}`}>
       <a
-        className={`!p-0 floatee overflow-hidden grid grid-cols-1 ${
+        className={`floatee grid grid-cols-1 overflow-hidden !p-0 ${
           post.mainImage && "sm:grid-cols-[minmax(0,_1fr)_minmax(0,_2fr)]"
         } ${className}`}
       >
         {post.mainImage && (
-          <div className="h-full w-full overflow-hidden nextimg">
+          <div className="nextimg h-full w-full overflow-hidden">
             <Image
               {...imageProps}
               layout="responsive"
               sizes="(max-width: 800px) 100vw, 800px"
-              className="object-cover h-full w-full"
+              className="h-full w-full object-cover"
               alt={post.mainImage.alt}
             />
           </div>
