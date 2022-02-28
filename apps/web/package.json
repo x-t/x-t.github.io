@@ -18,7 +18,7 @@
     "config": "*"
   },
   "dependencies": {
-    "@fpjs-incubator/botd-agent": "^0.1.23",
+    "@fpjs-incubator/botd-agent": "^0.1.24",
     "@sentry/browser": "^6.18.0",
     "@sentry/tracing": "^6.18.0",
     "alpinejs": "^3.9.0"

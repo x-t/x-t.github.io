@@ -1059,11 +1059,12 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fpjs-incubator/botd-agent@^0.1.23":
-  version "0.1.23"
-  resolved "https://registry.yarnpkg.com/@fpjs-incubator/botd-agent/-/botd-agent-0.1.23.tgz#33f4bc816b544bb10ca39999cf3bd0c518a42291"
-  integrity sha512-rl/E6wKmELjOha5lA+6SRGsNdhGXWxqkSWApYnUIrkDlvkIeuc8Zkw9lu+VLMvwkWhxrGNfU6T9ezJ5T2VZ3wg==
+"@fpjs-incubator/botd-agent@^0.1.24":
+  version "0.1.24"
+  resolved "https://registry.yarnpkg.com/@fpjs-incubator/botd-agent/-/botd-agent-0.1.24.tgz#0637ecec5a80e9696a3ce1a124f205f1ebfc2200"
+  integrity sha512-qlzMnKNCu0zoxFbcSckg8hcslt1v6pavSUE39GA/RV0Kil4MjQ0nW46WRo6teeSH1cgVhUWgdNp+eoyT3naPzA==
   dependencies:
+    fflate "^0.7.3"
     tslib "^2.2.0"
 
 "@hot-loader/react-dom@^16.9.0-4.12.11":
@@ -5520,6 +5521,11 @@ fetch-blob@^3.1.2, fetch-blob@^3.1.4:
   dependencies:
     node-domexception "^1.0.0"
     web-streams-polyfill "^3.0.3"
+
+fflate@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.7.3.tgz#288b034ff0e9c380eaa2feff48c787b8371b7fa5"
+  integrity sha512-0Zz1jOzJWERhyhsimS54VTqOteCNwRtIlh8isdL0AXLo0g7xNTfTL7oWrkmCnPhZGocKIkWHBistBrrpoNH3aw==
 
 file-entry-cache@^6.0.1:
   version "6.0.1"
