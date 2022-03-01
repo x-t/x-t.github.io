@@ -45,6 +45,6 @@
     "prisma": "^3.10.0",
     "ts-node": "^10.5.0",
     "tsc-watch": "^4.6.0",
-    "typescript": "^4.5.5"
+    "typescript": "^4.6.2"
   }
 }
