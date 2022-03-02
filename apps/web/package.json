@@ -12,15 +12,15 @@
     "@vitejs/plugin-legacy": "^1.7.1",
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.7",
-    "typescript": "^4.5.5",
-    "vite": "^2.8.4",
+    "typescript": "^4.6.2",
+    "vite": "^2.8.6",
     "tsconfig": "*",
     "config": "*"
   },
   "dependencies": {
-    "@fpjs-incubator/botd-agent": "^0.1.23",
-    "@sentry/browser": "^6.18.0",
-    "@sentry/tracing": "^6.18.0",
+    "@fpjs-incubator/botd-agent": "^0.1.24",
+    "@sentry/browser": "^6.18.1",
+    "@sentry/tracing": "^6.18.1",
     "alpinejs": "^3.9.0"
   }
 }
