@@ -10,6 +10,7 @@
       "experimentalDecorators": true,
       "target": "es5",
       "outDir": "./dist",
+      "sourceRoot": "./src",
       "module": "commonjs",
       "baseUrl": "",
       "lib": [
@@ -18,5 +19,8 @@
           "dom",
           "esnext.asynciterable"
       ]
-  }
+  },
+  "exclude": [
+    "prisma/**/*",
+  ]
 }
