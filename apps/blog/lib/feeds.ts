@@ -1,5 +1,4 @@
 import { Feed, Item } from "feed";
-import fs from "fs";
 import { renderFeedHtml } from "./feed_render";
 import { parseISO } from "date-fns";
 import { feedQuery } from "./queries";
@@ -46,12 +45,9 @@ const makeItem = (post: any): Item => {
   };
 };
 
-export const generateMainFeeds = async (): Promise<void> => {
+export const generateMainFeeds = async (): Promise<Feed> => {
   const feed = buildFeed();
   const posts = await getClient(false).fetch(feedQuery);
   posts.forEach((post) => feed.addItem(makeItem(post)));
-  fs.mkdirSync("public/feeds/", { recursive: true });
-  fs.writeFileSync("public/feeds/feed.xml", feed.rss2());
-  fs.writeFileSync("public/feeds/feed.json", feed.json1());
-  fs.writeFileSync("public/feeds/atom.xml", feed.atom1());
+  return feed;
 };

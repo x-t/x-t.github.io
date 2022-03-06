@@ -34,7 +34,7 @@ export const Navbar = () => {
         <Link href="/posts">
           <a className={`w-14 hover:text-white`}>posts</a>
         </Link>
-        <Link href="/feeds/feed.xml">
+        <Link href="/feed">
           <a className={`w-14 hover:text-white`} target="_blank">
             rss
           </a>

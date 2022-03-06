@@ -4,6 +4,18 @@ const moduleExports = {
   images: {
     domains: ["cdn.sanity.io"],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/feed",
+        destination: "/api/feed/rss",
+      },
+      {
+        source: "/feed/:slug",
+        destination: "/api/feed/:slug",
+      },
+    ];
+  },
 };
 
 const sentryWebpackPluginOptions = {

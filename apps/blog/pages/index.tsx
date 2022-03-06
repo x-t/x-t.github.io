@@ -27,21 +27,21 @@ export default function BlogIndex({ data, preview }) {
           rel="alternative"
           type="application/rss+xml"
           title="RSS feed for zxyz.gay"
-          href="/feeds/rss.xml"
+          href="/feed"
         />
         <link
           key="atom-feed"
           rel="alternative"
           type="application/atom+xml"
           title="Atom feed for zxyz.gay"
-          href="/feeds/atom.xml"
+          href="/feed/atom"
         />
         <link
           key="json-feed"
           rel="alternative"
           type="application/feed+json"
           title="JSON feed for zxyz.gay"
-          href="/feeds/feed.json"
+          href="/feed/json"
         />
       </Head>
       <div className="grid">
@@ -85,7 +85,6 @@ export default function BlogIndex({ data, preview }) {
 }
 
 export async function getStaticProps({ preview = false }) {
-  generateMainFeeds();
   const [hero, otherPosts] = await Promise.all([
     getClient(preview).fetch(heroQuery),
     getClient(preview).fetch(frontQuery),
