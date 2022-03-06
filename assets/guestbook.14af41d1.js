@@ -1,1 +1,0 @@
-import"./main.ab629df2.js";import{a as o}from"./vendor.bbce9402.js";function i(){import("data:text/javascript,")}window.botdPromise=o.load({publicKey:"lAwajiYjjM1uHZt9oJvdNBux"});export{i as __vite_legacy_guard};
