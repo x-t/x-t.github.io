@@ -16,14 +16,13 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          cache: "yarn"
-          cache-dependency-path: yarn.lock
+          cache: "pnpm"
           node-version: "16"
 
       - name: Install and Build
         run: |
-          yarn workspace web install --frozen-lockfile
-          npx turbo run build --scope=web --include-dependencies --no-deps
+          pnpm i --filter web --frozen-lockfile
+          pnpx turbo run build --scope=web --include-dependencies --no-deps
         env:
           VITE_FETCH_ENDPOINT: ${{ secrets.BUILD_WEB_FETCH_ENDPOINT }}
           VITE_FORM_ENDPOINT: ${{ secrets.BUILD_WEB_SUBMIT_ENDPOINT }}
