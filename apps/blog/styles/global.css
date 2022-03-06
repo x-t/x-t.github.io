@@ -24,7 +24,7 @@ body {
   }
 
   a.floatee {
-    @apply hover:bg-mcraegray;
+    @apply hover:bg-mcraegray dark:hover:bg-mcraedarkblue;
   }
 
   .navbar_link {

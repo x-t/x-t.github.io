@@ -3,7 +3,6 @@ import Link from "next/link";
 import { frontQuery, heroQuery } from "../lib/queries";
 import { getClient } from "../lib/sanity.server";
 import { PostCard } from "../components/post_card";
-import { generateMainFeeds } from "../lib/feeds";
 
 export default function BlogIndex({ data, preview }) {
   const seo = {
