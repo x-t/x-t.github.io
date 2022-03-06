@@ -3,6 +3,7 @@ import Link from "next/link";
 import { frontQuery, heroQuery } from "../lib/queries";
 import { getClient } from "../lib/sanity.server";
 import { PostCard } from "../components/post_card";
+import { generateMainFeeds } from "../lib/feeds";
 
 export default function BlogIndex({ data, preview }) {
   const seo = {
@@ -21,6 +22,27 @@ export default function BlogIndex({ data, preview }) {
         <meta name="description" content={seo.description} />
         <meta name="twitter:description" content={seo.description} />
         <meta name="og:description" content={seo.description} />
+        <link
+          key="rss-feed"
+          rel="alternative"
+          type="application/rss+xml"
+          title="RSS feed for zxyz.gay"
+          href="/feeds/rss.xml"
+        />
+        <link
+          key="atom-feed"
+          rel="alternative"
+          type="application/atom+xml"
+          title="Atom feed for zxyz.gay"
+          href="/feeds/atom.xml"
+        />
+        <link
+          key="json-feed"
+          rel="alternative"
+          type="application/feed+json"
+          title="JSON feed for zxyz.gay"
+          href="/feeds/feed.json"
+        />
       </Head>
       <div className="grid">
         <div className="group relative">
@@ -63,8 +85,11 @@ export default function BlogIndex({ data, preview }) {
 }
 
 export async function getStaticProps({ preview = false }) {
-  const hero = await getClient(preview).fetch(heroQuery);
-  const otherPosts = await getClient(preview).fetch(frontQuery);
+  generateMainFeeds();
+  const [hero, otherPosts] = await Promise.all([
+    getClient(preview).fetch(heroQuery),
+    getClient(preview).fetch(frontQuery),
+  ]);
   return {
     props: {
       preview,

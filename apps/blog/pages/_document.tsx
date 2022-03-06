@@ -4,7 +4,10 @@ import { Navbar } from "../components/navbar";
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html
+        lang="en"
+        className="bg-gradient-to-tl from-mcraegreen to-mcraeblue dark:from-zinc-900 dark:to-mcraedarkblue dark:text-zinc-200 print:bg-white print:text-black"
+      >
         <Head>
           <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
           <link
@@ -18,7 +21,7 @@ export default class MyDocument extends Document {
             type="image/webp"
           />
         </Head>
-        <body className="bg-slate-300 dark:bg-zinc-900 dark:text-zinc-200 print:bg-white print:text-black">
+        <body>
           <Navbar />
           <Main />
           <NextScript />

@@ -42,3 +42,13 @@ export const frontQuery = groq`
   mainImage,
   "slug": slug.current
 }`;
+
+export const feedQuery = groq`
+*[_type == "post"] | order(publishedAt desc) [0...10] {
+  title,
+  body,
+  publishedAt,
+  description,
+  mainImage,
+  "slug": slug.current
+}`;

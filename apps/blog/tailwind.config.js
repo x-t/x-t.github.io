@@ -5,6 +5,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        mcraegreen: "#9db4ac",
+        mcraeblue: "#5aa79f",
+        mcraegray: "#d5edd7",
+        mcraeteal: "#03a095",
+        mcraedarkblue: "#455d81",
+      },
       animation: {
         tilt: "tilt 10s infinite linear",
       },

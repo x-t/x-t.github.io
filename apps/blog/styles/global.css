@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+body {
   max-width: 70ch;
   padding: 3em 1em;
   margin: auto;
@@ -24,7 +24,7 @@ html {
   }
 
   a.floatee {
-    @apply transition duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg;
+    @apply hover:bg-mcraegray;
   }
 
   .navbar_link {

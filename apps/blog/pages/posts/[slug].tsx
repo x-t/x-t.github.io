@@ -63,9 +63,9 @@ export default function Post({ data, preview }) {
           </>
         )}
       </Head>
-      <article className="floatee">
-        <div className="grid grid-rows-[auto,_auto,_auto] items-center justify-center gap-y-3">
-          <h1 className="text-3xl font-bold">{post?.title}</h1>
+      <article className="rounded-md bg-zinc-200 p-5 dark:bg-transparent">
+        <div className="grid grid-rows-[auto,_auto,_auto] gap-y-3">
+          <h1 className="text-2xl font-bold lg:text-3xl">{post?.title}</h1>
           {post?.mainImage && (
             <figure>
               <Image
@@ -83,7 +83,7 @@ export default function Post({ data, preview }) {
             </p>
           )}
         </div>
-        <div className="prose prose-zinc mt-10 dark:prose-invert">
+        <div className="prose prose-sm mt-10 dark:prose-invert sm:prose-base lg:prose-lg xl:prose-xl">
           <PortableText value={post?.body} components={serializers} />
         </div>
       </article>
