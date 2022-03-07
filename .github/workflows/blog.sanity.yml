@@ -19,7 +19,7 @@ jobs:
         run: |
           npm i -g @sanity/cli
           pushd apps/blog.sanity
-          npm install
+          npm install --legacy-peer-deps
           sanity deploy
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.BLOG_SANITY_DEPLOY_TOKEN }}
