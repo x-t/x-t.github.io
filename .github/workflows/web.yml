@@ -5,6 +5,7 @@ on:
     paths:
       - "apps/web/**"
       - ".github/workflows/web.yml"
+      - ".github/workflows/neocities.yml"
   workflow_dispatch:
 
 jobs:
@@ -40,17 +41,6 @@ jobs:
           branch: gh-pages
           folder: apps/web/dist
 
-      - name: Clean up for Neocities
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          rm apps/web/dist/CNAME
-          mv apps/web/dist/404.html apps/web/dist/not_found.html
-
-      - name: Deploy to Neocities
-        uses: bcomnes/deploy-to-neocities@master
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        with:
-          api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
-          dist_dir: "apps/web/dist/"
-          cleanup: true
-          protected_files: "reviews/**/*"
+  mirror:
+    needs: build-and-deploy
+    uses: "./.github/workflows/neocities.yml"

@@ -1,0 +1,44 @@
+title: Reviews Revisited
+description: Hottest reviews on the web (by zxyz)
+baseurl: /reviews
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-minifier
+  - jekyll-postcss
+
+collections:
+  root:
+    output: true
+    permalink: "/:title"
+  extras:
+    output: true
+    permalink: "/extras/:title"
+  info:
+    output: true
+    permalink: "/info/:title"
+  new:
+    output: true
+    permalink: "/new/:title"
+  old:
+    output: true
+    permalink: "/old/:title"
+collections_dir: _pages
+
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
+
+exclude:
+  [
+    styles/index.css,
+    styles/syntax.css,
+    package.json,
+    package-lock.json,
+    postcss.config.js,
+    tailwind.config.js,
+    readme.md,
+    vendor,
+    assets/img/resize.py,
+    assets/img/webpify.py,
+  ]

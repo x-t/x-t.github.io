@@ -90,10 +90,12 @@ importers:
       '@sanity/base': ^2.27.2
       '@sanity/code-input': ^2.27.2
       '@sanity/core': ^2.27.0
+      '@sanity/data-aspects': ^2.27.0
       '@sanity/default-layout': ^2.27.2
       '@sanity/default-login': ^2.27.0
       '@sanity/desk-tool': ^2.27.3
       '@sanity/eslint-config-studio': ^2.0.0
+      '@sanity/form-builder': ^2.27.3
       '@sanity/vision': ^2.27.2
       eslint: ^8.10.0
       prop-types: ^15.8
@@ -104,10 +106,12 @@ importers:
       '@sanity/base': 2.27.2_f9946b04243d66cb0d0a52b930f90e5e
       '@sanity/code-input': 2.27.2_f9946b04243d66cb0d0a52b930f90e5e
       '@sanity/core': 2.27.0_react-dom@17.0.2+react@17.0.2
+      '@sanity/data-aspects': 2.27.0
       '@sanity/default-layout': 2.27.2_f9946b04243d66cb0d0a52b930f90e5e
       '@sanity/default-login': 2.27.0_7a082f7d10047d47195aea793f958a14
       '@sanity/desk-tool': 2.27.3_f33875f64e4f81fabb0571d5fec99f09
       '@sanity/eslint-config-studio': 2.0.0_eslint@8.10.0
+      '@sanity/form-builder': 2.27.3_f9946b04243d66cb0d0a52b930f90e5e
       '@sanity/vision': 2.27.2_f33875f64e4f81fabb0571d5fec99f09
       eslint: 8.10.0
       prop-types: 15.8.1
@@ -165,6 +169,24 @@ importers:
       deta: 1.1.0
       express: 4.17.3
       helmet: 5.0.2
+
+  apps/reviews:
+    specifiers:
+      '@tailwindcss/aspect-ratio': ^0.4.0
+      '@tailwindcss/forms': ^0.5.0
+      '@tailwindcss/typography': ^0.5.2
+      autoprefixer: ^10.4.2
+      postcss: ^8.4.7
+      postcss-import: 14.0.2
+      tailwindcss: ^3.0.23
+    devDependencies:
+      '@tailwindcss/aspect-ratio': 0.4.0_tailwindcss@3.0.23
+      '@tailwindcss/forms': 0.5.0_tailwindcss@3.0.23
+      '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.23
+      autoprefixer: 10.4.2_postcss@8.4.7
+      postcss: 8.4.7
+      postcss-import: 14.0.2_postcss@8.4.7
+      tailwindcss: 3.0.23_autoprefixer@10.4.2
 
   apps/web:
     specifiers:
@@ -2519,6 +2541,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [android]
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -2527,6 +2550,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -2535,6 +2559,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -2543,6 +2568,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm]
     os: [linux]
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -2551,6 +2577,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -2559,6 +2586,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -2567,6 +2595,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -2575,6 +2604,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -2583,6 +2613,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -2591,6 +2622,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [ia32]
     os: [win32]
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -2599,6 +2631,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -3799,6 +3832,23 @@ packages:
       - supports-color
     dev: false
 
+  /@tailwindcss/aspect-ratio/0.4.0_tailwindcss@3.0.23:
+    resolution: {integrity: sha512-WJu0I4PpqNPuutpaA9zDUq2JXR+lorZ7PbLcKNLmb6GL9/HLfC7w3CRsMhJF4BbYd/lkY6CfXOvkYpuGnZfkpQ==}
+    peerDependencies:
+      tailwindcss: '>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1'
+    dependencies:
+      tailwindcss: 3.0.23_autoprefixer@10.4.2
+    dev: true
+
+  /@tailwindcss/forms/0.5.0_tailwindcss@3.0.23:
+    resolution: {integrity: sha512-KzWugryEBFkmoaYcBE18rs6gthWCFHHO7cAZm2/hv3hwD67AzwP7udSCa22E7R1+CEJL/FfhYsJWrc0b1aeSzw==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
+    dependencies:
+      mini-svg-data-uri: 1.4.3
+      tailwindcss: 3.0.23_autoprefixer@10.4.2
+    dev: true
+
   /@tailwindcss/typography/0.5.2_tailwindcss@3.0.23:
     resolution: {integrity: sha512-coq8DBABRPFcVhVIk6IbKyyHUt7YTEC/C992tatFB+yEx5WGBQrCgsSFjxHUr8AWXphWckadVJbominEduYBqw==}
     peerDependencies:
@@ -4781,6 +4831,7 @@ packages:
 
   /bindings/1.5.0:
     resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
+    requiresBuild: true
     dependencies:
       file-uri-to-path: 1.0.0
     dev: false
@@ -6383,6 +6434,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [android]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6391,6 +6443,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [android]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6399,6 +6452,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [darwin]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6407,6 +6461,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [darwin]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6415,6 +6470,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [freebsd]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6423,6 +6479,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [freebsd]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6431,6 +6488,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6439,6 +6497,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6447,6 +6506,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6455,6 +6515,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6463,6 +6524,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [mips64el]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6471,6 +6533,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [ppc64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6479,6 +6542,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [riscv64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6487,6 +6551,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [s390x]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6495,6 +6560,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [netbsd]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6503,6 +6569,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [openbsd]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6511,6 +6578,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [sunos]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6519,6 +6587,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [win32]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6527,6 +6596,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6535,6 +6605,7 @@ packages:
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [win32]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -7489,6 +7560,7 @@ packages:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+    requiresBuild: true
     optional: true
 
   /ftp/0.3.10:
@@ -9184,6 +9256,11 @@ packages:
       dom-walk: 0.1.2
     dev: false
 
+  /mini-svg-data-uri/1.4.3:
+    resolution: {integrity: sha512-gSfqpMRC8IxghvMcxzzmMnWpXAChSA+vy4cia33RgerMS8Fex95akUyQZPbxJJmeBGiGmK7n/1OpUX8ksRjIdA==}
+    hasBin: true
+    dev: true
+
   /minimalistic-assert/1.0.1:
     resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==}
     dev: false
@@ -9249,6 +9326,7 @@ packages:
 
   /nan/2.15.0:
     resolution: {integrity: sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -9986,7 +10064,6 @@ packages:
   /pify/2.3.0:
     resolution: {integrity: sha1-7RQaasBDqEnqWISY59yosVMw6Qw=}
     engines: {node: '>=0.10.0'}
-    dev: false
 
   /pify/4.0.1:
     resolution: {integrity: sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==}
@@ -10300,6 +10377,18 @@ packages:
       read-cache: 1.0.0
       resolve: 1.22.0
     dev: false
+
+  /postcss-import/14.0.2_postcss@8.4.7:
+    resolution: {integrity: sha512-BJ2pVK4KhUyMcqjuKs9RijV5tatNzNa73e/32aBVE/ejYPe37iH+6vAu9WvqUkB5OAYgLHzbSvzHnorybJCm9g==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      postcss: ^8.0.0
+    dependencies:
+      postcss: 8.4.7
+      postcss-value-parser: 4.2.0
+      read-cache: 1.0.0
+      resolve: 1.22.0
+    dev: true
 
   /postcss-initial/2.0.0:
     resolution: {integrity: sha1-cnFfczbgu3k1HZnuZcSiU6hEG6Q=}
@@ -11318,7 +11407,6 @@ packages:
     resolution: {integrity: sha1-5mTvMRYRZsl1HNvo28+GtftY93Q=}
     dependencies:
       pify: 2.3.0
-    dev: false
 
   /read-pkg-up/2.0.0:
     resolution: {integrity: sha1-a3KoBImE4MQeeVEP1en6mbO1Sb4=}
@@ -12776,6 +12864,7 @@ packages:
     resolution: {integrity: sha512-qdGMylQ408NmYhzuMmx+25W0iHFyFMRPO4579tDEv+WBiVDfAEYEzjajE4c+CQOLhd1aVEaPdSa+YhngQUgoDQ==}
     cpu: [x64]
     os: [darwin]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -12783,6 +12872,7 @@ packages:
     resolution: {integrity: sha512-mXU324d3vYzxRT9FSSkW9yG2BvFosd0f4DUvqy4qms8wzM6Yv9Aeo4zZTL86rF88UYGUkbiRaPQUeceb/QARVg==}
     cpu: [arm64]
     os: [darwin]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -12790,6 +12880,7 @@ packages:
     resolution: {integrity: sha512-qjjPTnZKOxw2x1Ito3yZAYDcwsCEg/5kYJwbPVvDn1jyXoxr3pUxTHUohroxQ6EmyxQ28qL7QpCVWDoQpDwrOQ==}
     cpu: [x64]
     os: [freebsd]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -12797,6 +12888,7 @@ packages:
     resolution: {integrity: sha512-jYW+Th9Y6yEYevaFe7v3lFQoxyrpd8wX5KuuvqLazMRbNxvKgqTDmT7AbCOGJY5ejzqGnMlTGkQr8c3g3B8ndA==}
     cpu: [arm64]
     os: [freebsd]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -12804,6 +12896,7 @@ packages:
     resolution: {integrity: sha512-c5I8tdR1jD8L8pJWk+rlO734bpWI1gwGdvNOaA/IGZxzOfDSn4CGoUErnUPgOadT8azi7lT9UPQf/pLfEvjCOw==}
     cpu: [ia32]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -12811,6 +12904,7 @@ packages:
     resolution: {integrity: sha512-BZAxLfIkEtQa7u+VPYpdeVVJH6ab4WwXv4oCrUDaZf2BseDUxr57y2ASAWNFsg40T3oXXt4Kcbdc5LibjWQdtQ==}
     cpu: [x64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -12818,6 +12912,7 @@ packages:
     resolution: {integrity: sha512-X6J05gQSWTc2c/TCkOQdFLhr35pUjEExY6K8yanYs2QKgd4GvDHmxYaBZ+6f90qcIUHYpe++adDPJcuAUv+8ug==}
     cpu: [arm]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -12825,6 +12920,7 @@ packages:
     resolution: {integrity: sha512-8/yz5L0B6Jb0pNcvx/08LcPswizqggxQ0zlFEw+Oh9RAC+ZM5+X2YiMyKolvLCpkoRqrlKku0lmXH7mx6DWbig==}
     cpu: [arm64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -12832,6 +12928,7 @@ packages:
     resolution: {integrity: sha512-K26bEFcLDGPkcaW7Eq4CMSxUbJf/x58aE92+0tONhrxXzamaBqTrSxPYlk/T8OoH7HxOvja2ctkpeI/NRAoIyw==}
     cpu: [mips64el]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -12839,6 +12936,7 @@ packages:
     resolution: {integrity: sha512-fr1/5yf8fe1BJiW/6Y9lmV+kxZZC3u3xvSBC5AXDSl9u3aJFZl96CRE9tOJbTZMaOVGxhplKD+EiHbjIxUnTrA==}
     cpu: [ppc64]
     os: [linux]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -12846,6 +12944,7 @@ packages:
     resolution: {integrity: sha512-K9LdIgQXJ7jL0aLJS0l2asJAH/vYBFP7qFzODiAcJ1EeKBjYqAVnIxFQrUN07lzNDtL9WK/aN5q0bJCDnhwTQw==}
     cpu: [ia32]
     os: [win32]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -12853,6 +12952,7 @@ packages:
     resolution: {integrity: sha512-c2Jkmw8yGZVz4opzEvB5HAf9XkA8CZBnorie46s44ec0FaNbcP9SCuUNvgAHxqDIHTGWC4A5PoPn0owkD3ss6A==}
     cpu: [x64]
     os: [win32]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -12960,6 +13060,7 @@ packages:
 
   /uglify-to-browserify/1.0.2:
     resolution: {integrity: sha1-bgkk1r2mta/jSeOabWMoUKD4grc=}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -13337,6 +13438,7 @@ packages:
 
   /watchpack-chokidar2/2.0.1:
     resolution: {integrity: sha512-nCFfBIPKr5Sh61s4LPpy1Wtfi0HE8isJ3d2Yb5/Ppw2P2B/3eVSEBjKfN0fmHJSK14+31KwMKmcrzs2GM4P0Ww==}
+    requiresBuild: true
     dependencies:
       chokidar: 2.1.8
     dev: false

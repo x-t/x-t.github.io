@@ -1,0 +1,10 @@
+_site/
+.cache/
+.jekyll-cache/
+dist/
+node_modules/
+.DS_Store
+.AppleDouble
+.AppleDB
+.Trashes
+neocities

@@ -1,0 +1,18 @@
+{
+  "name": "reviews",
+  "version": "0.0.1",
+  "description": "Hottest reviews on the web",
+  "scripts": {
+    "build": "JEKYLL_ENV=\"production\" bundle exec jekyll build || true",
+    "start": "bundle exec jekyll serve --livereload --drafts --future --port 4000 --livereload_port 35729 \"$@\" || true"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.0",
+    "@tailwindcss/typography": "^0.5.2",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.7",
+    "postcss-import": "14.0.2",
+    "tailwindcss": "^3.0.23"
+  }
+}

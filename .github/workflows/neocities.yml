@@ -1,0 +1,26 @@
+name: Mirror frontend to Neocities
+
+on:
+  workflow_call:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+
+      - name: Clean up
+        run: |
+          rm CNAME
+          mv 404.html not_found.html
+
+      - name: Mirror to Neocities
+        uses: bcomnes/deploy-to-neocities@v1
+        with:
+          api_token: ${{ secrets.NEOCITIES_API_KEY }}
+          cleanup: true
+          dist_dir: .
+
