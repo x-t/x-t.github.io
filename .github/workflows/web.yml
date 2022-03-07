@@ -40,9 +40,10 @@ jobs:
         with:
           branch: gh-pages
           folder: apps/web/dist
+          clean-exclude: reviews
 
   mirror:
     needs: build-and-deploy
     uses: "./.github/workflows/neocities.yml"
     secrets:
-      NEOCITIES_API_KEY: ${{ secrets.NEOCITIES_API_KEY }}
+      NEOCITIES_API_KEY: ${{ secrets.NEOCITIES_API_TOKEN }}
