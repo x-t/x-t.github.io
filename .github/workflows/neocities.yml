@@ -2,6 +2,9 @@ name: Mirror frontend to Neocities
 
 on:
   workflow_call:
+    secrets:
+      NEOCITIES_API_KEY:
+        required: true
 
 jobs:
   build-and-deploy:
