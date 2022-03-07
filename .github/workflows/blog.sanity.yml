@@ -1,0 +1,25 @@
+name: Deploy Blog Sanity Studio
+
+on:
+  push:
+    paths:
+      - "apps/blog.sanity/**"
+      - ".github/workflows/blog.sanity.yml"
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Deploy to Sanity
+        if: github.event_name == 'push'  && github.ref == 'refs/heads/main'
+        run: |
+          npm i -g @sanity/cli
+          pushd apps/blog.sanity
+          npm install
+          sanity deploy
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.BLOG_SANITY_DEPLOY_TOKEN }}

@@ -23,6 +23,8 @@
     "@sanity/desk-tool": "^2.27.3",
     "@sanity/eslint-config-studio": "^2.0.0",
     "@sanity/vision": "^2.27.2",
+    "@sanity/form-builder": "^2.27.3",
+    "@sanity/data-aspects": "^2.27.0",
     "eslint": "^8.10.0",
     "prop-types": "^15.8",
     "react": "^17.0",
