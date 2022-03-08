@@ -16,12 +16,10 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 
   try {
-    await Promise.all([
-      res.unstable_revalidate("/"),
-      res.unstable_revalidate("/posts"),
-      res.unstable_revalidate("/posts/" + req.body.slug),
-    ]);
-
+    // A waterfall, but, you know, whatever.
+    await res.unstable_revalidate("/");
+    await res.unstable_revalidate("/posts");
+    await res.unstable_revalidate("/posts/" + req.body.slug);
     return res.json({ success: true });
   } catch (err) {
     res.status(500).json({ success: false });

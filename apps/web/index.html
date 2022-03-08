@@ -67,21 +67,13 @@
             HEIGHT=25 ALIGN=bottom /></PICTURE> <U>Visit the blog</U></A></H2>
 
       <P style="margin-bottom:0;"><SMALL>Latest blog posts</SMALL></P>
-      
+
       <div style="display:flex;justify-content:center;align-items:center;">
       <ul style="margin-top:5px;"
          x-data="{posts: [],
          loading: true,
          error: ''}"
-         x-init="fetch(window.endpoints.blog + '/api/posts')
-         .then(response => response.json())
-         .then(data => {posts = data; loading = false;})
-         .catch((e) => {
-            loading = false;
-            error = 'An error occured.';
-            console.log(e);
-            window.Sentry.captureException(e);
-         });">
+         @blog-fetch.window="loading = false; posts = $event.detail">
             <template x-if="loading || error">
                <p
                   x-text="loading ? 'Loading...' : error"
