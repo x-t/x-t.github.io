@@ -11,7 +11,7 @@
     "@types/alpinejs": "^3.7.0",
     "@vitejs/plugin-legacy": "^1.7.1",
     "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.7",
+    "postcss": "^8.4.8",
     "typescript": "^4.6.2",
     "vite": "^2.8.6",
     "tsconfig": "workspace:*",
@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "@fpjs-incubator/botd-agent": "^0.1.24",
-    "@sentry/browser": "^6.18.1",
-    "@sentry/tracing": "^6.18.1",
+    "@sentry/browser": "^6.18.2",
+    "@sentry/tracing": "^6.18.2",
     "alpinejs": "^3.9.1"
   }
 }
