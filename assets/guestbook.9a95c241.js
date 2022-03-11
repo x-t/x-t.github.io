@@ -1,1 +1,0 @@
-import"./main.68fbd6ee.js";import{a as o}from"./vendor.b651ed11.js";function i(){import("data:text/javascript,")}window.botdPromise=o.load({publicKey:"lAwajiYjjM1uHZt9oJvdNBux"});export{i as __vite_legacy_guard};
