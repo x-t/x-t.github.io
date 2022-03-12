@@ -6,15 +6,15 @@ backUrl: "/new/Fedora.html"
 
 # Fedora Linux/GNU review
 
-| | |
-| - | - |
-| Kernel |	Linux |
-| Init system | 	systemd |
-| Releases |	Two every year and rolling |
-| Userland |	GNU |
-| Package management | 	yum and dnf |
-| libc |	glibc |
-| | |
+|                    |                            |
+| ------------------ | -------------------------- |
+| Kernel             | Linux                      |
+| Init system        | systemd                    |
+| Releases           | Two every year and rolling |
+| Userland           | GNU                        |
+| Package management | yum and dnf                |
+| libc               | glibc                      |
+|                    |                            |
 
 Fedora is a distro managed by the Fedora Project and sponsored by Red Hat. It's commonly described as "a free version of Red Hat Linux". While to some extent that might be true, CentOS would come closer, because Fedora is a lot more up to date than Red Hat Linux and more designed for the desktop.
 
@@ -48,12 +48,12 @@ For one, Linus Torvalds uses it to maintain his kernel. Fedora tries to hit the 
 
 ## Conclusion
 
-| | |
-| - | - |
-| Pro | Easy to install
-| Pro | Trusted by a lot of people
-| Pro | Up to date
-| Con | Additional repos (rmpfusion) are required to make things work
-| Con | Pretty bloated
-| Con | Some controversial ones: systemd, GNU
-| | |
+|     |                                                               |
+| --- | ------------------------------------------------------------- |
+| Pro | Easy to install                                               |
+| Pro | Trusted by a lot of people                                    |
+| Pro | Up to date                                                    |
+| Con | Additional repos (rmpfusion) are required to make things work |
+| Con | Pretty bloated                                                |
+| Con | Some controversial ones: systemd, GNU                         |
+|     |                                                               |

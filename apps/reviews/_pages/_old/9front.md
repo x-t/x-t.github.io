@@ -6,15 +6,15 @@ backUrl: "/new/9front.html"
 
 # 9front review
 
-| | |
-| - | - |
-| Kernel | 	9front |
-| Init system |  	9front |
-| Releases | 	9front |
-| Userland | 	9front |
-| Package management |  9front |
-| libc | 	9front |
-| | |
+|                    |        |
+| ------------------ | ------ |
+| Kernel             | 9front |
+| Init system        | 9front |
+| Releases           | 9front |
+| Userland           | 9front |
+| Package management | 9front |
+| libc               | 9front |
+|                    |        |
 
 9front is probably the most niche operating system you can think of. There's a community on it called cat-v and the operating system itself is as terrible as the people.
 
@@ -42,11 +42,11 @@ I think there's one server somewhere that uses it. 9front is really a research O
 
 ## Conclusion
 
-| | |
-| - | - |
-| Pro | You can learn a thing
-| Con | It's so useless I can't even consider it an OS at this point
-| Con | Bad community
-| | |
+|     |                                                              |
+| --- | ------------------------------------------------------------ |
+| Pro | You can learn a thing                                        |
+| Con | It's so useless I can't even consider it an OS at this point |
+| Con | Bad community                                                |
+|     |                                                              |
 
 Jackass-tier challenge: use this as your main for a week.

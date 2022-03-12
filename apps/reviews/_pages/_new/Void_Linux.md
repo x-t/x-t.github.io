@@ -12,15 +12,16 @@ icon: "/assets/img/icons/void.png"
 # Void Linux
 
 Challenges:
+
 - Local homelab-in-workstation setup (PHP, nginx, KVM (libvirt), podman)
 
-Back in the day I gave Void a glowing review, however now that I’ve had some time to think about it, it’s absolutely written out of desperation. I remember the system literally freezing and not being able to do anything other than to hard-reset it. And it wasn’t even a one-off, I’ve read that this is somehow a common issue shared between multiple people. It is somewhat foolish how I considered *this* to be the best available.
+Back in the day I gave Void a glowing review, however now that I’ve had some time to think about it, it’s absolutely written out of desperation. I remember the system literally freezing and not being able to do anything other than to hard-reset it. And it wasn’t even a one-off, I’ve read that this is somehow a common issue shared between multiple people. It is somewhat foolish how I considered _this_ to be the best available.
 
 Immediately before I could even think of runit or anything else I was met with the fact that the default installer has outdated root certificates and I couldn’t update the system. Great. However, once I got it up and running I was met with... everything the same as I used to have. So, this is more or less my opinion changing, not the distro. And thus...
 
 ## the installer
 
-It doesn’t work. Forget about Wi-Fi, it can’t set that up, do it manually, you will also have to modify the installer to bypass the network section, otherwise all it’ll do is keep setting it up and failing to do anything. It’ll also fail to detect your network, that’s because HTTPS doesn’t work, as the default ISO *still* uses outdated root certificates (as of 2021/10/14). Once you get through the walking “what were they thinking?!?” moment, you get thrown to a blank install, have fun installing X11 yourself. Oh well, I’m not new to that.
+It doesn’t work. Forget about Wi-Fi, it can’t set that up, do it manually, you will also have to modify the installer to bypass the network section, otherwise all it’ll do is keep setting it up and failing to do anything. It’ll also fail to detect your network, that’s because HTTPS doesn’t work, as the default ISO _still_ uses outdated root certificates (as of 2021/10/14). Once you get through the walking “what were they thinking?!?” moment, you get thrown to a blank install, have fun installing X11 yourself. Oh well, I’m not new to that.
 
 ## hardware
 
@@ -43,7 +44,7 @@ ln -s /etc/sv/nginx /var/service/nginx # equivalent to systemctl enable --now ng
 
 {% picture jpt-webp "/assets/img/new/Void Linux-1.png" --link /reviews/assets/img/new/Void Linux-1.png --alt Safari window showing 'Hello from Louis!' in location lb.x200.lan %}
 
-*Load balancer setup with two IIS VMs through nginx.*
+_Load balancer setup with two IIS VMs through nginx._
 
 ## KVM
 
@@ -51,7 +52,7 @@ Once again, install libvirt, qemu and virt-manager (this is the CLI utilities, n
 
 {% picture jpt-webp "/assets/img/new/Void Linux-2.png" --link /reviews/assets/img/new/Void Linux-2.png --alt Side-by-side two Windows Server Core 2022 VMs in a Void/XFCE desktop. %}
 
-*Two KVM VMs running Windows Server 2022 in virt-viewer via SPICE*
+_Two KVM VMs running Windows Server 2022 in virt-viewer via SPICE_
 
 I used these VMs to run identical IIS sites, for use in an nginx round-robin load balancer seen above.
 
@@ -65,7 +66,7 @@ podman run —name phpcont -d -p 5050:80 -v /opt/php:/var/www/app docker.io/rome
 
 {% picture jpt-webp "/assets/img/new/Void Linux-3.png" --link /reviews/assets/img/new/Void Linux-3.png --alt Safari window showing a phpinfo() page in location x200.lan with system 'Linux/Ubuntu' %}
 
-*Used this container for a proxy_pass to run PHP code.*
+_Used this container for a proxy_pass to run PHP code._
 
 ## conclusion
 

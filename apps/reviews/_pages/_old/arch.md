@@ -6,15 +6,15 @@ backUrl: "/new/Arch_Linux.html"
 
 # Arch Linux/GNU review
 
-| | |
-| - | - |
-| Kernel | 	Linux |
-| Init system |  systemd |
-| Releases | 	Rolling |
-| Userland | 	GNU |
-| Package management |  pacman |
-| libc | 	glibc |
-| | |
+|                    |         |
+| ------------------ | ------- |
+| Kernel             | Linux   |
+| Init system        | systemd |
+| Releases           | Rolling |
+| Userland           | GNU     |
+| Package management | pacman  |
+| libc               | glibc   |
+|                    |         |
 
 Arch is probably the worst piece of crap I've ever used and the community around it is even worse. The amount of crap in this one is an absolute behemoth. I cannot ever bother retesting this distro because this is crap.
 
@@ -46,15 +46,15 @@ r/unixporn and desktop threads. It's not used anywhere else because it's a trash
 
 ## Conclusion
 
-| | |
-| - | - |
-| Pro | It has pretty up to date software
-| Pro | A pretty informative wiki, although IMO Gentoo's is better
-| Con | pacman is trash
-| Con | The AUR is trash
-| Con | The community is toxic
-| Con | No installer
-| Con | No package splitting. Come on, Arch, can't you do -dev packages?
-| | |
+|     |                                                                  |
+| --- | ---------------------------------------------------------------- |
+| Pro | It has pretty up to date software                                |
+| Pro | A pretty informative wiki, although IMO Gentoo's is better       |
+| Con | pacman is trash                                                  |
+| Con | The AUR is trash                                                 |
+| Con | The community is toxic                                           |
+| Con | No installer                                                     |
+| Con | No package splitting. Come on, Arch, can't you do -dev packages? |
+|     |                                                                  |
 
 I spent a full year on Arch. A year. Please end me. It's a bad distro with a terrible community. It's the only distro that I will never install in the entirety of my life. I hate it so much I want it to die. But I also don't want it to die. It's a "so bad it's good" thing. It keeps all these elitist assholes in one place, so keep the distro up, I'll talk bad about it, but thanks for existing.

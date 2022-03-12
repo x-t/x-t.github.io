@@ -63,7 +63,7 @@ export default function Post({ data, preview }) {
           </>
         )}
       </Head>
-      <article className="rounded-md bg-zinc-200 p-5 dark:bg-transparent">
+      <article className="rounded-md bg-zinc-200 p-5 dark:bg-transparent flex flex-col items-center">
         <div className="grid grid-rows-[auto,_auto,_auto] gap-y-3">
           <h1 className="text-2xl font-bold lg:text-3xl">{post?.title}</h1>
           {post?.mainImage && (

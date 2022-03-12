@@ -11,6 +11,7 @@ icon: "/assets/img/icons/elementary.png"
 # Elementary OS
 
 Challenges:
+
 - Run it on a MacBook. That’s what they want, don’t they?
 - Set up a distcc container
 
@@ -55,15 +56,15 @@ It’s seriously only some tech journalists and articles that keep perpetuating 
 
 {% picture jpt-webp "/assets/img/new/Elementary OS.png" --link /reviews/assets/img/new/Elementary OS.png --alt Terminal output showing a running container and two built images - Debian and distcc. %}
 
-*The container runs.*
+_The container runs._
 
 {% picture jpt-webp "/assets/img/new/Elementary OS-1.png" --link /reviews/assets/img/new/Elementary OS-1.png --alt Terminal output showing invoked distcc command returned with 'Segmentation fault' %}
 
-*Somehow build-essential isn’t a dependency, and without it, it fails.*
+_Somehow build-essential isn’t a dependency, and without it, it fails._
 
 {% picture jpt-webp "/assets/img/new/Elementary OS-2.png" --link /reviews/assets/img/new/Elementary OS-2.png --alt Terminal output showing a recognised IP address in distcc configuration, but still compiling using localhost. %}
 
-*I still wasn’t able to test it, it kept giving it over to localhost. Oh well, whatever.*
+_I still wasn’t able to test it, it kept giving it over to localhost. Oh well, whatever._
 
 ## conclusion
 

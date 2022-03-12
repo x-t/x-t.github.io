@@ -6,15 +6,15 @@ backUrl: "/new/FreeBSD.html"
 
 # FreeBSD review
 
-| | |
-| - | - |
-| Kernel |	FreeBSD |
-| Init system | svchost.exe (actually it's rc) |
-| Releases |	lol |
-| Userland |	FreeBSD |
-| Package management |	pkgng and ports |
-| libc |	FreeBSD |
-| | |
+|                    |                                |
+| ------------------ | ------------------------------ |
+| Kernel             | FreeBSD                        |
+| Init system        | svchost.exe (actually it's rc) |
+| Releases           | lol                            |
+| Userland           | FreeBSD                        |
+| Package management | pkgng and ports                |
+| libc               | FreeBSD                        |
+|                    |                                |
 
 FreeBSD, IMO, is the second best OS that UNIX has to offer. It's the best BSD out of them all and it beats all Linux distros by a good margin. Although, being a pretty small operating system (community-wise), there are definitely support issues.
 
@@ -50,14 +50,14 @@ Three people and two companies' servers. The entire point of FreeBSD is that the
 
 ## Conclusion
 
-| | |
-| - | - |
-| Pro | Best software support out of BSDs
-| Pro | Best hardware support out of BSDs
-| Pro | Appeals to boomers because it's UNIX
-| Mixed | Linux compatibility layer is cool, but I never got it to work.
-| Con | Broken software
-| Con | Small community (software fixes will never come)
-| | |
+|       |                                                                |
+| ----- | -------------------------------------------------------------- |
+| Pro   | Best software support out of BSDs                              |
+| Pro   | Best hardware support out of BSDs                              |
+| Pro   | Appeals to boomers because it's UNIX                           |
+| Mixed | Linux compatibility layer is cool, but I never got it to work. |
+| Con   | Broken software                                                |
+| Con   | Small community (software fixes will never come)               |
+|       |                                                                |
 
 All in all, I kinda like it, it's the cleanest cumrag of them all.

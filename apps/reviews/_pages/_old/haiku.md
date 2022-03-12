@@ -6,15 +6,15 @@ backUrl: "/new/Haiku.html"
 
 # GNU/Haiku review
 
-| | |
-| - | - |
-| Kernel |	Haiku |
-| Init system | launch_deamon |
-| Releases |	In development, rolling |
-| Userland |	GNU |
-| Package management | Haikuports, Haiku Depot |
-| libc |	Haiku w/ glibc components |
-| | |
+|                    |                           |
+| ------------------ | ------------------------- |
+| Kernel             | Haiku                     |
+| Init system        | launch_deamon             |
+| Releases           | In development, rolling   |
+| Userland           | GNU                       |
+| Package management | Haikuports, Haiku Depot   |
+| libc               | Haiku w/ glibc components |
+|                    |                           |
 
 Haiku is an interesting project. It's like 9front that got somewhere. It's practically the only alternative operating system that has any hope, however tiny that is.
 
@@ -46,14 +46,14 @@ Nowhere really. It's a desktop OS and it's not ready for production. Linux isn't
 
 ## Conclusion
 
-| | |
-| - | - |
-| Pro | Interesting concept
-| Pro | Definitely one of the comfiest interfaces I've ever used
-| Pro | You can research it, there is definitely some non-POSIX elements there
-| Mixed | Bloated. I feel about this the same way about macOS tho
-| Con | Next to no software
-| Con | Not ready for general usage
-| | |
+|       |                                                                        |
+| ----- | ---------------------------------------------------------------------- |
+| Pro   | Interesting concept                                                    |
+| Pro   | Definitely one of the comfiest interfaces I've ever used               |
+| Pro   | You can research it, there is definitely some non-POSIX elements there |
+| Mixed | Bloated. I feel about this the same way about macOS tho                |
+| Con   | Next to no software                                                    |
+| Con   | Not ready for general usage                                            |
+|       |                                                                        |
 
 This is an OS I check back a few times over the year, to see where it got to, because deep down I want it to work out, this has the potential to become an open non-cumrag OS (as far as I know, world's first).

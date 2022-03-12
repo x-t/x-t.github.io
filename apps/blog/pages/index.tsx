@@ -1,6 +1,5 @@
 import Head from "next/head";
-import Link from "next/link";
-import { frontQuery, heroQuery } from "../lib/queries";
+import { indexQuery } from "../lib/queries";
 import { getClient } from "../lib/sanity.server";
 import { PostCard } from "../components/post_card";
 
@@ -25,21 +24,21 @@ export default function BlogIndex({ data, preview }) {
           key="rss-feed"
           rel="alternative"
           type="application/rss+xml"
-          title="RSS feed for zxyz.gay"
+          title="RSS feed for zxyz's blog"
           href="/feed"
         />
         <link
           key="atom-feed"
           rel="alternative"
           type="application/atom+xml"
-          title="Atom feed for zxyz.gay"
+          title="Atom feed for zxyz's blog"
           href="/feed/atom"
         />
         <link
           key="json-feed"
           rel="alternative"
           type="application/feed+json"
-          title="JSON feed for zxyz.gay"
+          title="JSON feed for zxyz's blog"
           href="/feed/json"
         />
       </Head>
@@ -59,35 +58,14 @@ export default function BlogIndex({ data, preview }) {
               className="mt-10"
             />
           ))}
-        <div className="mt-10">
-          <Link href="/posts">
-            <a className="floatee flex flex-row items-center justify-center space-x-1">
-              <span>View all posts</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="mt-[5.2px] h-5 w-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </a>
-          </Link>
-        </div>
       </div>
     </>
   );
 }
 
 export async function getStaticProps({ preview = false }) {
-  const [hero, otherPosts] = await Promise.all([
-    getClient(preview).fetch(heroQuery),
-    getClient(preview).fetch(frontQuery),
-  ]);
+  const allPosts = await getClient(preview).fetch(indexQuery);
+  const [hero, otherPosts] = [allPosts[0], allPosts.slice(1)];
   return {
     props: {
       preview,

@@ -6,15 +6,15 @@ backUrl: "/new/Debian.html"
 
 # Debian Linux/GNU review
 
-| | |
-| - | - |
-| Kernel |	Linux |
-| Init system | systemd |
-| Releases |	Stable (every few years, pinned), testing, unstable (rolling) |
-| Userland |	GNU |
-| Package management | apt |
-| libc |	glibc |
-| | |
+|                    |                                                               |
+| ------------------ | ------------------------------------------------------------- |
+| Kernel             | Linux                                                         |
+| Init system        | systemd                                                       |
+| Releases           | Stable (every few years, pinned), testing, unstable (rolling) |
+| Userland           | GNU                                                           |
+| Package management | apt                                                           |
+| libc               | glibc                                                         |
+|                    |                                                               |
 
 Debian is a pretty nice distro. It's a pretty popular OS. It tries to be the best solution for servers.
 
@@ -26,7 +26,7 @@ To expand on the update channels, there are three
 
 - Stable - this only gets updated every few years, during that time every package is frozen and only the most important security updates are released. This is the worst to run as every package gets outdated and drivers become missing extremely quickly.
 - Testing - this is a step above stable. This is the most stable rolling channel Debian offers. It's what the "next Debian" will be like. However there isn't a security team on this channel and most of the time you'll get security patches LAST. There is no reason to be on this channel.
-- Unstable - this is the latest* that Debian has to offer. Still outdated packages. Not even kidding, this is still outdated. It's lagging behind Ubuntu most of the time. That said, you'll get feature and security updates the fastest here. This is the channel to be on if you're on a desktop and not a server. Don't let the name scare you, it's actually not that unstable.
+- Unstable - this is the latest\* that Debian has to offer. Still outdated packages. Not even kidding, this is still outdated. It's lagging behind Ubuntu most of the time. That said, you'll get feature and security updates the fastest here. This is the channel to be on if you're on a desktop and not a server. Don't let the name scare you, it's actually not that unstable.
 
 \* - there is the experimental channel. It doesn't contain a full system, this is an add-on to unstable. Don't consider using this full-time though, it's only a dumping ground for Debian developers to check for package ready-ness to put into unstable. Sometimes you can catch some more up to date packages and download it from there. I did this when Firefox 60 was still in the development stages.
 Other than that, Debian is the mother of Ubuntu, everything compiled and designed for Ubuntu will be installable on Debian, because their package manager is the same.
@@ -61,17 +61,17 @@ There is a large number of desktop users, on all release channels, but the most 
 
 ## Conclusion
 
-| | |
-| - | - |
-| Pro | It's unique in the software sorting department, not a "yet another drop in the ocean"
-| Pro | It's popular, therefore you get a lot support
-| Pro | Installer lets you set up a system as bloated or as slim as you like, Arch users jelly
-| Pro | FSF are pretty happy because of package seperation
-| Pro | Large binary repository due to compatibility of debs and PPAs
-| Con | Cumrag kernel
-| Con | Outdated packages
-| Con | apt is a mess beyond repair
-| Con | FSF syndrome makes 99% of WiFi, 100% of AMD and 50% of Nvidia cards not work
-| | |
+|     |                                                                                        |
+| --- | -------------------------------------------------------------------------------------- |
+| Pro | It's unique in the software sorting department, not a "yet another drop in the ocean"  |
+| Pro | It's popular, therefore you get a lot support                                          |
+| Pro | Installer lets you set up a system as bloated or as slim as you like, Arch users jelly |
+| Pro | FSF are pretty happy because of package seperation                                     |
+| Pro | Large binary repository due to compatibility of debs and PPAs                          |
+| Con | Cumrag kernel                                                                          |
+| Con | Outdated packages                                                                      |
+| Con | apt is a mess beyond repair                                                            |
+| Con | FSF syndrome makes 99% of WiFi, 100% of AMD and 50% of Nvidia cards not work           |
+|     |                                                                                        |
 
 I quite hold this distro to my heart. It's probably the one I used the longest, and it shows, it's actually really good, although the flaws got to me one day and I went out on an adventure for something better...

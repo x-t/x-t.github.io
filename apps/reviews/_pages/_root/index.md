@@ -10,9 +10,8 @@ layout: index
 {:.inline-block .font-bold .text-5xl .lg:text-6xl .ml-10 .filter .drop-shadow-md}
 # Revisited
 
-
 <a href="{{ "/guide.html" | relative_url }}" class="mt-20 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-700 hover:to-red-700 p-5 rounded-md flex items-center justify-center text-gr text-bold text-white shadow-md">
-    🚪 Take the adventure
+🚪 Take the adventure
 </a>
 
 {:.lead .pt-20}

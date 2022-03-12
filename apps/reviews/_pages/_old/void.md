@@ -6,15 +6,15 @@ backUrl: "/new/Void_Linux.html"
 
 # Void Linux/GNU review
 
-| | |
-| - | - |
-| Kernel |	Linux |
-| Init system | runit |
-| Releases |	Rolling |
-| Userland |	GNU |
-| Package management |	xbps |
-| libc |	glibc, with option of musl |
-| | |
+|                    |                            |
+| ------------------ | -------------------------- |
+| Kernel             | Linux                      |
+| Init system        | runit                      |
+| Releases           | Rolling                    |
+| Userland           | GNU                        |
+| Package management | xbps                       |
+| libc               | glibc, with option of musl |
+|                    |                            |
 
 Void is a niche distro that's made by MLP fans in their parent's basement. The only thing that sets it apart from other bad distros like Arch is their choice of the init system, runit. Which although isn't as bad as systemd, is still comparing puke to excrement.
 
@@ -54,19 +54,19 @@ A few pony-lovers, weebs and desktop posters on /g/.
 
 ## Conclusion
 
-| | |
-| - | - |
-| Pro | No systemd, runit is really fast
-| Pro | Ye olde Linux, like the olden days before this Poettering came in and screwed us all in the ass.
-| Pro | A strong repository.
-| Con | A void of documentation
-| Con | Possible and widespread hardware issues non-existant on other distros.
-| Con | xbps is bad.
-| Con | Some software in the repo is broken.
-| Con | runit has design flaws.
-| Con | No modern features like NFS-mounting in fstab
-| Con | Community of fools
-| Con | Linux updates are delayed due to "proprietary modules"
-| | |
+|     |                                                                                                  |
+| --- | ------------------------------------------------------------------------------------------------ |
+| Pro | No systemd, runit is really fast                                                                 |
+| Pro | Ye olde Linux, like the olden days before this Poettering came in and screwed us all in the ass. |
+| Pro | A strong repository.                                                                             |
+| Con | A void of documentation                                                                          |
+| Con | Possible and widespread hardware issues non-existant on other distros.                           |
+| Con | xbps is bad.                                                                                     |
+| Con | Some software in the repo is broken.                                                             |
+| Con | runit has design flaws.                                                                          |
+| Con | No modern features like NFS-mounting in fstab                                                    |
+| Con | Community of fools                                                                               |
+| Con | Linux updates are delayed due to "proprietary modules"                                           |
+|     |                                                                                                  |
 
 Sadly, this was one of the best Linux distros I've used, which should really throw a realization on how screwed the distro world is.

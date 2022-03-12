@@ -25,24 +25,6 @@ export const postQuery = groq`
   }
 `;
 
-export const heroQuery = groq`
-*[_type == "post"] | order(publishedAt desc) [0] {
-  title,
-  publishedAt,
-  description,
-  mainImage,
-  "slug": slug.current
-}`;
-
-export const frontQuery = groq`
-*[_type == "post"] | order(publishedAt desc) [1...5] {
-  title,
-  publishedAt,
-  description,
-  mainImage,
-  "slug": slug.current
-}`;
-
 export const feedQuery = groq`
 *[_type == "post"] | order(publishedAt desc) [0...10] {
   title,

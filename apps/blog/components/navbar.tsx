@@ -29,9 +29,6 @@ export const Navbar = () => {
       </div>
       <div className="flex gap-3 print:hidden">
         <Link href="/">
-          <a className={`w-14 hover:text-white`}>front</a>
-        </Link>
-        <Link href="/posts">
           <a className={`w-14 hover:text-white`}>posts</a>
         </Link>
         <Link href="/feed">
