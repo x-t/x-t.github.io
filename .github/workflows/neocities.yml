@@ -7,7 +7,7 @@ on:
         required: true
 
 jobs:
-  build-and-deploy:
+  mirror:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,6 +20,11 @@ jobs:
           rm CNAME
           rm -rf .git
           mv 404.html not_found.html
+      
+      - name: Cloudflare Analytics
+        run: |
+          find -name '*.html' -exec sed -i 's|</body>|<!-- Cloudflare Web Analytics --><script defer src='\''https://static.cloudflareinsights.com/beacon.min.js'\'' data-cf-beacon='\''{"token": "ebc7fbd034354f089166b7c3c142291a"}'\''></script><!-- End Cloudflare Web Analytics --></body>|g' {} +
+          find -name '*.html' -exec sed -i 's|</BODY>|<!-- Cloudflare Web Analytics --><script defer src='\''https://static.cloudflareinsights.com/beacon.min.js'\'' data-cf-beacon='\''{"token": "ebc7fbd034354f089166b7c3c142291a"}'\''></script><!-- End Cloudflare Web Analytics -->\n</BODY>|g' {} +
 
       - name: Mirror to Neocities
         uses: bcomnes/deploy-to-neocities@v1
