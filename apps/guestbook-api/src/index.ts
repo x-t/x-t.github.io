@@ -51,6 +51,9 @@ nunjucks.configure(path.resolve(__dirname, "../views"), {
 app.get("/", async (req, res) => {
   res.redirect("https://zxyz.gay");
 });
+app.get("/_healthz", async (req, res) => {
+  res.send("ok");
+});
 app.post("/api/post", ...constraints, v2_post);
 app.get("/api/get_posts", get_posts);
 
