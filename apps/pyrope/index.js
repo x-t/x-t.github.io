@@ -29,6 +29,15 @@ const can_put = (secret) => {
   return env === secret;
 };
 
+app.enable('trust proxy');
+app.use((req, res, next) => {
+    req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
+});
+
+app.get("/_healthz", async (req, res) => {
+  res.send("ok");
+});
+
 app.get("/:id", async (req, res) => {
   const { id } = req.params;
   const dbres = await db.get(id);
