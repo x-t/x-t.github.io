@@ -230,11 +230,11 @@ importers:
     specifiers:
       eslint-config-next: ^12.1.0
       eslint-config-prettier: ^8.5.0
-      eslint-plugin-react: 7.29.3
+      eslint-plugin-react: 7.29.4
     dependencies:
       eslint-config-next: 12.1.0
       eslint-config-prettier: 8.5.0
-      eslint-plugin-react: 7.29.3
+      eslint-plugin-react: 7.29.4
 
   packages/tsconfig:
     specifiers: {}
@@ -7197,7 +7197,7 @@ packages:
       eslint-import-resolver-typescript: 2.5.0_eslint-plugin-import@2.25.4
       eslint-plugin-import: 2.25.4
       eslint-plugin-jsx-a11y: 6.5.1
-      eslint-plugin-react: 7.29.3
+      eslint-plugin-react: 7.29.4
       eslint-plugin-react-hooks: 4.3.0
     transitivePeerDependencies:
       - supports-color
@@ -7343,8 +7343,8 @@ packages:
       string.prototype.matchall: 4.0.6
     dev: false
 
-  /eslint-plugin-react/7.29.3:
-    resolution: {integrity: sha512-MzW6TuCnDOcta67CkpDyRfRsEVx9FNMDV8wZsDqe1luHPdGTrQIUaUXD27Ja3gHsdOIs/cXzNchWGlqm+qRVRg==}
+  /eslint-plugin-react/7.29.4:
+    resolution: {integrity: sha512-CVCXajliVh509PcZYRFyu/BoUEz452+jtQJq2b3Bae4v3xBUWPLCmtmBM+ZinG4MzwmxJgJ2M5rMqhqLVn7MtQ==}
     engines: {node: '>=4'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8

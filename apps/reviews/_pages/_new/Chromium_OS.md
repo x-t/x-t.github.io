@@ -1,7 +1,7 @@
 ---
 layout: newreview
 title: Chromium OS
-description: Popularity ≠ quality.
+description: (NUKED) Popularity ≠ quality.
 order: 14
 previousReview: "/new/Elementary_OS.html"
 nextReview: "/new/NetBSD.html"
@@ -9,6 +9,8 @@ icon: "/assets/img/icons/chromium.png"
 ---
 
 # Chromium OS
+
+*Notice: this review is nuked in favor of the [Chrome OS Flex](/reviews/extras/Chrome_OS_Flex.html) review.*
 
 Challenges:
 

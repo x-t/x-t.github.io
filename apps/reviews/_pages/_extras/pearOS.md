@@ -4,6 +4,7 @@ title: pearOS
 description: Breaking all barriers of terrible.
 order: 1
 icon: "/assets/img/icons/pearos.png"
+nextReview: "/extras/Chrome_OS_Flex.html"
 ---
 
 # pearOS

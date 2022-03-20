@@ -2,8 +2,12 @@
 layout: index
 ---
 
+<!-- prettier-ignore-start -->
+
 {:.inline-block .pt-10 .font-bold .text-3xl .lg:text-5xl .filter .drop-shadow-md}
 # [Reviews Revisited]({{ "/" | relative_url }})
+
+<!-- prettier-ignore-end -->
 
 {:.lead .pt-5}
 Reviews are not ordered by anything, only in the chronological order of writing.
@@ -40,11 +44,15 @@ If they exist, old reviews are attached as well.
 
 </content>
 
+<!-- prettier-ignore-start -->
+
 {:.inline-block .pt-10 .font-bold .text-2xl .lg:text-3xl .filter .drop-shadow-md}
 ## Extras
 
+<!-- prettier-ignore-end -->
+
 {:.lead .pt-5}
-These are reviews written afterwards, in no order, just for fun.
+These are reviews written afterwards, in no order, just for fun. They're higher quality than the other reviews, thus should be better to read.
 
 <content class="flex flex-col items-center justify-center pt-5 gap-y-5">
 
