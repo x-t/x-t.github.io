@@ -89,7 +89,7 @@
                         {hour: '2-digit',minute: '2-digit'})"></span>
                   -
                   <a x-text="post.title"
-                     :href="window.endpoints.blog + '/posts/' + post.slug"></a>
+                     :href="'https://' + window.endpoints.blog.split('/')[2] + '/posts/' + post.slug"></a>
                </li>
             </template>
          </ul>
