@@ -8,7 +8,7 @@ datasource db {
 }
 
 model posts {
-  id         String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id         String    @id @default(uuid()) @db.Uuid
   created_at DateTime? @default(now()) @db.Timestamp(6)
   name       String?
   comment    String

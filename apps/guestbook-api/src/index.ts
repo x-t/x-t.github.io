@@ -8,6 +8,7 @@ import { constraints, v2_post } from "./v2_post";
 import nunjucks from "nunjucks";
 import path from "path";
 import { get_posts } from "./get_posts";
+import { healthz } from "./healthz";
 
 const app = express();
 const port = process.env.PORT || 3005;
@@ -51,9 +52,7 @@ nunjucks.configure(path.resolve(__dirname, "../views"), {
 app.get("/", async (req, res) => {
   res.redirect("https://zxyz.gay");
 });
-app.get("/_healthz", async (req, res) => {
-  res.send("ok");
-});
+app.get("/_healthz", healthz);
 app.post("/api/post", ...constraints, v2_post);
 app.get("/api/get_posts", get_posts);
 
