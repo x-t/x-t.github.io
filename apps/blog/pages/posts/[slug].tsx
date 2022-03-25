@@ -10,6 +10,7 @@ import { postQuery } from "../../lib/queries";
 import { BlogImage } from "../../components/blog_image";
 import { BlogCode } from "../../components/blog_code";
 import { PortableText } from "@portabletext/react";
+import { BlogYouTube } from "../../components/blog_youtube";
 
 export default function Post({ data, preview }) {
   const router = useRouter();
@@ -33,6 +34,7 @@ export default function Post({ data, preview }) {
     types: {
       image: (props) => <BlogImage props={props} preview={preview} />,
       code: (props) => <BlogCode props={props} />,
+      youtube: (props) => <BlogYouTube props={props} />,
     },
   };
 
@@ -62,6 +64,7 @@ export default function Post({ data, preview }) {
             <meta name="twitter:description" content={post?.description} />
           </>
         )}
+        <meta property="og:type" content="article" />
       </Head>
       <article className="rounded-md bg-zinc-200 p-5 dark:bg-transparent flex flex-col items-center">
         <div className="grid grid-rows-[auto,_auto,_auto] gap-y-3">

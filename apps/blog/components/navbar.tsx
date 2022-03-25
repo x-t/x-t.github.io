@@ -31,10 +31,8 @@ export const Navbar = () => {
         <Link href="/">
           <a className={`w-14 hover:text-white`}>posts</a>
         </Link>
-        <Link href="/feed">
-          <a className={`w-14 hover:text-white`} target="_blank">
-            rss
-          </a>
+        <Link href="/rss">
+          <a className={`w-14 hover:text-white`}>rss</a>
         </Link>
       </div>
     </nav>

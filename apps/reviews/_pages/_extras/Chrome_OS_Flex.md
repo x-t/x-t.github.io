@@ -13,9 +13,9 @@ Challenges:
 
 - None. Just vibes.
 
-*Notice 1: this is an early access build, Flex is in its infancy and the situation can and will change over time as Google rolls it out to the stable channel.*
+_Notice 1: this is an early access build, Flex is in its infancy and the situation can and will change over time as Google rolls it out to the stable channel._
 
-*Notice 2: this overrides the old Chromium OS review.*
+_Notice 2: this overrides the old Chromium OS review._
 
 Ever since the news hit that Google bought out Neverware, who created and maintained the flagship Chromium OS distribution Cloudready, who’s sole purpose was to run on as many pieces of hardware as possible, as fast as possible, everyone started to think that Google might be ready to tap into that market.
 
@@ -41,7 +41,7 @@ No, Android is not supported, just as it wasn’t in Cloudready. Google has not 
 
 ## Does it have developer mode?
 
-Chromium OS, including Cloudready, has always come with developer mode pre-enabled. This wasn’t *that* useful, aside from shell access, plus there was a security concern, since anyone would be able to start up your Chromebook, hit Ctrl-Alt-Shift-F2 and have root access 😬
+Chromium OS, including Cloudready, has always come with developer mode pre-enabled. This wasn’t _that_ useful, aside from shell access, plus there was a security concern, since anyone would be able to start up your Chromebook, hit Ctrl-Alt-Shift-F2 and have root access 😬
 
 Chrome OS Flex (and the last few versions of Cloudready) have disabled developer mode, but it can be brought back by putting `cros_debug` in your kernel command line.
 
@@ -77,7 +77,6 @@ If the first and second options don’t work out, Chromebrew is there to help. U
 Thing is, this can be hit or miss at times. While most basic terminal apps will work, graphical applications might not be that good. For example, Signal doesn’t work.
 
 {% picture jpt-webp /assets/img/extras/Chrome_OS_Flex-1.png --link /reviews/assets/img/extras/Chrome_OS_Flex-1.png --alt Terminal screenshot of signal-desktop starting, but failing with a core dumped exception. %}
-
 
 And then, the integration does come into question. Unlike Crostini, Chromebrew will not add in your installed applications into the applications menu. Meaning, you’ll need to start up the terminal, then type in your executable and launch it that way. Not ideal in the slightest.
 
@@ -116,29 +115,27 @@ And even though the bet took way longer than I’d imagine the Chrome OS team ex
 
 {% picture jpt-webp /assets/img/extras/Chrome_OS_Flex-2.png --link /reviews/assets/img/extras/Chrome_OS_Flex-2.png --img width="256"  --alt XKCD Comic reading I'm a Mac I'm a PC And since you do everything through a browser now, we're pretty indistinguishable. %}
 
-
 While clearly Google still thinks PWAs alone aren’t enough, indicated by the addition of Android and Linux compatibility, it’s not 2011 anymore, you can probably now switch to Chrome OS and do big parts of your work. Still, probably not its entirety, but, a huge chunk. Which is a good selling point for something like Flex, you can just take an old laptop, transform it into a Chromebook and have a simple, fast experience on the go, without the need to take your more complex setup.
 
 {% picture jpt-webp /assets/img/extras/Chrome_OS_Flex-3.png --link /reviews/assets/img/extras/Chrome_OS_Flex-3.png --alt Gitpod tab open with my blog code %}
 
-*Example: here’s GitPod, a cloud IDE that runs perfectly inside a browser. No Crostini for development required.*
+_Example: here’s GitPod, a cloud IDE that runs perfectly inside a browser. No Crostini for development required._
 
 ### Some truly magical performance
 
 At the end of the day, my love for Chrome OS alone probably wouldn’t make me install it and actively use it on anything. But one thing makes me always come back. Even since the days of Cloudready, even on old, slow mechanical hard drives, even on CPUs as slow as the Core 2 Duo and first generation i3’s, even with GPUs as slow as the integrated Intel graphics, Chrome OS has been faster than anything else on the conceivable market.
 
-I am unsure what magic they’ve pulled to make it work, I tried every setup in existence, from the most minimal Arch, to even `-O3` optimised Gentoo, I still didn’t see performance this good. Boots in seconds, usable browser in another second, applications launch in no time, tabs always buttery smooth, even on 4GB of RAM, instant wake-up from sleep (no Apple M1 required). Even without the custom EFI setup of Chromebooks, even without the custom CPU features found in Chromebooks, Chrome OS is *fast as f**** on any piece of hardware I was able to throw it at.
+I am unsure what magic they’ve pulled to make it work, I tried every setup in existence, from the most minimal Arch, to even `-O3` optimised Gentoo, I still didn’t see performance this good. Boots in seconds, usable browser in another second, applications launch in no time, tabs always buttery smooth, even on 4GB of RAM, instant wake-up from sleep (no Apple M1 required). Even without the custom EFI setup of Chromebooks, even without the custom CPU features found in Chromebooks, Chrome OS is \*fast as f\*\*\*\* on any piece of hardware I was able to throw it at.
 
 **This** is the main reason why I love it. Even a ThinkPad from 2009 runs as fast, and sometimes even faster than my 2013 MacBook. Only Haiku is able to match this sort of performance, and Haiku cheats by the virtue of just being extraordinarily light. The entire system can fit in RAM, it’s fast because it’s small and it doesn’t do a whole lot, as a daily driver, it’s not ready yet. While Chrome OS is as fast and runs an entire Chrome browser. Watch movies, write documents, do whatever you want, it’s a full Chrome system that boots in under 5 seconds on a Core 2 Duo.
 
 {% picture jpt-webp /assets/img/extras/Chrome_OS_Flex-4.png --link /reviews/assets/img/extras/Chrome_OS_Flex-4.png --alt Description below %}
 
-*8 tabs, two video streams and a third one that’s being cast to a Chromecast, with Spotify PWA controlling a remote player in the background. Might I remind you - on a machine from 2009. With no slow down.*
+_8 tabs, two video streams and a third one that’s being cast to a Chromecast, with Spotify PWA controlling a remote player in the background. Might I remind you - on a machine from 2009. With no slow down._
 
 ## Conclusion
 
 > I think it’s fine. It’s not really there to set out to “destroy all distros” or something like that. It’s Chrome OS. It’s not Windows, not macOS, not Linux, only Chrome OS. If it’s enough what you need it for, then hell, go for it. There’s really nothing else like it.
-> 
 
 This old conclusion was rather accurate, although not descriptive. Yes, it’s not here to destroy Linux, in fact, it embraces it. It also doesn’t want to kill Windows or macOS, clearly recognising its’ own weaknesses. But since Windows 11 has dropped **a lot** of perfectly-usable older hardware, Linux has gotten a new buzz. While distros and DEs are still scrambling themselves to make products that are good for newcomers, with everyone having used Linux for years, not knowing what a newcomer expects anymore, Google has gotten it totally right, and have released a product that could very well, after the Windows 10 EOL date, redefine what an old laptop should run.
 

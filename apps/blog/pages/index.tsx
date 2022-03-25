@@ -20,27 +20,6 @@ export default function BlogIndex({ data, preview }) {
         <meta name="description" content={seo.description} />
         <meta name="twitter:description" content={seo.description} />
         <meta name="og:description" content={seo.description} />
-        <link
-          key="rss-feed"
-          rel="alternative"
-          type="application/rss+xml"
-          title="RSS feed for zxyz's blog"
-          href="/feed"
-        />
-        <link
-          key="atom-feed"
-          rel="alternative"
-          type="application/atom+xml"
-          title="Atom feed for zxyz's blog"
-          href="/feed/atom"
-        />
-        <link
-          key="json-feed"
-          rel="alternative"
-          type="application/feed+json"
-          title="JSON feed for zxyz's blog"
-          href="/feed/json"
-        />
       </Head>
       <div className="grid">
         <div className="group relative">

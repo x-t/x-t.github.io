@@ -10,7 +10,7 @@ icon: "/assets/img/icons/chromium.png"
 
 # Chromium OS
 
-*Notice: this review is nuked in favor of the [Chrome OS Flex](/reviews/extras/Chrome_OS_Flex.html) review.*
+_Notice: this review is nuked in favor of the [Chrome OS Flex](/reviews/extras/Chrome_OS_Flex.html) review._
 
 Challenges:
 

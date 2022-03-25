@@ -77,7 +77,11 @@ These are reviews written afterwards, in no order, just for fun. They're higher 
 
 </content>
 
+<!-- prettier-ignore-start -->
+
 {:.pt-20 .text-xs .text-gray-700 .dark:text-gray-100}
 <footer>
 some/all logo copyright owned by respective distro/os owners
 </footer>
+
+<!-- prettier-ignore-end -->
