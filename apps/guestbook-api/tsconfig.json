@@ -20,6 +20,9 @@
           "esnext.asynciterable"
       ]
   },
+  "include": [
+      "src/**/*"
+  ],
   "exclude": [
     "prisma/**/*",
   ]
