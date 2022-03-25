@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
 import { prisma } from "./prisma_client";
+import { fetch } from "./import_fetch";
 
 // https://github.com/remix-run/blues-stack/blob/main/app/routes/healthcheck.tsx
 
