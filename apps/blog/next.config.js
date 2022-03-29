@@ -4,7 +4,6 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 const moduleExports = {
-  swcMinify: true,
   sentry: {
     disableClientWebpackPlugin: true,
   },

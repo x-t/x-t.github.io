@@ -1,10 +1,16 @@
 import "../styles/global.css";
 import Script from "next/script";
+import { Navbar } from "../components/navbar";
 
 function NextBlog({ Component, pageProps }) {
   return (
     <>
-      <Component {...pageProps} />
+      <div className="min-h-full bg-gradient-to-tl from-mcraegreen to-mcraeblue dark:from-zinc-900 dark:to-mcraedarkblue dark:text-zinc-200 print:bg-white print:text-black">
+        <main>
+          <Navbar />
+          <Component {...pageProps} />
+        </main>
+      </div>
       <Script
         defer
         src="https://static.cloudflareinsights.com/beacon.min.js"

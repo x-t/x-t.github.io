@@ -1,13 +1,12 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { Navbar } from "../components/navbar";
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html
-        lang="en"
-        className="min-h-full bg-gradient-to-tl from-mcraegreen to-mcraeblue dark:from-zinc-900 dark:to-mcraedarkblue dark:text-zinc-200 print:bg-white print:text-black"
-      >
+      // Styles don't work here anymore? What kind of stupid
+      // decision is that? What's the bloody point of a custom
+      // Html tag if it ignores your classnames? Vercel, why?
+      <Html lang="en">
         <Head>
           <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
           <meta name="og:url" content="https://blog.zxyz.gay" />
@@ -44,7 +43,6 @@ export default class MyDocument extends Document {
           />
         </Head>
         <body>
-          <Navbar />
           <Main />
           <NextScript />
         </body>
