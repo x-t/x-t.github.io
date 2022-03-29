@@ -1,3 +1,4 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import { Feed, Item } from "feed";
 import { renderFeedHtml } from "./feed_render";
 import { parseISO } from "date-fns";
@@ -50,4 +51,16 @@ export const generateMainFeeds = async (): Promise<Feed> => {
   const posts = await getClient(false).fetch(feedQuery);
   posts.forEach((post) => feed.addItem(makeItem(post)));
   return feed;
+};
+
+export const apiRouteForFeed = (
+  generator: Promise<() => string>,
+  contentType: string
+) => {
+  return async (req: NextApiRequest, res: NextApiResponse) => {
+    res.statusCode = 200;
+    res.setHeader("Content-Type", contentType);
+    res.setHeader("Cache-Control", "s-maxage=86400 stale-while-revalidate");
+    res.end((await generator)());
+  };
 };

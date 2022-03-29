@@ -1,11 +1,11 @@
 import ErrorPage from "next/error";
+import Head from "next/head";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { groq } from "next-sanity";
 import { usePreviewSubscription, urlFor } from "../../lib/sanity";
 import { getClient } from "../../lib/sanity.server";
-import Image from "next/image";
 import { useNextSanityImage } from "next-sanity-image";
-import Head from "next/head";
 import { postQuery } from "../../lib/queries";
 import { BlogImage } from "../../components/blog_image";
 import { PortableText } from "@portabletext/react";
