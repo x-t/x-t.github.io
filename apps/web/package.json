@@ -21,6 +21,6 @@
     "@fpjs-incubator/botd-agent": "^0.1.24",
     "@sentry/browser": "^6.19.2",
     "@sentry/tracing": "^6.19.2",
-    "alpinejs": "^3.9.3"
+    "alpinejs": "^3.9.5"
   }
 }
