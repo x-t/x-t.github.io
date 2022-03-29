@@ -35,3 +35,5 @@ export const BlogCode = ({ props }) => {
     </Highlight>
   );
 };
+
+export default BlogCode;

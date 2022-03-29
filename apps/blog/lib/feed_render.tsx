@@ -2,6 +2,7 @@ import { stripHtml } from "string-strip-html";
 import ReactDOMServer from "react-dom/server";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "../lib/sanity";
+import { BlogCodeFallback } from "../components/blog_code_fallback";
 
 export const renderFeedHtml = (url: string, baseUrl: string, post: any) => {
   const serializers = {
@@ -11,11 +12,7 @@ export const renderFeedHtml = (url: string, baseUrl: string, post: any) => {
         <img src={urlFor(props.value).url()} alt={props.value.alt} />
         /* eslint-enable @next/next/no-img-element */
       ),
-      code: (props) => (
-        <pre>
-          <code>{props.value.code}</code>
-        </pre>
-      ),
+      code: (props) => <BlogCodeFallback props={props} />,
     },
   };
 

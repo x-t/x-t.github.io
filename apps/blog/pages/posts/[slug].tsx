@@ -8,9 +8,12 @@ import { useNextSanityImage } from "next-sanity-image";
 import Head from "next/head";
 import { postQuery } from "../../lib/queries";
 import { BlogImage } from "../../components/blog_image";
-import { BlogCode } from "../../components/blog_code";
 import { PortableText } from "@portabletext/react";
 import { BlogYouTube } from "../../components/blog_youtube";
+import { Suspense, lazy } from "react";
+import { BlogCodeFallback } from "../../components/blog_code_fallback";
+
+const BlogCode = lazy(() => import("../../components/blog_code"));
 
 export default function Post({ data, preview }) {
   const router = useRouter();
@@ -33,7 +36,11 @@ export default function Post({ data, preview }) {
   const serializers = {
     types: {
       image: (props) => <BlogImage props={props} preview={preview} />,
-      code: (props) => <BlogCode props={props} />,
+      code: (props) => (
+        <Suspense fallback={<BlogCodeFallback props={props} />}>
+          <BlogCode props={props} />
+        </Suspense>
+      ),
       youtube: (props) => <BlogYouTube props={props} />,
     },
   };
