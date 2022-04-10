@@ -20,6 +20,7 @@ jobs:
       - name: Deploy to Sanity
         if: github.event_name == 'push'  && github.ref == 'refs/heads/main'
         run: |
+          rm package.json
           npm i -g @sanity/cli
           pushd apps/blog.sanity
           npm install --legacy-peer-deps
