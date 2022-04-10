@@ -24,7 +24,7 @@
    <link rel="preload" href="/font/AppleGaramond.woff2" as="font" type="font/woff2" crossorigin />
    <link rel="preload" href="/font/AppleGaramond-Bold.woff2" as="font" type="font/woff2" crossorigin />
    <link rel="preload" href="/font/AppleGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin />
-   <link rel="preload" href="https://old-flower-8394.fly.dev/api/get_posts" as="fetch" crossorigin="anonymous" />
+   <link rel="preload" href=import.meta.env.VITE_FETCH_ENDPOINT as="fetch" crossorigin="anonymous" />
    <link rel="preload" href="/img/darkbg.jpeg" as="image" media="(prefers-color-scheme: dark)" />
    <STYLE>
       #guestbookPosts {
@@ -36,11 +36,12 @@
       }
    </STYLE>
    <X-SAS-WINDOW TOP=53 BOTTOM=600 LEFT=152 RIGHT=682 />
-  <script type="module" crossorigin src="/assets/guestbook.765f247f.js"></script>
-  <link rel="modulepreload" href="/assets/vendor.0a19c2a4.js">
-  <link rel="modulepreload" href="/assets/main.7f12c542.js">
+  <script type="module" crossorigin src="/assets/guestbook.7c37fcfd.js"></script>
+  <link rel="modulepreload" href="/assets/main.465157a8.js">
   <link rel="stylesheet" href="/assets/main.6b9619e6.css">
-  <script type="module">!function(){try{new Function("m","return import(m)")}catch(o){console.warn("vite: loading legacy build because dynamic import is unsupported, syntax error above should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}}();</script>
+  <script type="module">var __vite_is_dynamic_import_support=false;</script>
+  <script type="module">try{import("_").catch(()=>1);}catch(e){}window.__vite_is_dynamic_import_support=true;</script>
+  <script type="module">!function(){if(window.__vite_is_dynamic_import_support)return;console.warn("vite: loading legacy build because dynamic import is unsupported, syntax error above should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
 </HEAD>
 <BODY BGCOLOR="#FFFFCA" BACKGROUND="/img/chillibk.gif">
    <DIV CLASS="GITHUBRIBBON" ID="GBRDARK"><a href="https://github.com/x-t/x-t.github.io"><img loading="lazy" width="149" height="149" src="/img/fork_black.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a></DIV>
@@ -173,6 +174,6 @@
 
   <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
   <script nomodule id="vite-legacy-polyfill" src="/assets/polyfills-legacy.eda7a9ed.js"></script>
-  <script nomodule id="vite-legacy-entry" data-src="/assets/guestbook-legacy.7a632f30.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+  <script nomodule id="vite-legacy-entry" data-src="/assets/guestbook-legacy.8d206d19.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
 </BODY>
 </HTML>
