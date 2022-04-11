@@ -5,7 +5,7 @@ export const Navbar = () => {
     <nav className="mb-10 flex items-center justify-between text-mcraegray">
       <div>
         <a
-          href="https://zxyz.gay"
+          href="https://zxyz.me"
           className="group flex flex-row items-center gap-x-3"
         >
           {/* next/image doesn't work here, imports an empty 0px GIF for no reason */}

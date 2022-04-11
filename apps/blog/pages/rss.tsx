@@ -28,7 +28,7 @@ export default function BlogFeeds() {
         <div className="prose prose-sm dark:prose-invert sm:prose-base lg:prose-lg xl:prose-xl">
           <p>For Feedly users, press this big, very green button:</p>
           <div>
-            <a href="https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Fblog.zxyz.gay%2Ffeed">
+            <a href="https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Fblog.zxyz.me%2Ffeed">
               {/* eslint-disable @next/next/no-img-element */}
               <picture className="align-bottom">
                 <source srcSet="/images/feedly.webp" type="image/webp" />

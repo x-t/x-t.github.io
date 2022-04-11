@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-          <meta name="og:url" content="https://blog.zxyz.gay" />
+          <meta name="og:url" content="https://blog.zxyz.me" />
           <link
             rel="shortcut icon"
             href="/images/favicon@64.jpg"

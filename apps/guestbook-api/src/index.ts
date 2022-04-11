@@ -50,7 +50,11 @@ nunjucks.configure(path.resolve(__dirname, "../views"), {
 });
 
 app.get("/", async (req, res) => {
-  res.redirect("https://zxyz.gay");
+  if (req.headers["I-Am-A-Robot"] === "true") {
+    res.status(200).contentType("text/plain").send("ok");
+    return;
+  }
+  res.redirect("https://zxyz.me");
 });
 app.get("/_healthz", healthz);
 app.post("/api/post", ...constraints, v2_post);

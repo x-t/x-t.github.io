@@ -26,8 +26,8 @@
     "prismjs": "^1.27.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "react-youtube": "^7.14.0",
-    "string-strip-html": "^9.1.7"
+    "react-youtube": "^8.0.0",
+    "string-strip-html": "^9.1.8"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.2",

@@ -5,7 +5,7 @@ import { parseISO } from "date-fns";
 import { feedQuery } from "./queries";
 import { getClient } from "./sanity.server";
 
-const baseUrl = "https://blog.zxyz.gay";
+const baseUrl = "https://blog.zxyz.me";
 
 const buildFeed = (): Feed => {
   const copyright = `Copyright ${new Date().getFullYear()} - zxyz`;
@@ -14,8 +14,8 @@ const buildFeed = (): Feed => {
     title: "zxyz's blog",
     description:
       "A lunatic who's obsessed with technology writes a blog. What's the worst that could happen?",
-    id: "https://zxyz.gay/",
-    link: "https://blog.zxyz.gay/",
+    id: "https://zxyz.me/",
+    link: "https://blog.zxyz.me/",
     language: "en",
     image: `${baseUrl}/images/favicon@128.jpg`,
     favicon: `${baseUrl}/favicons/favicon@128.jpg`,
@@ -28,7 +28,7 @@ const buildFeed = (): Feed => {
     },
     author: {
       name: "zxyz",
-      link: "https://zxyz.gay",
+      link: "https://zxyz.me",
     },
   });
 };

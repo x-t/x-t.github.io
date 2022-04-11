@@ -12,7 +12,12 @@ export const healthz = async (req: Request, res: Response) => {
     // and make a HEAD request to ourselves, then we're good.
     await Promise.all([
       prisma.posts.count(),
-      fetch(`http://${host}`, { method: "HEAD" }).then((r) => {
+      fetch(`http://${host}`, {
+        method: "HEAD",
+        headers: {
+          "I-Am-A-Robot": "true",
+        },
+      }).then((r) => {
         if (!r.ok) return Promise.reject(r);
       }),
     ]);
