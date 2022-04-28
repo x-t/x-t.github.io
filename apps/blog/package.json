@@ -26,7 +26,7 @@
     "prismjs": "^1.28.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "react-youtube": "^8.2.1",
+    "react-youtube": "^9.0.1",
     "string-strip-html": "^9.1.11"
   },
   "devDependencies": {
