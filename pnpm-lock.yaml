@@ -139,7 +139,7 @@ importers:
 
   apps/guestbook-api:
     specifiers:
-      '@2toad/profanity': ^2.0.0
+      '@2toad/profanity': ^1.3.1
       '@prisma/client': ^3.14.0
       '@sentry/node': ^6.19.7
       '@sentry/tracing': ^6.19.7
@@ -158,7 +158,7 @@ importers:
       tsc-watch: ^5.0.3
       typescript: ^4.6.4
     dependencies:
-      '@2toad/profanity': 2.0.0
+      '@2toad/profanity': 1.3.1
       '@prisma/client': 3.14.0_prisma@3.14.0
       '@sentry/node': 6.19.7
       '@sentry/tracing': 6.19.7
@@ -260,9 +260,9 @@ importers:
 
 packages:
 
-  /@2toad/profanity/2.0.0:
-    resolution: {integrity: sha512-IvcICknax2BCaAsiJJ9pBjVCDqNxHucwbUAD5fBWQNFzRcHoTdHGQ1RCsXBGH0QM/J2D/Qt2o65YAQsYCpInCw==}
-    engines: {node: '>=12'}
+  /@2toad/profanity/1.3.1:
+    resolution: {integrity: sha512-e5Ne0y/NWcRGUtrxV6BRpOzi5BTZ8hkG0dnrNwJu9NiwQvVS+4/2XGMZocNykJzaBQ80yabjJ8yxW749gg/Viw==}
+    engines: {node: '>=10.23.0'}
     dev: false
 
   /@ampproject/remapping/2.1.2:
