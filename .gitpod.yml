@@ -21,7 +21,7 @@ tasks:
       pnpm install
       pushd apps/blog.sanity
       rm -rf node_modules
-      npm install
+      npm install --legacy-peer-deps
       popd
       gp sync-done deps
       exit

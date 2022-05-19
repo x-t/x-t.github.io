@@ -1,0 +1,77 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.233.0/containers/ubuntu
+{
+	"name": "Ubuntu",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick an Ubuntu version: jammy / ubuntu-22.04, focal / ubuntu-20.04, bionic /ubuntu-18.04
+		// Use ubuntu-22.04 or ubuntu-18.04 on local arm64/Apple Silicon.
+		"args": { "VARIANT": "ubuntu-22.04" }
+	},
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"telemetry.telemetryLevel": "off",
+		"[javascriptreact]" : {
+			"editor.autoClosingBrackets" : "always",
+			"editor.defaultFormatter" : "esbenp.prettier-vscode",
+			"editor.formatOnSave" : true
+		},
+		"[javascript]" : {
+			"editor.autoClosingBrackets" : "always",
+			"editor.defaultFormatter" : "esbenp.prettier-vscode",
+			"editor.formatOnSave" : true
+		},
+		"[typescript]" : {
+			"editor.autoClosingBrackets" : "always",
+			"editor.defaultFormatter" : "esbenp.prettier-vscode",
+			"editor.formatOnSave" : true
+		},
+		"git.autofetch" : true,
+		"editor.bracketPairColorization.enabled" : true,
+		"editor.inlineSuggest.enabled" : true,
+		"editor.tabSize" : 2,
+		"typescript.updateImportsOnFileMove.enabled" : "always",
+		"editor.accessibilitySupport" : "off",
+		"editor.suggestSelection" : "first",
+		"files.trimTrailingWhitespace" : true,
+		"git.confirmSync" : false,
+		"editor.formatOnSave" : false
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"erovita.alpinejs-syntax-highlight",
+		"adrianwilczynski.alpine-js-intellisense",
+		"GitHub.copilot",
+		"GraphQL.vscode-graphql",
+		"eg2.vscode-npm-script",
+		"christian-kohler.npm-intellisense",
+		"eseom.nunjucks-template",
+		"christian-kohler.path-intellisense",
+		"esbenp.prettier-vscode",
+		"Prisma.prisma",
+		"jasonnutter.search-node-modules",
+		"SonarSource.sonarlint-vscode",
+		"bradlc.vscode-tailwindcss",
+		"rangav.vscode-thunder-client",
+		"redhat.vscode-yaml",
+		"dbaeumer.vscode-eslint",
+		"GitHub.vscode-pull-request-github"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "./.devcontainer/tmux.sh",
+
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode",
+	"features": {
+		"docker-in-docker": "latest",
+		"git": "latest",
+		"github-cli": "latest",
+		"ruby": "latest"
+	}
+}
