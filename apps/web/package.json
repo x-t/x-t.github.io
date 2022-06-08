@@ -20,7 +20,7 @@
   "dependencies": {
     "@fpjs-incubator/botd-agent": "^0.1.24",
     "@sentry/browser": "^6.19.7",
-    "@sentry/tracing": "^6.19.7",
+    "@sentry/tracing": "^7.1.1",
     "alpinejs": "^3.10.2"
   }
 }
