@@ -27,7 +27,7 @@ export default function Post({ data, preview }) {
   const mainImageProps = useNextSanityImage(
     getClient(preview),
     post?.mainImage
-  );
+  ) as any;
 
   if (router.isFallback && (!data?.post?.slug || !post?.slug)) {
     return <ErrorPage statusCode={404} />;

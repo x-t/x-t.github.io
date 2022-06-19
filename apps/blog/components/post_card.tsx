@@ -15,7 +15,7 @@ export const PostCard = ({
   preview: boolean;
   className?: string;
 }) => {
-  const imageProps = useNextSanityImage(getClient(preview), post.mainImage);
+  const imageProps = useNextSanityImage(getClient(preview), post.mainImage) as any;
 
   return (
     <Link href={`/posts/${post.slug}`}>
