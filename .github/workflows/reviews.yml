@@ -24,7 +24,7 @@ jobs:
           bundler-cache: true
           working-directory: apps/reviews
 
-      - uses: pnpm/action-setup@v2.2.1
+      - uses: pnpm/action-setup@v2.2.2
         with:
           version: 6.10.0
 
