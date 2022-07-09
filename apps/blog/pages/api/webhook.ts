@@ -17,8 +17,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
   try {
     // A waterfall, but, you know, whatever.
-    await res.unstable_revalidate("/");
-    await res.unstable_revalidate("/posts/" + req.body.slug);
+    await res.revalidate("/");
+    await res.revalidate("/posts/" + req.body.slug);
     return res.json({ success: true });
   } catch (err) {
     res.status(500).json({ success: false });

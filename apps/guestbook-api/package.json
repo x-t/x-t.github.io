@@ -27,9 +27,9 @@
   "homepage": "https://github.com/fly-examples/hellonode#readme",
   "dependencies": {
     "@2toad/profanity": "^2.1.0",
-    "@prisma/client": "^3.15.2",
-    "@sentry/node": "^7.2.0",
-    "@sentry/tracing": "^7.2.0",
+    "@prisma/client": "^4.0.0",
+    "@sentry/node": "^7.6.0",
+    "@sentry/tracing": "^7.6.0",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "express-validator": "^6.14.2",
@@ -40,10 +40,10 @@
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
-    "@types/node": "^18.0.0",
+    "@types/node": "^18.0.3",
     "@types/nunjucks": "^3.2.1",
-    "prisma": "^3.15.2",
-    "ts-node": "^10.8.1",
+    "prisma": "^4.0.0",
+    "ts-node": "^10.8.2",
     "tsc-watch": "^5.0.3",
     "typescript": "^4.7.4"
   }
