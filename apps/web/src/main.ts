@@ -25,20 +25,6 @@ window.endpoints = {
   blog: import.meta.env.VITE_BLOG_ENDPOINT,
 };
 
-function import_jsonp() {
-  let s = document.createElement("script");
-  s.src = import.meta.env.VITE_BLOG_ENDPOINT;
-  document.body.appendChild(s);
-}
-
-window.blog_callback = (posts) => {
-  window.dispatchEvent(new CustomEvent("blog-fetch", { detail: posts }));
-};
-
-document.addEventListener("alpine:init", () => {
-  import_jsonp();
-});
-
 window.Alpine = Alpine;
 window.Sentry = Sentry;
 

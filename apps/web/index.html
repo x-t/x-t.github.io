@@ -30,8 +30,6 @@
    <X-SAS-WINDOW TOP=54 BOTTOM=601 LEFT=29 RIGHT=559 />
 </HEAD>
 <BODY BGCOLOR="#FFFFCA" BACKGROUND="/img/chillibk.gif">
-   <DIV CLASS="GITHUBRIBBON" ID="GBRDARK"><a href="https://github.com/x-t/x-t.github.io"><img loading="lazy" width="149" height="149" src="/img/fork_black.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a></DIV>
-   <DIV CLASS="GITHUBRIBBON" ID="GBRLIGHT"><a href="https://github.com/x-t/x-t.github.io"><img loading="lazy" width="149" height="149" src="/img/fork_white.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a></DIV>
 <P id="W"><TABLE BORDER=0 WIDTH="80%">
    <TR>
       <TD WIDTH=492>
@@ -43,57 +41,12 @@
 
          <H1>zxyz</H1>
 
-         <P>I'm a 19 y/o (he/him) amateur developer and sysadmin from Lithuania.</P>
+         <P>nineteen, he/him & they/them, amateur dev</P>
 
-         <P>Started out with random skid projects with C# in
-         2014, went on to do <EM><A HREF="https://github.com/x-t/ebin-dos">minimal</A></EM> operating system
-         development with C and x86 assembly, to then settle on web
-         development, Linux/Windows server and cloud system administration.
-         </P>
-
-         <P>Check out my projects like
-         <A HREF="https://exhaust-fumes.pages.dev">Exhaust Fumes</A>
-         or <A HREF="https://ted-cruz.pages.dev">Ted Cruz Tweet
-         Generator</A> and many more on my GitHub!</P>
+         <p>some of my favorite projects: <a href="https://github.com/x-t/ebin-dos">ebin-dos</a>, <a href="https://regitra.pages.dev/">regitra-parody</a>, <a href="https://exhaust-fumes.pages.dev/">exhaust-fumes</a></p>
 
          <H2><A HREF="guestbook.html"><PICTURE><SOURCE SRCSET="/img/guestbook.webp" TYPE="image/webp" /><IMG SRC="/img/guestbook.png" ALT="Notepad icon" WIDTH=25
-            HEIGHT=25 ALIGN=bottom /></PICTURE> <U>Sign the guestbook!</U></A></H2>
-
-         <H2><A HREF="/reviews/index.html"><PICTURE><SOURCE SRCSET="/img/book.webp" TYPE="image/webp" /><IMG SRC="/img/book.png" ALT="Book icon with Haiku logo" WIDTH=25
-            HEIGHT=25 ALIGN=bottom /></PICTURE> <U>Read my OS reviews!</U></A></H2>
-
-         <H2><A HREF="https://blog.zxyz.me/"><PICTURE><SOURCE SRCSET="/img/blog.webp" TYPE="image/webp" /><IMG SRC="/img/blog.png" ALT="Blog icon" WIDTH=25
-            HEIGHT=25 ALIGN=bottom /></PICTURE> <U>Visit the blog</U></A></H2>
-
-      <P style="margin-bottom:0;"><SMALL>Latest blog posts</SMALL></P>
-
-      <div style="display:flex;justify-content:center;align-items:center;">
-      <ul style="margin-top:5px;"
-         x-data="{posts: [],
-         loading: true,
-         error: ''}"
-         @blog-fetch.window="loading = false; posts = $event.detail">
-            <template x-if="loading || error">
-               <p
-                  x-text="loading ? 'Loading...' : error"
-                  :class="error ? 'error_cl' : ''">Loading...</p>
-            </template>
-            <template x-for="post in posts">
-               <li>
-                  <span x-data="{date: new Date(post.publishedAt)}"
-                     x-text="
-                     date.toLocaleDateString()
-                     + ' ' + date
-                     .toLocaleTimeString([],
-                        {hour: '2-digit',minute: '2-digit'})"></span>
-                  -
-                  <a x-text="post.title"
-                     :href="'https://' + window.endpoints.blog.split('/')[2] + '/posts/' + post.slug"></a>
-               </li>
-            </template>
-         </ul>
-      </div>
-
+            HEIGHT=25 ALIGN=bottom /></PICTURE> guestbook <span class="arrow_lg">~~></span></A></H2>
 
          <P><TABLE BORDER=1 WIDTH=156 CLASS="LINKS">
             <TR>
@@ -101,37 +54,18 @@
                   <P><PICTURE><SOURCE SRCSET="/img/email.webp" TYPE="image/webp" /><IMG SRC="/img/email.png" ALT="Phone icon" WIDTH=16
                   HEIGHT=14 ALIGN=bottom /></PICTURE></P>
                </TD><TD WIDTH=111 HEIGHT=23>
-                  <P><A HREF="https://mailhide.io/e/4yuR1lfK" TARGET="_blank">E-mail</A></P>
-               </TD></TR>
-            <TR>
-               <TD WIDTH=45 HEIGHT=22>
-                  <P><PICTURE><SOURCE SRCSET="/img/twit.webp" TYPE="image/webp" /><IMG SRC="/img/twit.png" ALT="People icon" WIDTH=14
-                  HEIGHT=14 ALIGN=bottom /></PICTURE></P>
-               </TD><TD WIDTH=111 HEIGHT=22>
-                  <P><A HREF="https://twitter.com/zedeckswhyzed">Twitter</A></P>
+                  <P><A HREF="https://mailhide.io/e/3BV1uL1X" TARGET="_blank">contact <span class="arrow_sm">~~></span></A></P>
                </TD></TR>
             <TR>
                <TD WIDTH=45 HEIGHT=22>
                   <P><PICTURE><SOURCE SRCSET="/img/github.webp" TYPE="image/webp" /><IMG SRC="/img/github.png" ALT="Computer icon" WIDTH=17
                   HEIGHT=15 ALIGN=bottom /></PICTURE></P>
                </TD><TD WIDTH=111 HEIGHT=20>
-                  <P><A HREF="https://github.com/x-t">GitHub</A></P>
+                  <P><A HREF="https://github.com/x-t">github <span class="arrow_sm">~~></span></A></P>
                </TD></TR>
          </TABLE></P>
 
-         <P><A HREF="https://macintoshgarden.org/apps/claris-home-page-20"><PICTURE><SOURCE SRCSET="/img/chpmade.webp" TYPE="image/webp" /><IMG SRC="/img/chpmade.gif" ALT="Made with Claris Home Page" WIDTH=151 HEIGHT=41
-         X-SAS-UseImageWidth X-SAS-UseImageHeight ALIGN=bottom /></PICTURE></A><A HREF="https://blacklivesmatter.com/"><PICTURE><SOURCE SRCSET="/img/blm.webp" TYPE="image/webp" /><IMG
-            SRC="/img/blm.gif" ALT="Black Lives Matter" WIDTH=151 HEIGHT=41
-            X-SAS-UseImageWidth X-SAS-UseImageHeight ALIGN=bottom /></PICTURE></A><A HREF="https://www.thetrevorproject.org/"><PICTURE><SOURCE SRCSET="/img/pride-button.webp" TYPE="image/webp" /><IMG
-               SRC="/img/pride-button.png" ALT="Pride." WIDTH=151 HEIGHT=41
-               X-SAS-UseImageWidth X-SAS-UseImageHeight ALIGN=bottom /></PICTURE></A>
-         </P>
-         <P>
-            <A HREF="https://cmp.neocities.org"><PICTURE><SOURCE SRCSET="/img/neocities.webp" TYPE="image/webp" /><IMG SRC="/img/neocities.png" ALT="hosted by neocities" WIDTH=151 HEIGHT=41
-               X-SAS-UseImageWidth X-SAS-UseImageHeight ALIGN=bottom /></PICTURE></A>
-         </P>
-
-         <P>(C) 2017-2022 zxyz. <SPAN ID="FSP" TITLE="Icons & cursor licensed under the MIT license, by Haiku.">Copy it</SPAN>, I won't be mad.</P>
+         <P>(c) zxyz. <SPAN ID="FSP" TITLE="Icons & cursor licensed under the MIT license, by Haiku.">copy it</SPAN>. i won't be mad.</P>
       </TD></TR>
 </TABLE></P>
 

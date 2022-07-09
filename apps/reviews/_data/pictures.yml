@@ -1,8 +1,0 @@
-presets:
-  thumbnail:
-    base_width: 250 # How wide the 1x image should be.
-    pixel_ratios: [1, 1.5, 2] # Which multipliers to target.
-    fallback_width: 250 # The default is 800, which is probably too big.
-    formats: [webp, original]
-    attributes:
-      picture: 'class="thumbnail"'

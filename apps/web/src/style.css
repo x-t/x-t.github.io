@@ -16,6 +16,7 @@ p {
 a,
 a img {
   cursor: url("/img/FollowLink.png") 6 2, auto;
+  text-decoration: none;
 }
 
 a:visited {
@@ -72,13 +73,17 @@ table {
   display: none;
 }
 
-h2 > a {
-  text-decoration: none;
-}
-
 .error_cl {
   color: rgb(173 57 57);
   font-size: small;
+}
+
+.arrow_lg {
+  letter-spacing: -4px;
+}
+
+.arrow_sm {
+  letter-spacing: -3px;
 }
 
 @media (prefers-color-scheme: dark) {

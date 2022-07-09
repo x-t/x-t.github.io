@@ -9,9 +9,9 @@
    <META NAME="og:title" CONTENT="zxyz's guestbook" />
    <META CONTENT="object" PROPERTY="og:type" />
    <META CONTENT="x-t.github.io" PROPERTY="og:site_name" />
-   <META NAME="description" CONTENT="Guestbook on zxyz's personal site" />
-   <META NAME="twitter:description" CONTENT="Guestbook on zxyz's personal site" />
-   <META NAME="og:description" CONTENT="Guestbook on zxyz's personal site" />
+   <META NAME="description" CONTENT="guestbook on my site" />
+   <META NAME="twitter:description" CONTENT="guestbook on my site" />
+   <META NAME="og:description" CONTENT="guestbook on my site" />
    <META CONTENT="128" PROPERTY="og:image:width" />
    <META CONTENT="128" PROPERTY="og:image:height" />
    <META NAME="og:image" CONTENT="/img/favicon@128.jpg" />
@@ -38,8 +38,6 @@
    <X-SAS-WINDOW TOP=53 BOTTOM=600 LEFT=152 RIGHT=682 />
 </HEAD>
 <BODY BGCOLOR="#FFFFCA" BACKGROUND="/img/chillibk.gif">
-   <DIV CLASS="GITHUBRIBBON" ID="GBRDARK"><a href="https://github.com/x-t/x-t.github.io"><img loading="lazy" width="149" height="149" src="/img/fork_black.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a></DIV>
-   <DIV CLASS="GITHUBRIBBON" ID="GBRLIGHT"><a href="https://github.com/x-t/x-t.github.io"><img loading="lazy" width="149" height="149" src="/img/fork_white.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a></DIV>
 <P id="W"><TABLE WIDTH="80%">
    <TR>
       <TD HEIGHT=438>
@@ -48,7 +46,7 @@
                X-SAS-UseImageWidth X-SAS-UseImageHeight ALIGN=bottom /></PICTURE></A>
          </H1>
 
-         <H1>Guestbook</H1>
+         <H1>guestbook</H1>
 
          <noscript>
             <hr />
@@ -58,7 +56,7 @@
             <hr />
            </noscript>
 
-         <P>Feel free to write something! Look at the <A HREF="https://github.com/x-t/x-t.github.io">source code</A> for the backend, too.</P>
+         <P>you're welcome to leave a mark. <A HREF="https://github.com/x-t/x-t.github.io">source code here</A>.</P>
 
          <P><DIV ID="postDialog">
             <form
@@ -93,7 +91,7 @@
                <caption style="display: none;">Guestbook posting form</caption>
             <TR>
                <TD>
-                  <P><label :for="$id('name-field')">Name</label></P>
+                  <P><label :for="$id('name-field')">name</label></P>
                </TD><TD>
                   <P><INPUT :id="$id('name-field')"
                   TYPE="text" NAME="name" VALUE="" SIZE=25
@@ -101,7 +99,7 @@
                </TD></TR>
             <TR>
                <TD>
-                  <P><label :for="$id('comment-field')">Comment</label></P>
+                  <P><label :for="$id('comment-field')">comment</label></P>
                </TD><TD>
                   <P><INPUT :id="$id('comment-field')"
                   TYPE="text" NAME="comment" VALUE="" SIZE=25
@@ -109,7 +107,7 @@
                </TD></TR>
                <TR><TD></TD><TD style="text-align: right;">
                   <input type="submit"
-                     :value="submitting ? 'Submitting...' : 'Post'"
+                     :value="submitting ? 'submitting...' : 'post'"
                      :disabled="submitting"
                      style="width:100px;" value="Post" /></TD></TR>
          </TABLE>
@@ -138,14 +136,14 @@
                >
                <caption style="display: none;">Guestbook posts</caption>
                <TR>
-                  <TH>Date</TH>
-                  <TH>Name</TH>
-                  <TH>Comment</TH>
+                  <TH>date</TH>
+                  <TH>name</TH>
+                  <TH>comment</TH>
                </TR>
                <template x-if="loading || error">
                   <TR><TD COLSPAN=3
                      x-text="loading ? 'Loading...' : error"
-                     :class="error ? 'error_cl' : ''">Loading...</TD></TR>
+                     :class="error ? 'error_cl' : ''">loading...</TD></TR>
                </template>
                <template x-for="post in posts">
                   <tr>
@@ -163,7 +161,7 @@
          </DIV>
       </TD></TR>
 </TABLE></P>
-<P>(C) 2017-2022 zxyz. <SPAN ID="FSP" TITLE="Icons & cursor licensed under the MIT license, by Haiku.">Copy it</SPAN>, I won't be mad.</P>
+<P>(c) zxyz. <SPAN ID="FSP" TITLE="Icons & cursor licensed under the MIT license, by Haiku.">copy it</SPAN>. i won't be mad.</P>
 <script type="module" src="/src/main.ts" defer></script>
 <script type="module" src="/src/guestbook.ts"></script>
 </BODY>
