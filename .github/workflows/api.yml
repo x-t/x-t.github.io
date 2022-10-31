@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Read app name
-        uses: SebRollen/toml-action@v1.0.0
+        uses: SebRollen/toml-action@v1.0.2
         id: app_name
         with:
           file: "./apps/guestbook-api/fly.toml"
@@ -82,7 +82,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Read app name
-        uses: SebRollen/toml-action@v1.0.0
+        uses: SebRollen/toml-action@v1.0.2
         id: app_name
         with:
           file: "./apps/guestbook-api/fly.toml"
