@@ -1,28 +1,9 @@
 tasks:
-  - name: Install global node dependencies
-    init: |
-      npm install -g @sanity/cli
-      gp sync-done global-node
-      exit
-
-  - name: Ruby
-    init: |
-      brew install ruby webp
-      gem install bundler
-      pushd apps/reviews
-      bundle install
-      popd
-      gp sync-done ruby
-      exit
 
   - name: Install dependencies
     init: |
       gp sync-await global-node
       pnpm install
-      pushd apps/blog.sanity
-      rm -rf node_modules
-      npm install --legacy-peer-deps
-      popd
       gp sync-done deps
       exit
 
@@ -31,7 +12,7 @@ tasks:
       sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
       curl -sLf --retry 3 --tlsv1.2 --proto "=https" 'https://packages.doppler.com/public/cli/gpg.DE2A7741A397C129.key' | sudo apt-key add -
       echo "deb https://packages.doppler.com/public/cli/deb/debian any-version main" | sudo tee /etc/apt/sources.list.d/doppler-cli.list
-      sudo apt-get update && sudo apt-get install doppler libvips-dev -y
+      sudo apt-get update && sudo apt-get install doppler -y
       gp sync-done install-doppler
       exit
 

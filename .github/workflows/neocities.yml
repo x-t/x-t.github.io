@@ -20,7 +20,6 @@ jobs:
 
       - name: Clean up
         run: |
-          rm CNAME
           rm -rf .git
           mv 404.html not_found.html
 
