@@ -61,7 +61,6 @@
          <P><DIV ID="postDialog">
             <form
             x-data="{submitting: false,
-               botdRequestId: '',
                endpoint: window.endpoints.form,
                error: ''}"
             x-id="['name-field', 'comment-field', 'form']"
@@ -70,8 +69,8 @@
                .then(botd => botd.detect())
                .then(result => {
                   return new Promise((resolve, reject) => {
-                     resolve(
-                        (() => botdRequestId = result.requestId)())
+                     if (!result.bot)
+                        resolve();
                   });
                })
                .then(() => {
@@ -111,7 +110,6 @@
                      :disabled="submitting"
                      style="width:100px;" value="Post" /></TD></TR>
          </TABLE>
-         <input type="hidden" name="botd_response" :value="botdRequestId" />
          <template x-if="error">
             <p class="error_cl"
             x-text="error"></p>

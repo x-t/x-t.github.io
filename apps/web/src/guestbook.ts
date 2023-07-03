@@ -1,5 +1,3 @@
-import Botd from "@fpjs-incubator/botd-agent";
+import BotD from '@fingerprintjs/botd';
 
-window.botdPromise = Botd.load({
-  publicKey: "lAwajiYjjM1uHZt9oJvdNBux",
-});
+window.botdPromise = BotD.load();

@@ -47,39 +47,6 @@ const bad_lang_validator: CustomValidator = (value: string) => {
   return true;
 };
 
-const botd_validator = async (value: string) => {
-  const requestOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      requestId: value,
-      secretKey: process.env.BOTD_SECRET || "",
-    }),
-  };
-  const req = await fetch(
-    "https://botd.fpapi.io/api/v1/verify",
-    requestOptions
-  );
-  const res = await req.json();
-
-  if (req.status !== 200) {
-    throw new Error(`validation error: ${JSON.stringify(res.error)}`);
-  }
-
-  if (
-    res.bot.automationTool.status === "processed" &&
-    res.bot.automationTool.probability === 0 &&
-    res.bot.browserSpoofing.status === "processed" &&
-    res.bot.browserSpoofing.probability <= 0.3 &&
-    res.bot.searchEngine.status === "processed" &&
-    res.bot.searchEngine.probability === 0
-  ) {
-    return true;
-  }
-
-  throw new Error("your browser was detected as a bot.");
-};
-
 export const constraints = [
   body("name")
     .trim()
@@ -93,14 +60,6 @@ export const constraints = [
     .isLength({ min: 1, max: 128 })
     .withMessage("must be between 1 and 128 characters")
     .custom(bad_lang_validator),
-  body("botd_response")
-    .exists()
-    .bail()
-    .withMessage("No captcha response was provided. Are you using JavaScript?")
-    .notEmpty()
-    .bail()
-    .withMessage("No captcha response was provided. Are you using JavaScript?")
-    .custom(botd_validator),
 ];
 
 export const v2_post = async (req: Request, res: Response) => {

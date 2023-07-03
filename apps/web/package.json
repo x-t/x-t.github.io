@@ -8,19 +8,19 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@types/alpinejs": "^3.7.0",
-    "@vitejs/plugin-legacy": "^1.8.2",
-    "autoprefixer": "^10.4.7",
-    "postcss": "^8.4.14",
-    "typescript": "^4.7.4",
-    "vite": "^2.9.14",
+    "@types/alpinejs": "^3.7.2",
+    "@vitejs/plugin-legacy": "^4.0.5",
+    "autoprefixer": "^10.4.14",
+    "config": "workspace:*",
+    "postcss": "^8.4.24",
     "tsconfig": "workspace:*",
-    "config": "workspace:*"
+    "typescript": "^5.1.6",
+    "vite": "^4.3.9"
   },
   "dependencies": {
-    "@fpjs-incubator/botd-agent": "^0.1.24",
-    "@sentry/browser": "^7.6.0",
-    "@sentry/tracing": "^7.6.0",
-    "alpinejs": "^3.10.2"
+    "@fingerprintjs/botd": "^1.6.0",
+    "@sentry/browser": "^7.57.0",
+    "@sentry/tracing": "^7.57.0",
+    "alpinejs": "^3.12.3"
   }
 }
