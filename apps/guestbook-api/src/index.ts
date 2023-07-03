@@ -50,11 +50,10 @@ nunjucks.configure(path.resolve(__dirname, "../views"), {
 });
 
 app.get("/", async (req, res) => {
-  // if (req.headers["I-Am-A-Robot"] === "true") {
-  //   res.status(200).contentType("text/plain").send("ok");
-  //   return;
-  // }
   res.redirect("https://x-t.github.io/");
+});
+app.head("/", async (req, res) => {
+  res.status(200).contentType("text/plain").send("ok");
 });
 app.get("/_healthz", healthz);
 app.post("/api/post", ...constraints, v2_post);
