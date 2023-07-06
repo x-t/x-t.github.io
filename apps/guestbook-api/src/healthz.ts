@@ -10,13 +10,6 @@ export const healthz = async (req: Request, res: Response) => {
     // and make a HEAD request to ourselves, then we're good.
     await Promise.all([
       prisma.posts.count(),
-      // if you're running this code you might want to replace this line
-      // or don't. i really don't care.
-      fetch(`https://old-flower-8394.fly.dev/`, {
-        method: "HEAD",
-      }).then((r) => {
-        if (!r.ok) return Promise.reject(r);
-      }),
     ]);
     res.status(200).contentType("text/plain").send("ok");
   } catch (error: unknown) {
