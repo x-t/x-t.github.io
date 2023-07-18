@@ -9,19 +9,19 @@
   },
   "devDependencies": {
     "@types/alpinejs": "^3.7.2",
-    "@vitejs/plugin-legacy": "^4.0.5",
+    "@vitejs/plugin-legacy": "^4.1.0",
     "autoprefixer": "^10.4.14",
     "config": "workspace:*",
-    "postcss": "^8.4.24",
-    "terser": "^5.18.2",
+    "postcss": "^8.4.26",
+    "terser": "^5.19.1",
     "tsconfig": "workspace:*",
     "typescript": "^5.1.6",
-    "vite": "^4.3.9"
+    "vite": "^4.4.4"
   },
   "dependencies": {
     "@fingerprintjs/botd": "^1.6.0",
-    "@sentry/browser": "^7.57.0",
-    "@sentry/tracing": "^7.57.0",
+    "@sentry/browser": "^7.59.2",
+    "@sentry/tracing": "^7.59.2",
     "alpinejs": "^3.12.3"
   }
 }
