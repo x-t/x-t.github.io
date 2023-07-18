@@ -1,0 +1,9 @@
+{{template "header"}}
+<h1>these fields have errors</h1>
+<ul>
+    {{range .errors}}
+        <li>{{.Parameter}} - {{.Message}}</li>
+    {{ end }}
+</ul>
+<noscript><a href="{{.redirect}}">retry</a></noscript>
+{{template "footer"}}

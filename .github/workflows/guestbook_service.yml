@@ -3,8 +3,8 @@ name: Build and deploy backend
 on:
   push:
     paths:
-      - "apps/guestbook-api/**"
-      - ".github/workflows/api.yml"
+      - "apps/guestbook3/**"
+      - ".github/workflows/guestbook_service.yml"
   workflow_dispatch:
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
         uses: SebRollen/toml-action@v1.0.2
         id: app_name
         with:
-          file: "./apps/guestbook-api/fly.toml"
+          file: "./apps/guestbook3/fly.toml"
           field: "app"
 
       - name: Set up Docker Buildx
@@ -49,7 +49,7 @@ jobs:
       - name: Docker build
         uses: docker/build-push-action@v4
         with:
-          context: "./apps/guestbook-api"
+          context: "./apps/guestbook3"
           push: true
           tags: registry.fly.io/${{ steps.app_name.outputs.value }}:${{ github.ref_name }}-${{ github.sha }}
           build-args: |
@@ -85,7 +85,7 @@ jobs:
         uses: SebRollen/toml-action@v1.0.2
         id: app_name
         with:
-          file: "./apps/guestbook-api/fly.toml"
+          file: "./apps/guestbook3/fly.toml"
           field: "app"
 
       - name: Deploy Production
@@ -95,4 +95,4 @@ jobs:
           args: "deploy --image registry.fly.io/${{ steps.app_name.outputs.value }}:${{ github.ref_name }}-${{ github.sha }}"
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-          FLY_PROJECT_PATH: apps/guestbook-api
+          FLY_PROJECT_PATH: apps/guestbook3
