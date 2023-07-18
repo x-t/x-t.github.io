@@ -30,9 +30,6 @@ func initDb() *gorp.DbMap {
 	}
 	dbMap := &gorp.DbMap{Db: db, Dialect: gorp.MySQLDialect{Engine: "InnoDB", Encoding: "UTF8"}}
 	dbMap.AddTableWithName(models.Post{}, "post").SetKeys(true, "id")
-	err = dbMap.CreateTablesIfNotExists()
-	if err != nil {
-		log.Fatalf("couldn't create tables: %v", err)
-	}
+
 	return dbMap
 }
