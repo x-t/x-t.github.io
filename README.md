@@ -8,7 +8,7 @@ all parts of the site are preferred to be in-house, therefore it requires multip
 
 ## projects that live here
 
-- [x-t.github.io](apps/x-t.github.io) - the frontend. it also lives on [cmp.neocities.org](https://cmp.neocities.org/).
+- [x-t.github.io](apps/web) - the frontend. it also lives on [cmp.neocities.org](https://cmp.neocities.org/).
 - [guestbook3](apps/guestbook3) - the guestbook service/backend. if you manage to copy this for your own work, god help you.
 - [mailguard](apps/mailguard) - in-house replacement for [mailhide.io](https://mailhide.io/en). once again, i don't know why you would reuse it, i only need it for my site.
 
