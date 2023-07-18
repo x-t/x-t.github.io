@@ -7,7 +7,7 @@ tasks:
       gp sync-done deps
       exit
 
-  - name: Install Doppler, libvips
+  - name: Install Doppler
     init: |
       sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
       curl -sLf --retry 3 --tlsv1.2 --proto "=https" 'https://packages.doppler.com/public/cli/gpg.DE2A7741A397C129.key' | sudo apt-key add -
@@ -22,17 +22,6 @@ tasks:
       echo $DOPPLER_SERVICE_TOKEN | doppler configure set token --scope /
       gp sync-done logins
       exit
-
-  - name: Install Postgres
-    command: |
-      docker run --name guestbook -e POSTGRES_PASSWORD=password -e POSTGRES_DB=guestbook -d -p 5432:5432 postgres
-      gp sync-await deps
-      printf 'su postgres\npsql -d guestbook\nCREATE EXTENSION IF NOT EXISTS "uuid-ossp";\n' | docker exec -i guestbook /bin/bash
-      pnpm run prisma:push --filter guestbook-api
-      pnpm run prisma:seed --filter guestbook-api
-      exit
-    env:
-      DATABASE_URL: postgres://postgres:password@localhost:5432/guestbook
 
 ports:
   - port: 3000
