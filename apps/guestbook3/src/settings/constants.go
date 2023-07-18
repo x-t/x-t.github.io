@@ -1,3 +1,3 @@
 package settings
 
-const RedirectHTML = "test.html"
+const RedirectHTML = "guestbook.html"
