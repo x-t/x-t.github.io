@@ -34,7 +34,7 @@ jobs:
         env:
           VITE_FETCH_ENDPOINT: ${{ secrets.BUILD_WEB_FETCH_ENDPOINT }}
           VITE_FORM_ENDPOINT: ${{ secrets.BUILD_WEB_SUBMIT_ENDPOINT }}
-          VITE_BLOG_ENDPOINT: ${{ secrets.BUILD_WEB_BLOG_ENDPOINT }}
+          VITE_EMAILGUARD_ENDPOINT: ${{ secrets.BUILD_WEB_EMAILGUARD_ENDPOINT }}
           VITE_SENTRY_DSN: ${{ secrets.BUILD_WEB_SENTRY_DSN }}
 
       - name: Deploy to GitHub Pages

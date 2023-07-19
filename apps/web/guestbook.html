@@ -80,7 +80,6 @@
                   submitting = false;
                   error = 'An error occured.';
                   console.log(e);
-                  window.Sentry.captureException(e);
                });"
             method="post"
             :action="endpoint"
@@ -127,7 +126,6 @@
                      loading = false;
                      error = 'An error occured.';
                      console.log(e);
-                     window.Sentry.captureException(e);
                   });"
                >
                <caption style="display: none;">Guestbook posts</caption>

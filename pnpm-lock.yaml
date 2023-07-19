@@ -46,12 +46,6 @@ importers:
       '@fingerprintjs/botd':
         specifier: ^1.6.0
         version: 1.6.0
-      '@sentry/browser':
-        specifier: ^7.59.2
-        version: 7.59.2
-      '@sentry/tracing':
-        specifier: ^7.59.2
-        version: 7.59.2
       alpinejs:
         specifier: ^3.12.3
         version: 3.12.3
@@ -1832,66 +1826,6 @@ packages:
 
   /@rushstack/eslint-patch@1.1.3:
     resolution: {integrity: sha512-WiBSI6JBIhC6LRIsB2Kwh8DsGTlbBU+mLRxJmAe3LjHTdkDpwIbEOZgoXBbZilk/vlfjK8i6nKRAvIRn1XaIMw==}
-    dev: false
-
-  /@sentry-internal/tracing@7.59.2:
-    resolution: {integrity: sha512-02gteChV/lMobWU06VlITq+myEWk0MzhnDCm8n/DMigB47I9HkWZFAJ+CYG6Ns0rTL+3+/c2V0bPyQkZwIC+Sg==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@sentry/core': 7.59.2
-      '@sentry/types': 7.59.2
-      '@sentry/utils': 7.59.2
-      tslib: 1.14.1
-    dev: false
-
-  /@sentry/browser@7.59.2:
-    resolution: {integrity: sha512-N1JiBs1VRR5DV0209TZgaMwRGiTYN1C34sFzIW7nuC82X4gHy3tuJjZPlMDTtgFrALBMJ24yQ7D4HJjXrS2+Dw==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@sentry-internal/tracing': 7.59.2
-      '@sentry/core': 7.59.2
-      '@sentry/replay': 7.59.2
-      '@sentry/types': 7.59.2
-      '@sentry/utils': 7.59.2
-      tslib: 1.14.1
-    dev: false
-
-  /@sentry/core@7.59.2:
-    resolution: {integrity: sha512-GRhoPw6b6GkvOsa060aREc9yyHjgAKITgITNbzUmn0GqIeWD5SMoCBAcENRHVgUnpQWOpnkEF1/sqxvwx+rf6Q==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@sentry/types': 7.59.2
-      '@sentry/utils': 7.59.2
-      tslib: 1.14.1
-    dev: false
-
-  /@sentry/replay@7.59.2:
-    resolution: {integrity: sha512-Ma72ofTdtSinBY5GH0zM7k8o/WsdaVdPP/1iyFbcWQDt8dnrcsJVUKK0t9+8gijpiSMUKE+vjFjQNL9/PGYekw==}
-    engines: {node: '>=12'}
-    dependencies:
-      '@sentry/core': 7.59.2
-      '@sentry/types': 7.59.2
-      '@sentry/utils': 7.59.2
-    dev: false
-
-  /@sentry/tracing@7.59.2:
-    resolution: {integrity: sha512-8HXnlmiES+sMPwq1h4HsVO1QI58WTtXM9z6taPRX/olNkhmN3Pk2o4PQeItLRzYs84K/X4GPk/aofeqMbBX8+g==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@sentry-internal/tracing': 7.59.2
-    dev: false
-
-  /@sentry/types@7.59.2:
-    resolution: {integrity: sha512-rylG7UQ0cC/xbV6trSuaAE/bsruSZy92jxQ1/KSOYKwBBvRFPXJBuiBtA81b8eYa4THZ+mE/ol2qOTJYuuV4Ug==}
-    engines: {node: '>=8'}
-    dev: false
-
-  /@sentry/utils@7.59.2:
-    resolution: {integrity: sha512-uxC8xH9wsB/tZUnjmaQ1uGtsumFOc19KWfedVHXzcNwqdt5uS3EB4+D1d8WwiJyLy2nm61DdmTC9SiB4HS+OSw==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@sentry/types': 7.59.2
-      tslib: 1.14.1
     dev: false
 
   /@swc/helpers@0.5.1:

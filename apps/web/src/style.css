@@ -58,21 +58,6 @@ table {
   width: 100vw;
 }
 
-.GITHUBRIBBON {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-}
-
-#GBRDARK {
-  display: block;
-}
-
-#GBRLIGHT {
-  display: none;
-}
-
 .error_cl {
   color: rgb(173 57 57);
   font-size: small;
@@ -84,6 +69,12 @@ table {
 
 .arrow_sm {
   letter-spacing: -3px;
+}
+
+#emailContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -99,14 +90,6 @@ table {
 
   a:visited {
     color: lightskyblue;
-  }
-
-  #GBRDARK {
-    display: none;
-  }
-
-  #GBRLIGHT {
-    display: block;
   }
 
   .error_cl {

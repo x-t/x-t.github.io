@@ -20,8 +20,6 @@
   },
   "dependencies": {
     "@fingerprintjs/botd": "^1.6.0",
-    "@sentry/browser": "^7.59.2",
-    "@sentry/tracing": "^7.59.2",
     "alpinejs": "^3.12.3"
   }
 }

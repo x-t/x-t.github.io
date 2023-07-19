@@ -1,0 +1,9 @@
+<div style="text-align: center">
+    <h3>address: <a href="mailto:{{.mail}}">{{.mail}}</a></h3>
+    <p>non-protonmail users: if possible, please encrypt your message using my public key found below.</p>
+    <br/>
+    <button type="button" onclick="downloadKey()">download pgp key</button>
+    <pre style="font-size: xx-small" id="pgpKey">
+{{.keyblock}}
+    </pre>
+</div>
