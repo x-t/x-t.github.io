@@ -1,4 +1,4 @@
-name: Build and deploy backend
+name: Build and deploy mailguard
 
 on:
   push:

@@ -29,7 +29,7 @@ jobs:
 
       - name: Install and Build
         run: |
-          pnpm i --filter web --frozen-lockfile
+          pnpm i --filter web
           npx turbo run build --scope=web --include-dependencies --no-deps
         env:
           VITE_FETCH_ENDPOINT: ${{ secrets.BUILD_WEB_FETCH_ENDPOINT }}
