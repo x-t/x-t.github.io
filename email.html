@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--This file created 3/24/21 11:26 PM by Claris Home Page version 2.0-->
+<HTML LANG="en">
+   <HEAD PREFIX="og: http://ogp.me/ns#">
+      <META CHARSET="utf-8" />
+      <TITLE>zxyz - email</TITLE>
+   <META NAME=GENERATOR CONTENT="Claris Home Page 2.0" />
+   <META NAME="viewport" CONTENT="width=device-width,initial-scale=1" />
+   <META NAME="twitter:title" CONTENT="zxyz - email" />
+   <META NAME="og:title" CONTENT="zxyz - email" />
+   <META CONTENT="object" PROPERTY="og:type" />
+   <META CONTENT="x-t.github.io" PROPERTY="og:site_name" />
+   <META NAME="description" CONTENT="zxyz's email" />
+   <META NAME="twitter:description" CONTENT="zxyz's email" />
+   <META NAME="og:description" CONTENT="zxyz's email" />
+   <META CONTENT="128" PROPERTY="og:image:width" />
+   <META CONTENT="128" PROPERTY="og:image:height" />
+   <META NAME="og:image" CONTENT="/img/favicon@128.jpg" />
+   <META NAME="twitter:image" CONTENT="/img/favicon@128.jpg" />
+   <META CONTENT="summary" PROPERTY="twitter:card" />
+   <LINK REL="shortcut icon" HREF="favicon.ico" TYPE="image/x-icon" />
+   <LINK REL="shortcut icon" HREF="/img/favicon@64.jpg" TYPE="image/jpeg" />
+   <LINK REL="shortcut icon" HREF="/img/favicon@64.webp" TYPE="image/webp" />
+   <LINK REL="manifest" HREF="/manifest.json" />
+   <link rel="preload" href="/font/AppleGaramond.woff2" as="font" type="font/woff2" crossorigin />
+   <link rel="preload" href="/font/AppleGaramond-Bold.woff2" as="font" type="font/woff2" crossorigin />
+   <link rel="preload" href="/font/AppleGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin />
+   <link rel="preload" href="/img/darkbg.jpeg" as="image" media="(prefers-color-scheme: dark)" />
+   <X-SAS-WINDOW TOP=54 BOTTOM=601 LEFT=29 RIGHT=559 />
+   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <script type="module" crossorigin src="/assets/email-6598eb25.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/404-46281a39.js">
+  <link rel="stylesheet" href="/assets/404-e8fd6904.css">
+  <script type="module">import.meta.url;import("_").catch(()=>1);async function* g(){};if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
+  <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+</HEAD>
+<BODY BGCOLOR="#FFFFCA" BACKGROUND="/img/chillibk.gif">
+<P id="W"><TABLE BORDER=0 WIDTH="80%">
+   <TR>
+      <TD WIDTH=492>
+         <P><A HREF="/index.html"><PICTURE>
+            <SOURCE SRCSET="/img/email.webp" TYPE="image/webp" /><IMG
+         SRC="/img/email.png"
+         ALT="email icon" WIDTH=48
+         HEIGHT=48 ALIGN=bottom /></PICTURE></A></P>
+
+         <noscript>
+            <hr />
+            For full functionality of this site it is necessary to enable JavaScript.
+            Here are the <a href="https://www.enable-javascript.com/">
+            instructions how to enable JavaScript in your web browser</a>.
+            <hr />
+         </noscript>
+
+         <H1>my email</H1>
+
+         <DIV ID="emailContainer">
+            <form id="emailForm"
+                  x-data="{
+                  state: 'idle',
+                  endpoint: window.endpoints.emailguard,
+                  htmlResult: '',
+                  error: '',
+                  el: {}}"
+            @submit.prevent="
+               state = 'loading';
+               fetch(endpoint, {
+                  method: 'POST',
+                  headers: {
+                     'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                     'captcha': $store.captchaToken.value
+                  })
+               })
+               .then(response => response.text())
+               .then(data => {
+                  state = 'finished';
+                  htmlResult = data;
+               })
+               .catch(err => {
+                  state = 'error';
+                  error = err;
+               })
+            ">
+               <!-- workaround because form.submit()
+                  doesn't trigger @submit.prevent -->
+               <button style="display: none" id="submitEmailForm"></button>
+               <template x-if="state === 'idle'">
+                  <div>
+                  <P>in order to email me, complete this captcha.</P>
+                  </div>
+               </template>
+
+                <template x-if="state === 'loading'">
+                    <p>loading...</p>
+                </template>
+
+                <div x-show="state === 'finished'" x-html="htmlResult"></div>
+
+               <template x-if="error">
+                  <div>
+                  <P class="error_cl">error: <span x-data="error"></span></P>
+                  </div>
+                </template>
+
+               <div class="h-captcha"
+                    data-sitekey="1ec5c05b-2003-4302-b9f7-bb059f46c9a0"
+                    data-callback="captchaWrapper"
+                    x-show="state === 'idle'"
+                    :data-theme="window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'"></div>
+
+            </form>
+         </DIV>
+
+         <P>(c) zxyz. <SPAN ID="FSP" TITLE="Icons & cursor licensed under the MIT license, by Haiku.">copy it</SPAN>. i won't be mad.</P>
+      </TD></TR>
+</TABLE></P>
+
+<P>&nbsp;</P>
+<script>
+    function captchaWrapper(token) {
+      window.Alpine.store("captchaToken", {value: token});
+      document.getElementById("submitEmailForm").click();
+    }
+
+    function downloadKey() {
+       let el = document.createElement('a');
+       el.setAttribute('href', 'data:text/plain;charset=utf-8,'
+               + encodeURIComponent(document.getElementById('pgpKey').innerText));
+       el.setAttribute('download', 'publickey.xdasht@pm.me.asc');
+       el.style.display = 'none';
+       document.body.appendChild(el);
+       el.click();
+       document.body.removeChild(el);
+    }
+</script>
+
+  <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+  <script nomodule crossorigin id="vite-legacy-polyfill" src="/assets/polyfills-legacy-239734fe.js"></script>
+  <script nomodule crossorigin id="vite-legacy-entry" data-src="/assets/email-legacy-db259459.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+</BODY>
+</HTML>
