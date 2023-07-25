@@ -5,10 +5,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
-	"regexp"
-	"strings"
 	"time"
 	"x-t/guestbook3/src/models"
+	"x-t/guestbook3/src/providers"
 	"x-t/guestbook3/src/settings"
 )
 
@@ -29,8 +28,8 @@ func Post(c *gin.Context) {
 		return
 	}
 
-	postRequest.Name = removeWhitespace(postRequest.Name)
-	postRequest.Comment = removeWhitespace(postRequest.Comment)
+	postRequest.Name = providers.RemoveWhitespace(postRequest.Name)
+	postRequest.Comment = providers.RemoveWhitespace(postRequest.Comment)
 
 	if isPostValid(c, postRequest, referer) {
 		return
@@ -47,7 +46,7 @@ func Post(c *gin.Context) {
 		CreatedIP: c.ClientIP(),
 	}
 
-	if err := DBMap.Insert(&post); err != nil {
+	if err := providers.DBMap.Insert(&post); err != nil {
 		log.Printf("couldn't insert post: %v", err)
 		c.HTML(http.StatusInternalServerError,
 			"internal_error.html.tmpl", gin.H{
@@ -111,7 +110,7 @@ func isPostValid(c *gin.Context, postRequest *models.PostRequest, referer string
 
 func isRateLimited(c *gin.Context, referer string) bool {
 	var lastPost models.Post
-	err := DBMap.SelectOne(&lastPost,
+	err := providers.DBMap.SelectOne(&lastPost,
 		"select `created_at` from post where `created_ip` = ? order by `created_at` desc limit 1",
 		c.ClientIP())
 
@@ -136,18 +135,4 @@ func isRateLimited(c *gin.Context, referer string) bool {
 		}
 	}
 	return false
-}
-
-func removeWhitespace(field string) string {
-	re := regexp.MustCompile(`[ ]{2,}`)
-	return strings.TrimSpace(
-		re.ReplaceAllString(
-			strings.ReplaceAll(
-				strings.ReplaceAll(
-					strings.ReplaceAll(
-						field, "\r", " "),
-					"\n", " "),
-				"\t", " "),
-			" "))
-
 }

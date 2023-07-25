@@ -1,6 +1,7 @@
 const { resolve } = require("path");
 const { defineConfig } = require("vite");
 import legacy from "@vitejs/plugin-legacy";
+import inject from '@rollup/plugin-inject'
 
 module.exports = defineConfig({
   base: "/",
@@ -18,6 +19,9 @@ module.exports = defineConfig({
     legacy({
       targets: ["defaults", "not IE 11", "Firefox ESR"],
       polyfills: ["web.queue-microtask"],
+    }),
+    inject({
+      htmx: 'htmx.org'
     }),
   ],
 });

@@ -1,6 +1,9 @@
 import Alpine from "alpinejs";
+// import 'htmx.org/dist/ext/preload.js';
+// import "htmx.org"
 import "./font.css";
 import "./style.css";
+import * as htmx from 'htmx.org';
 
 declare global {
   interface Window {
@@ -10,16 +13,21 @@ declare global {
         fetch: string;
         form: string;
         emailguard: string;
-    }
+        guestbookfetch: string;
+    };
+    htmx: any;
   }
 }
 
-window.endpoints = {
-  fetch: import.meta.env.VITE_FETCH_ENDPOINT,
-  form: import.meta.env.VITE_FORM_ENDPOINT,
-  emailguard: import.meta.env.VITE_EMAILGUARD_ENDPOINT,
-};
-
 window.Alpine = Alpine;
+
+window.htmx = htmx;
+
+/* Swap any element (we return HTML on errors from the server) */
+
+document.body.addEventListener('htmx:beforeSwap', function(evt) {
+  // @ts-ignore
+  evt.detail.shouldSwap = true;
+});
 
 Alpine.start();

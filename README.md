@@ -4,13 +4,12 @@ monorepo for my personal site. it's cool. trust me.
 
 designed with [Claris Home Page 2.0](https://www.macintoshrepository.org/932-claris-home-page-2-0), but built on modern technologies, like [Vite](https://vitejs.dev/), [TypeScript](https://www.typescriptlang.org/), [Alpine.js](https://alpinejs.dev/), and [Go](https://go.dev/).
 
-all parts of the site are preferred to be in-house, therefore it requires multiple projects in one.
+all parts of the site are preferred to be in-house.
 
 ## projects that live here
 
 - [x-t.github.io](apps/web) - the frontend. it also lives on [cmp.neocities.org](https://cmp.neocities.org/).
-- [guestbook3](apps/guestbook3) - the guestbook service/backend. if you manage to copy this for your own work, god help you.
-- [mailguard](apps/mailguard) - in-house replacement for [mailhide.io](https://mailhide.io/en). once again, i don't know why you would reuse it, i only need it for my site.
+- [guestbook3](apps/guestbook3) - the site's backend. includes more than the guestbook (lol)
 
 ## licenses
 

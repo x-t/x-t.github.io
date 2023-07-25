@@ -1,47 +1,23 @@
-package controllers
+package providers
 
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"io"
-	"log"
 	"net/http"
 	"net/url"
 	"os"
 	"strconv"
 	"strings"
-	"x-t/mailguard/src/models"
-	"x-t/mailguard/src/settings"
+	"x-t/guestbook3/src/settings"
 )
 
-func Verify(c *gin.Context) {
-	var request models.EmailRequest
-	err := c.BindJSON(&request)
-	if err != nil {
-		log.Printf("unable to bind json: %v", err)
-		c.String(http.StatusBadRequest, "invalid request")
-		return
-	}
-
-	success, err := verifyCaptcha(request.CaptchaResponse)
-	if err != nil || !success {
-		c.String(http.StatusForbidden, "captcha verification failed")
-		return
-	}
-
-	c.HTML(http.StatusOK, "response.html.tmpl", gin.H{
-		"mail":     os.Getenv(settings.EnvEmail),
-		"keyblock": strings.ReplaceAll(os.Getenv(settings.EnvPgpKey), "\\n", "\n"),
-	})
-}
-
-func verifyCaptcha(captcha string) (bool, error) {
-	apiUrl := "https://hcaptcha.com"
-	resource := "/siteverify"
+func VerifyCaptcha(captcha string) (bool, error) {
+	apiUrl := "https://challenges.cloudflare.com"
+	resource := "/turnstile/v0/siteverify"
 	data := url.Values{}
 	data.Set("response", captcha)
-	data.Set("secret", os.Getenv(settings.EnvHcaptchaSecret))
+	data.Set("secret", os.Getenv(settings.EnvTurnstileSecret))
 
 	u, err := url.ParseRequestURI(apiUrl)
 	if err != nil {

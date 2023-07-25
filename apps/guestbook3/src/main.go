@@ -9,7 +9,7 @@ import (
 
 func main() {
 	mappings.CreateUrlMappings()
-	mappings.Router.LoadHTMLGlob("src/templates/*.html.tmpl")
+	mappings.CreateTemplateMappings()
 	err := mappings.Router.Run(":" + os.Getenv(settings.EnvPort))
 	if err != nil {
 		log.Fatalf("unable to start server: %v", err)

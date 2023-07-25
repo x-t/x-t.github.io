@@ -8,11 +8,7 @@ import (
 	"x-t/guestbook3/src/providers"
 )
 
-type LegacyJSON struct {
-	Posts []models.Post `json:"posts"`
-}
-
-func GetPosts(c *gin.Context) {
+func GetPostsHyper(c *gin.Context) {
 	var posts []models.Post
 
 	_, err := providers.DBMap.Select(&posts,
@@ -20,11 +16,16 @@ func GetPosts(c *gin.Context) {
 
 	if err != nil {
 		log.Printf("couldn't get posts: %v", err)
-		c.JSON(http.StatusInternalServerError, nil)
+		c.HTML(http.StatusInternalServerError,
+			"hyper_error.html.tmpl", gin.H{
+				"error": "error getting posts",
+			})
 		return
 	}
 
 	providers.ReverseArray(posts)
 
-	c.JSON(http.StatusOK, LegacyJSON{Posts: posts})
+	c.HTML(http.StatusOK, "posts.html.tmpl", gin.H{
+		"posts": posts,
+	})
 }

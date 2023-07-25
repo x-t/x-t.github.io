@@ -61,7 +61,6 @@
          <P><DIV ID="postDialog">
             <form
             x-data="{submitting: false,
-               endpoint: window.endpoints.form,
                error: ''}"
             x-id="['name-field', 'comment-field', 'form']"
             @submit.prevent="submitting = true;
@@ -79,10 +78,9 @@
                .catch((e) => {
                   submitting = false;
                   error = 'An error occured.';
-                  console.log(e);
                });"
             method="post"
-            :action="endpoint"
+            action="https://old-flower-8394.fly.dev/api/post"
             :id="$id('form')"
             >
             <TABLE BORDER=0>
@@ -113,46 +111,9 @@
          </template>
       </form>
       </DIV></P>
-         <DIV ID="guestbookPosts">
-            <TABLE BORDER=1
-               x-data="{posts: [],
-                  loading: true,
-                  endpoint: window.endpoints.fetch,
-                  error: ''}"
-               x-init="fetch(endpoint)
-                  .then(response => response.json())
-                  .then(data => {posts = data.posts; loading = false;})
-                  .catch((e) => {
-                     loading = false;
-                     error = 'An error occured.';
-                     console.log(e);
-                  });"
-               >
-               <caption style="display: none;">Guestbook posts</caption>
-               <TR>
-                  <TH>date</TH>
-                  <TH>name</TH>
-                  <TH>comment</TH>
-               </TR>
-               <template x-if="loading || error">
-                  <TR><TD COLSPAN=3
-                     x-text="loading ? 'Loading...' : error"
-                     :class="error ? 'error_cl' : ''">loading...</TD></TR>
-               </template>
-               <template x-for="post in posts">
-                  <tr>
-                     <td x-data="{date: new Date(post.created_at)}"
-                        x-text="
-                        date.toLocaleDateString()
-                        + ' ' + date
-                        .toLocaleTimeString([],
-                           {hour: '2-digit',minute: '2-digit'})"></td>
-                     <td x-text="post.name || 'Anonymous'"></td>
-                     <td x-text="post.comment"></td>
-                  </tr>
-               </template>
-            </TABLE>
-         </DIV>
+         <DIV hx-get="https://old-flower-8394.fly.dev/api/guestbook_posts"
+              hx-trigger="load delay:0.1s"
+              hx-swap="innerHTML"></DIV>
       </TD></TR>
 </TABLE></P>
 <P>(c) zxyz. <SPAN ID="FSP" TITLE="Icons & cursor licensed under the MIT license, by Haiku.">copy it</SPAN>. i won't be mad.</P>

@@ -1,0 +1,15 @@
+<table border="1">
+    <caption style="display: none;">Guestbook posts</caption>
+    <TR>
+        <TH>date</TH>
+        <TH>name</TH>
+        <TH>comment</TH>
+    </TR>
+    {{range .posts}}
+        <TR>
+            <TD>{{.CreatedAt | RenderDate}}</TD>
+            <TD>{{.Name | RenderName}}</TD>
+            <TD>{{.Comment}}</TD>
+        </TR>
+    {{end}}
+</table>

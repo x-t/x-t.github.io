@@ -8,3 +8,9 @@ const EnvDatabaseConnection = "DSN"
 const EnvCorsList = "CORS_ENDPOINTS"
 
 const EnvPort = "PORT"
+
+const EnvTurnstileSecret = "TURNSTILE_SECRET"
+
+const EnvEmail = "EMAIL"
+
+const EnvPgpKey = "PGP_KEY"
