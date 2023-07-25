@@ -27,9 +27,9 @@
    <link rel="preload" href="/font/AppleGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin />
    <link rel="preload" href="/img/darkbg.jpeg" as="image" media="(prefers-color-scheme: dark)" />
    <X-SAS-WINDOW TOP=54 BOTTOM=601 LEFT=29 RIGHT=559 />
-   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-  <script type="module" crossorigin src="/assets/email-c4eda5df.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/404-b4b23b64.js">
+   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script type="module" crossorigin src="/assets/email-6afb637f.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/404-f2478d74.js">
   <link rel="stylesheet" href="/assets/404-e8fd6904.css">
   <script type="module">import.meta.url;import("_").catch(()=>1);async function* g(){};if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
   <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
@@ -53,63 +53,19 @@
          </noscript>
 
          <H1>my email</H1>
-
          <DIV ID="emailContainer">
             <form id="emailForm"
-                  x-data="{
-                  state: 'idle',
-                  endpoint: window.endpoints.emailguard,
-                  htmlResult: '',
-                  error: '',
-                  el: {}}"
-            @submit.prevent="
-               state = 'loading';
-               fetch(endpoint, {
-                  method: 'POST',
-                  headers: {
-                     'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({
-                     'captcha': $store.captchaToken.value
-                  })
-               })
-               .then(response => response.text())
-               .then(data => {
-                  state = 'finished';
-                  htmlResult = data;
-               })
-               .catch(err => {
-                  state = 'error';
-                  error = err;
-               })
-            ">
-               <!-- workaround because form.submit()
-                  doesn't trigger @submit.prevent -->
-               <button style="display: none" id="submitEmailForm"></button>
-               <template x-if="state === 'idle'">
-                  <div>
-                  <P>in order to email me, complete this captcha.</P>
-                  </div>
-               </template>
+                  hx-post="https://old-flower-8394.fly.dev/api/email_verify"
+                  hx-swap="outerHTML"
+                  hx-encoding="application/x-www-form-urlencoded">
+               <p>robot mail isn't welcome :p</p>
 
-                <template x-if="state === 'loading'">
-                    <p>loading...</p>
-                </template>
-
-                <div x-show="state === 'finished'" x-html="htmlResult"></div>
-
-               <template x-if="error">
-                  <div>
-                  <P class="error_cl">error: <span x-data="error"></span></P>
-                  </div>
-                </template>
-
-               <div class="h-captcha"
-                    data-sitekey="1ec5c05b-2003-4302-b9f7-bb059f46c9a0"
+               <div id="cf-turnstile"
+                    class="cf-turnstile"
+                    data-sitekey="0x4AAAAAAAH1ipwjiMl11wmy"
                     data-callback="captchaWrapper"
-                    x-show="state === 'idle'"
                     :data-theme="window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'"></div>
-
+               <button style="display: none" type="submit" id="submitEmailForm"></button>
             </form>
          </DIV>
 
@@ -119,8 +75,8 @@
 
 <P>&nbsp;</P>
 <script>
+
     function captchaWrapper(token) {
-      window.Alpine.store("captchaToken", {value: token});
       document.getElementById("submitEmailForm").click();
     }
 
@@ -138,6 +94,6 @@
 
   <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
   <script nomodule crossorigin id="vite-legacy-polyfill" src="/assets/polyfills-legacy-239734fe.js"></script>
-  <script nomodule crossorigin id="vite-legacy-entry" data-src="/assets/email-legacy-717cc188.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+  <script nomodule crossorigin id="vite-legacy-entry" data-src="/assets/email-legacy-2005bbf9.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
 </BODY>
 </HTML>
