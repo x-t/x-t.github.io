@@ -22,6 +22,6 @@
   "dependencies": {
     "@fingerprintjs/botd": "^1.6.0",
     "alpinejs": "^3.12.3",
-    "htmx.org": "^1.9.3"
+    "htmx.org": "^1.9.4"
   }
 }
