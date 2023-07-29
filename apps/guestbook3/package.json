@@ -1,8 +1,0 @@
-{
-  "name": "guestbook3",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "build": "go -o guestbook3 x-t/guestbook3/src"
-  }
-}

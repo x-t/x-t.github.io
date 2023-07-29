@@ -1,8 +1,8 @@
 # x-t.github.io
 
-monorepo for my personal site. it's cool. trust me.
+my personal site. it's cool. trust me.
 
-designed with [Claris Home Page 2.0](https://www.macintoshrepository.org/932-claris-home-page-2-0), but built on modern technologies, like [Vite](https://vitejs.dev/), [TypeScript](https://www.typescriptlang.org/), [Alpine.js](https://alpinejs.dev/), and [Go](https://go.dev/).
+designed with [Claris Home Page 2.0](https://www.macintoshrepository.org/932-claris-home-page-2-0), uses [htmx](https://htmx.org/) and [hyperscript](https://hyperscript.org/).
 
 all parts of the site are preferred to be in-house.
 
@@ -17,4 +17,4 @@ code licensed under [mit](LICENSE_MIT) or [cc-by-nc 4.0](LICENSE_CC), whichever 
 
 site content licensed under [cc-by-nc 4.0](LICENSE_CC).
 
-some assets are licensed from haiku under the [mit license](https://github.com/haiku/haiku/blob/master/License.md).
+quite a few assets are licensed from haiku under the [mit license](https://github.com/haiku/haiku/blob/master/License.md).
