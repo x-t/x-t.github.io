@@ -24,8 +24,10 @@
    <link rel="preload" href="/font/AppleGaramond.woff2" as="font" type="font/woff2" crossorigin />
    <link rel="preload" href="/font/AppleGaramond-Bold.woff2" as="font" type="font/woff2" crossorigin />
    <link rel="preload" href="/font/AppleGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin />
-   <link rel="preload" href=import.meta.env.VITE_FETCH_ENDPOINT as="fetch" crossorigin="anonymous" />
+   <link rel="preload" href="https://old-flower-8394.fly.dev/api/guestbook_posts" as="fetch" crossorigin="anonymous" />
    <link rel="preload" href="/img/darkbg.jpeg" as="image" media="(prefers-color-scheme: dark)" />
+   <link rel="stylesheet" href="/css/font.css">
+   <link rel="stylesheet" href="/css/style.css">
    <STYLE>
       #guestbookPosts {
          padding-top: 40px;
@@ -35,12 +37,9 @@
          text-align: left;
       }
    </STYLE>
+   <script src="/js/thirdparty/htmx.min.js"></script>
+   <script src="/js/thirdparty/_hyperscript.min.js"></script>
    <X-SAS-WINDOW TOP=53 BOTTOM=600 LEFT=152 RIGHT=682 />
-  <script type="module" crossorigin src="/assets/guestbook-f1d36d1e.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/404-f2478d74.js">
-  <link rel="stylesheet" href="/assets/404-e8fd6904.css">
-  <script type="module">import.meta.url;import("_").catch(()=>1);async function* g(){};if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
-  <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
 </HEAD>
 <BODY BGCOLOR="#FFFFCA" BACKGROUND="/img/chillibk.gif">
 <P id="W"><TABLE WIDTH="80%">
@@ -55,9 +54,8 @@
 
          <noscript>
             <hr />
-            For full functionality of this site it is necessary to enable JavaScript.
-            Here are the <a href="https://www.enable-javascript.com/">
-            instructions how to enable JavaScript in your web browser</a>.
+            the guestbook requires javascript.
+            <a href="https://www.enable-javascript.com/">if your browser can support it, follow these instructions to enable it</a>.
             <hr />
            </noscript>
 
@@ -65,44 +63,24 @@
 
          <P><DIV ID="postDialog">
             <form
-            x-data="{submitting: false,
-               error: ''}"
-            x-id="['name-field', 'comment-field', 'form']"
-            @submit.prevent="submitting = true;
-               window.botdPromise
-               .then(botd => botd.detect())
-               .then(result => {
-                  return new Promise((resolve, reject) => {
-                     if (!result.bot)
-                        resolve();
-                  });
-               })
-               .then(() => {
-                  document.getElementById($id('form')).submit();
-               })
-               .catch((e) => {
-                  submitting = false;
-                  error = 'An error occured.';
-               });"
             method="post"
             action="https://old-flower-8394.fly.dev/api/post"
-            :id="$id('form')"
             >
             <TABLE BORDER=0>
                <caption style="display: none;">Guestbook posting form</caption>
             <TR>
                <TD>
-                  <P><label :for="$id('name-field')">name</label></P>
+                  <P><label for="guestbook_name_field">name</label></P>
                </TD><TD>
-                  <P><INPUT :id="$id('name-field')"
+                  <P><INPUT id="guestbook_name_field"
                   TYPE="text" NAME="name" VALUE="" SIZE=25
                   MAXLENGTH=32 id="guestbookName" placeholder="Anonymous" /></P>
                </TD></TR>
             <TR>
                <TD>
-                  <P><label :for="$id('comment-field')">comment</label></P>
+                  <P><label for="guestbook_comment_field">comment</label></P>
                </TD><TD>
-                  <P><INPUT :id="$id('comment-field')"
+                  <P><INPUT id="guestbook_comment_field"
                   TYPE="text" NAME="comment" VALUE="" SIZE=25
                   MAXLENGTH=128 id="guestbookComment" required /></P>
                </TD></TR>
@@ -117,15 +95,21 @@
       </form>
       </DIV></P>
          <DIV hx-get="https://old-flower-8394.fly.dev/api/guestbook_posts"
-              hx-trigger="load delay:0.1s"
-              hx-swap="innerHTML"></DIV>
+              hx-trigger="load"
+              hx-swap="innerHTML"
+              _="on htmx:sendError put 'failed to load the guestbook :(' into the next <div/>">
+              <div style="text-align: center;">
+                 loading...
+               </div>
+              </DIV>
+              <div style="text-align: center;"></div>
       </TD></TR>
 </TABLE></P>
 <P>(c) zxyz. <SPAN ID="FSP" TITLE="Icons & cursor licensed under the MIT license, by Haiku.">copy it</SPAN>. i won't be mad.</P>
-
-
-  <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
-  <script nomodule crossorigin id="vite-legacy-polyfill" src="/assets/polyfills-legacy-239734fe.js"></script>
-  <script nomodule crossorigin id="vite-legacy-entry" data-src="/assets/guestbook-legacy-83f915e9.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+<script defer>
+document.body.addEventListener('htmx:beforeSwap', function(evt) {
+  evt.detail.shouldSwap = true;
+});
+</script>
 </BODY>
 </HTML>

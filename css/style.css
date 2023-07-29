@@ -1,0 +1,98 @@
+body {
+  font-family: "Garamond", "Times New Roman", Times, serif;
+  background-image: url("/img/chillibk.gif");
+  background-color: #ffffca;
+  cursor: url("/img/Pointer.png") 6 2, auto;
+  font-size: 18.5px;
+}
+
+h1,
+h2,
+p {
+  text-align: center;
+  cursor: url("/img/IBeam.png") 6 2, auto;
+}
+
+a,
+a img {
+  cursor: url("/img/FollowLink.png") 6 2, auto;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #0000ff;
+}
+
+img {
+  cursor: url("/img/Pointer.png") 6 2, auto;
+}
+
+table.LINKS > tbody > tr > td:nth-child(2) > p {
+  text-align: left;
+}
+
+table.LINKS > tbody > tr > td > p {
+  margin: 0;
+}
+
+#AL {
+  margin-bottom: 40px;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#guestbookPosts > table > tbody > tr > td {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#FSP {
+  border-bottom: 1px dotted;
+  cursor: url("/img/Help.png") 6 2, auto;
+}
+
+#W {
+  width: 100vw;
+}
+
+.error_cl {
+  color: rgb(173 57 57);
+  font-size: small;
+}
+
+.arrow_lg {
+  letter-spacing: -4px;
+}
+
+.arrow_sm {
+  letter-spacing: -3px;
+}
+
+#emailContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: url("/img/darkbg.jpeg");
+    color: white;
+    background-color: #000;
+  }
+
+  a {
+    color: lightskyblue;
+  }
+
+  a:visited {
+    color: lightskyblue;
+  }
+
+  .error_cl {
+    color: rgb(207 160 160);
+  }
+}

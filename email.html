@@ -26,13 +26,10 @@
    <link rel="preload" href="/font/AppleGaramond-Bold.woff2" as="font" type="font/woff2" crossorigin />
    <link rel="preload" href="/font/AppleGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin />
    <link rel="preload" href="/img/darkbg.jpeg" as="image" media="(prefers-color-scheme: dark)" />
+   <link rel="stylesheet" href="/css/font.css">
+   <link rel="stylesheet" href="/css/style.css">
    <X-SAS-WINDOW TOP=54 BOTTOM=601 LEFT=29 RIGHT=559 />
    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-  <script type="module" crossorigin src="/assets/email-6afb637f.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/404-f2478d74.js">
-  <link rel="stylesheet" href="/assets/404-e8fd6904.css">
-  <script type="module">import.meta.url;import("_").catch(()=>1);async function* g(){};if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
-  <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
 </HEAD>
 <BODY BGCOLOR="#FFFFCA" BACKGROUND="/img/chillibk.gif">
 <P id="W"><TABLE BORDER=0 WIDTH="80%">
@@ -63,8 +60,7 @@
                <div id="cf-turnstile"
                     class="cf-turnstile"
                     data-sitekey="0x4AAAAAAAH1ipwjiMl11wmy"
-                    data-callback="captchaWrapper"
-                    :data-theme="window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'"></div>
+                    data-callback="captchaWrapper"></div>
                <button style="display: none" type="submit" id="submitEmailForm"></button>
             </form>
          </DIV>
@@ -75,25 +71,20 @@
 
 <P>&nbsp;</P>
 <script>
+function captchaWrapper(token) {
+   document.getElementById("submitEmailForm").click();
+}
 
-    function captchaWrapper(token) {
-      document.getElementById("submitEmailForm").click();
-    }
-
-    function downloadKey() {
-       let el = document.createElement('a');
-       el.setAttribute('href', 'data:text/plain;charset=utf-8,'
-               + encodeURIComponent(document.getElementById('pgpKey').innerText));
-       el.setAttribute('download', 'publickey.xdasht@pm.me.asc');
-       el.style.display = 'none';
-       document.body.appendChild(el);
-       el.click();
-       document.body.removeChild(el);
-    }
+function downloadKey() {
+   let el = document.createElement('a');
+   el.setAttribute('href', 'data:text/plain;charset=utf-8,'
+         + encodeURIComponent(document.getElementById('pgpKey').innerText));
+   el.setAttribute('download', 'publickey.xdasht@pm.me.asc');
+   el.style.display = 'none';
+   document.body.appendChild(el);
+   el.click();
+   document.body.removeChild(el);
+}
 </script>
-
-  <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
-  <script nomodule crossorigin id="vite-legacy-polyfill" src="/assets/polyfills-legacy-239734fe.js"></script>
-  <script nomodule crossorigin id="vite-legacy-entry" data-src="/assets/email-legacy-2005bbf9.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
 </BODY>
 </HTML>
