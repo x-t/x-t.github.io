@@ -27,7 +27,9 @@ func Update(c *gin.Context) {
 	id := c.Param("id")
 	var postToUpdate models.Post
 	err = providers.DBMap.SelectOne(&postToUpdate,
-		"select * from post where `id` = ? limit 1",
+		"select `id`, coalesce(`name`, '') `name`, "+
+			"`comment`, `created_at`, coalesce(`created_ip`, '') "+
+			"`created_ip` from post where `id` = ? limit 1",
 		id)
 
 	if err != nil {
