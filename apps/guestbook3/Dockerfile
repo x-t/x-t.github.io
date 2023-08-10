@@ -19,4 +19,6 @@ WORKDIR /app
 COPY --from=build /app/guestbook3 /app/guestbook3
 COPY --from=build /app/src/views /app/src/views
 
+USER 65534
+
 ENTRYPOINT ["/app/guestbook3"]

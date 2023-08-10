@@ -1,0 +1,26 @@
+{{define "admin/about.html"}}
+{{template "admin/header"}}
+    {{template "admin/navbar"}}
+
+    <div class="container" id="container">
+
+      <div class="content" id="content">
+        <div class="page-header">
+          <h1>whoami</h1>
+        </div>
+        <div class="row">
+          <div style="text-align: center;">
+            <p>guestbook administration</p>
+            <br>
+            <p>stack: go, htmx, bootstrap 1.</p>
+            <br>
+            <p><a href="https://github.com/x-t/x-t.github.io" class="btn primary">source code</a></p>
+            <br>
+            <p><img src="https://i0.kym-cdn.com/entries/icons/facebook/000/026/152/gigachad.jpg" style="width:50%;"></p>
+            <br>
+            <p>i'm in <a href="https://fly.io/docs/reference/regions/">{{.region}}</a></p>
+          </div>
+        </div>
+      </div>
+{{template "admin/footer"}}
+{{end}}

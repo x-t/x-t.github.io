@@ -45,6 +45,7 @@ func CreateUrlMappings() {
 	{
 		admin.GET("/", controller_admin.Index)
 		admin.POST("/login_req", controller_admin.Login)
+		admin.GET("/about", controller_admin.About)
 	}
 
 	adminAuthenticated := Router.Group("/admin")
@@ -56,5 +57,6 @@ func CreateUrlMappings() {
 		adminAuthenticated.POST("/update/:id", controller_admin.Update)
 		adminAuthenticated.DELETE("/delete/:id", controller_admin.Delete)
 		adminAuthenticated.GET("/logout", controller_admin.Logout)
+		adminAuthenticated.GET("/server", controller_admin.Server)
 	}
 }
