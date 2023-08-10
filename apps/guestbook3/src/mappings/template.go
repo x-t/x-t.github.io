@@ -2,13 +2,13 @@ package mappings
 
 import (
 	"html/template"
-	"x-t/guestbook3/src/providers"
+	"x-t/guestbook3/src/views/fetcher"
 )
 
 func CreateTemplateMappings() {
 	Router.SetFuncMap(template.FuncMap{
-		"RenderDate": providers.RenderDate,
-		"RenderName": providers.RenderName,
+		"RenderDate": fetcher.RenderDate,
+		"RenderName": fetcher.RenderName,
 	})
-	Router.LoadHTMLGlob("src/templates/*.html.tmpl")
+	Router.LoadHTMLGlob("src/views/**/*.html.tmpl")
 }

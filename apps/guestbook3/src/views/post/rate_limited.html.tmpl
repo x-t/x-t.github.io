@@ -1,6 +1,8 @@
+{{define "post/rate_limited.html"}}
 {{template "header"}}
 <h1>rate limited</h1>
 <p>new posts may be submitted every 30 minutes.</p>
 <p>you may post in {{.minutes}} minutes.</p>
 <noscript><a href="{{.redirect}}">retry</a></noscript>
 {{template "footer"}}
+{{end}}

@@ -1,4 +1,4 @@
-package controllers
+package mailguard
 
 import (
 	"github.com/gin-gonic/gin"
@@ -27,7 +27,7 @@ func EmailVerify(c *gin.Context) {
 		return
 	}
 
-	c.HTML(http.StatusOK, "captcha_response.html.tmpl", gin.H{
+	c.HTML(http.StatusOK, "mailguard/captcha_response.html", gin.H{
 		"mail":     os.Getenv(settings.EnvEmail),
 		"keyblock": strings.ReplaceAll(os.Getenv(settings.EnvPgpKey), "\\n", "\n"),
 	})

@@ -1,4 +1,4 @@
-package controllers
+package post
 
 import (
 	goaway "github.com/TwiN/go-away"
@@ -17,7 +17,7 @@ func Post(c *gin.Context) {
 
 	if err := c.Bind(postRequest); err != nil {
 		c.HTML(http.StatusBadRequest,
-			"validation_errors.html.tmpl", gin.H{
+			"post/validation_errors.html", gin.H{
 				"errors": []models.ValidationError{
 					{
 						Parameter: "?",
@@ -49,7 +49,7 @@ func Post(c *gin.Context) {
 	if err := providers.DBMap.Insert(&post); err != nil {
 		log.Printf("couldn't insert post: %v", err)
 		c.HTML(http.StatusInternalServerError,
-			"internal_error.html.tmpl", gin.H{
+			"post/internal_error.html", gin.H{
 				"info":     "error inserting post",
 				"redirect": referer,
 			})
@@ -99,7 +99,7 @@ func isPostValid(c *gin.Context, postRequest *models.PostRequest, referer string
 
 	if len(validationErrors) > 0 {
 		c.HTML(http.StatusBadRequest,
-			"validation_errors.html.tmpl", gin.H{
+			"post/validation_errors.html", gin.H{
 				"errors":   validationErrors,
 				"redirect": referer,
 			})
@@ -118,7 +118,7 @@ func isRateLimited(c *gin.Context, referer string) bool {
 		if err.Error() != "sql: no rows in result set" {
 			log.Printf("couldn't get last post: %v", err)
 			c.HTML(http.StatusInternalServerError,
-				"internal_error.html.tmpl", gin.H{
+				"post/internal_error.html", gin.H{
 					"info":     "error checking rate limit",
 					"redirect": referer,
 				})
@@ -127,7 +127,7 @@ func isRateLimited(c *gin.Context, referer string) bool {
 	} else {
 		if since := time.Since(lastPost.CreatedAt).Minutes(); since < 30 {
 			c.HTML(http.StatusBadRequest,
-				"rate_limited.html.tmpl", gin.H{
+				"post/rate_limited.html", gin.H{
 					"minutes":  30 - int(since),
 					"redirect": referer,
 				})

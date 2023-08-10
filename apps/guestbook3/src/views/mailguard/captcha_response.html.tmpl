@@ -1,3 +1,4 @@
+{{define "mailguard/captcha_response.html"}}
 <div style="text-align: center">
     <h3>address: <a href="mailto:{{.mail}}">{{.mail}}</a></h3>
     <p>non-protonmail users: if possible, please encrypt your message using my public key found below.</p>
@@ -7,3 +8,4 @@
 {{.keyblock}}
     </pre>
 </div>
+{{end}}

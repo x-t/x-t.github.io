@@ -1,4 +1,4 @@
-package controllers
+package fetcher
 
 import (
 	"github.com/gin-gonic/gin"
@@ -17,7 +17,7 @@ func GetPostsHyper(c *gin.Context) {
 	if err != nil {
 		log.Printf("couldn't get posts: %v", err)
 		c.HTML(http.StatusInternalServerError,
-			"hyper_error.html.tmpl", gin.H{
+			"fetcher/hyper_error.html", gin.H{
 				"error": "error getting posts",
 			})
 		return
@@ -25,7 +25,7 @@ func GetPostsHyper(c *gin.Context) {
 
 	providers.ReverseArray(posts)
 
-	c.HTML(http.StatusOK, "posts.html.tmpl", gin.H{
+	c.HTML(http.StatusOK, "fetcher/posts.html", gin.H{
 		"posts": posts,
 	})
 }
