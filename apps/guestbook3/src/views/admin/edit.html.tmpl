@@ -1,0 +1,10 @@
+{{define "admin/edit.html"}}
+<p>Post: {{.post.ID}}</p>
+<form>
+<p>Name: <input class="xlarge" id="xlInput" name="name" size="30" type="text" value="{{.post.Name}}"></p>
+<p>Comment: <textarea class="xxlarge" id="textarea2" name="comment" rows="3">{{.post.Comment}}</textarea></p>
+<a hx-get="/admin/panel" hx-target="#container" class="btn" hx-swap="innerHTML">cancel</a>
+<button class="btn primary" hx-post="/admin/update/{{.post.ID}}" hx-target="#container" hx-swap="innerHTML" hx-confirm="confirm update on post {{.post.ID}}">update</button>
+<button class="btn danger" hx-delete="/admin/delete/{{.post.ID}}" hx-confirm="seriously delete post {{.post.ID}}?" hx-target="#container" hx-swap="innerHTML">delete</button>
+</form>
+{{end}}

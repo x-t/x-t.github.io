@@ -1,0 +1,14 @@
+{{define "admin/footer"}}
+      <footer>
+        <p>&copy; zxyz guestbook service</p>
+      </footer>
+
+    </div>
+	<script defer>
+	document.body.addEventListener('htmx:beforeSwap', function(evt) {
+		evt.detail.shouldSwap = true;
+	});
+	</script>
+</body>
+</html>
+{{end}}

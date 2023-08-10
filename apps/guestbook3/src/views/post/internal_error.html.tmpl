@@ -1,7 +1,7 @@
 {{define "post/internal_error.html"}}
-{{template "header"}}
+{{template "post/header"}}
 <h1>internal error</h1>
 <p>{{.info}}</p>
 <noscript><a href="{{.redirect}}">retry</a></noscript>
-{{template "footer"}}
+{{template "post/footer"}}
 {{end}}

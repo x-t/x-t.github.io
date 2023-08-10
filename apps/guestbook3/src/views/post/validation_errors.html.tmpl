@@ -1,5 +1,5 @@
 {{define "post/validation_errors.html"}}
-{{template "header"}}
+{{template "post/header"}}
 <h1>these fields have errors</h1>
 <ul>
     {{range .errors}}
@@ -7,5 +7,5 @@
     {{ end }}
 </ul>
 <noscript><a href="{{.redirect}}">retry</a></noscript>
-{{template "footer"}}
+{{template "post/footer"}}
 {{end}}

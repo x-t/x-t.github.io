@@ -1,0 +1,31 @@
+{{define "admin/index.html"}}
+{{template "admin/header"}}
+    {{template "admin/navbar"}}
+
+    <div class="container" id="container">
+
+      <div class="content" id="content">
+        <div class="page-header">
+          <h1>login here <small>whowzers</small></h1>
+        </div>
+        <div class="row">
+          <div style="display: flex;justify-items: center;justify-content: center;">
+            <div>
+	          <form 
+	          	hx-post="/admin/login_req"
+	          	hx-target="#content"
+              hx-swap="innerHTML"
+	          >
+	            <input class="input-small" type="text" name="username" placeholder="username">
+	            <br/>
+	            <input class="input-small" type="password" name="password" placeholder="secret">
+	            <button class="btn" type="submit">go!</button>
+	          </form>
+            <p>don't know the password? go away.</p>
+            <p>forgot your password? godspeed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+{{template "admin/footer"}}
+{{end}}

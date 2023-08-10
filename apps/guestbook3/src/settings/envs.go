@@ -14,3 +14,7 @@ const EnvTurnstileSecret = "TURNSTILE_SECRET"
 const EnvEmail = "EMAIL"
 
 const EnvPgpKey = "PGP_KEY"
+
+const EnvAdminUsername = "ADMIN_USERNAME"
+
+const EnvAdminSecretHash = "ADMIN_SECRET_HASH"

@@ -1,0 +1,47 @@
+{{define "admin/panel.html"}}
+{{template "admin/header"}}
+{{template "admin/navbar"}}
+
+<div class="container" id="container">
+
+  <div class="content" id="content">
+    <div class="page-header">
+      <h1>panel <small>have fun!</small></h1>
+    </div>
+    <div class="row">
+      <div style="display: flex;justify-items: center;justify-content: center;">
+        <div>
+        	<table class="bordered-table zebra-striped">
+        	<tr>
+        		<th>ID</th>
+        		<td>Created at</td>
+        		<th>Name</th>
+        		<th>Comment</th>
+        		<th>IP</th>
+        		<th></th>
+        	</tr>
+        	{{range .posts}}
+	        <tr>
+	        	<td>{{.ID}}</td>
+	            <td>{{.CreatedAt | RenderDate}}</td>
+	            <td>{{.Name | ShortenField}}</td>
+	            <td>{{.Comment | ShortenField}}</td>
+	        	<td>{{.CreatedIP}}</td>
+	        	<td>
+	        		<a 
+	        			class="btn primary"
+	        			hx-get="/admin/edit/{{.ID}}"
+	        			hx-target="#content"
+	        			hx-swap="innerHTML"
+	        		>edit</a>
+	        	</td>
+	        </tr>
+        	{{end}}
+        	</table>
+        </div>
+      </div>
+    </div>
+  </div>
+{{template "admin/footer"}}
+
+{{end}}

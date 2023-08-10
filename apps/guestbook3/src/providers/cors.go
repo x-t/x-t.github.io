@@ -1,28 +1,31 @@
 package providers
 
 import (
-	"github.com/gin-gonic/gin"
-	"golang.org/x/exp/slices"
 	"net/http"
 	"os"
 	"strings"
 	"x-t/guestbook3/src/settings"
+
+	"github.com/gin-gonic/gin"
+	"golang.org/x/exp/slices"
 )
 
 func Cors() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		// CORS should only be enabled for routes on /api
-		if !strings.HasPrefix(c.Request.URL.Path, "/api") {
+		// Weird bug workaround.
+		// Only allow CORS for /api routes
+		if !strings.HasPrefix(c.Request.URL.Path, "/api") &&
+			os.Getenv("GIN_MODE") == "release" {
 			c.Next()
 			return
 		}
-
 		reqFrom := c.Request.Header.Get("Origin")
 		corsList := strings.Split(os.Getenv(settings.EnvCorsList), ",")
 
 		// If you're getting data from an origin
 		// without allowed CORS, is there any point?
-		if !slices.Contains(corsList, reqFrom) {
+		if !slices.Contains(corsList, reqFrom) &&
+			os.Getenv("GIN_MODE") == "release" {
 			c.AbortWithStatus(http.StatusForbidden)
 			return
 		}
