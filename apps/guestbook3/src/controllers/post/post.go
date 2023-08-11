@@ -53,7 +53,7 @@ func Post(c *gin.Context) {
 				"info":     "error inserting post",
 				"redirect": referer,
 			})
-		return
+		panic(err)
 	}
 
 	c.Redirect(http.StatusFound, referer)
@@ -122,7 +122,7 @@ func isRateLimited(c *gin.Context, referer string) bool {
 					"info":     "error checking rate limit",
 					"redirect": referer,
 				})
-			return true
+			panic(err)
 		}
 	} else {
 		if since := time.Since(lastPost.CreatedAt).Minutes(); since < 30 {

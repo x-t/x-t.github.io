@@ -20,7 +20,7 @@ func GetPostsHyper(c *gin.Context) {
 			"fetcher/hyper_error.html", gin.H{
 				"error": "error getting posts",
 			})
-		return
+		panic(err)
 	}
 
 	providers.ReverseArray(posts)

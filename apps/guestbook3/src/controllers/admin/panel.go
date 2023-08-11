@@ -20,7 +20,7 @@ func Panel(c *gin.Context) {
 	if err != nil {
 		c.String(http.StatusInternalServerError,
 			fmt.Sprintf("server's cooked %v", err))
-		return
+		panic(err)
 	}
 
 	providers.ReverseArray(posts)

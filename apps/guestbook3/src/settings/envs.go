@@ -18,3 +18,5 @@ const EnvPgpKey = "PGP_KEY"
 const EnvAdminUsername = "ADMIN_USERNAME"
 
 const EnvAdminSecretHash = "ADMIN_SECRET_HASH"
+
+const EnvSentryDsn = "SENTRY_DSN"

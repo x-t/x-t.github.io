@@ -21,7 +21,7 @@ func Update(c *gin.Context) {
 		c.HTML(http.StatusBadRequest, "admin/error.html", gin.H{
 			"error": fmt.Sprintf("broke. %v", err),
 		})
-		return
+		panic(err)
 	}
 
 	id := c.Param("id")
@@ -37,7 +37,7 @@ func Update(c *gin.Context) {
 			"admin/error.html", gin.H{
 				"error": fmt.Sprintf("server broke %v", err),
 			})
-		return
+		panic(err)
 	}
 
 	postToUpdate.Name = request.Name
@@ -50,7 +50,7 @@ func Update(c *gin.Context) {
 			"admin/error.html", gin.H{
 				"error": fmt.Sprintf("sysadmin kidnapped %v", err),
 			})
-		return
+		panic(err)
 	}
 
 	c.Redirect(http.StatusFound, "/admin/panel")

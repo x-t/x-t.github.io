@@ -21,7 +21,7 @@ func GetPosts(c *gin.Context) {
 	if err != nil {
 		log.Printf("couldn't get posts: %v", err)
 		c.JSON(http.StatusInternalServerError, nil)
-		return
+		panic(err)
 	}
 
 	providers.ReverseArray(posts)

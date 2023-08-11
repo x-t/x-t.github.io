@@ -24,6 +24,11 @@ func EmailVerify(c *gin.Context) {
 	if err != nil || !success {
 		log.Printf("captcha verification failed: %v", err)
 		c.String(http.StatusForbidden, "captcha verification failed")
+		panic(err)
+	}
+
+	if !success {
+		c.String(http.StatusForbidden, "failed captcha - are you a bot?")
 		return
 	}
 

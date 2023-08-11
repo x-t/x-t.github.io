@@ -10,6 +10,7 @@ import (
 	"x-t/guestbook3/src/providers"
 	"x-t/guestbook3/src/settings"
 
+	sentrygin "github.com/getsentry/sentry-go/gin"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
@@ -22,8 +23,8 @@ var secret = []byte(os.Getenv(settings.EnvAdminSecretHash))
 func CreateUrlMappings() {
 	Router = gin.Default()
 
-	Router.Use(gin.Recovery())
 	Router.Use(providers.Cors())
+	Router.Use(sentrygin.New(sentrygin.Options{}))
 
 	Router.GET("/", controllers.Index)
 	Router.GET("/_healthz", controllers.Healthz)

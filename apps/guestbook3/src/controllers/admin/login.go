@@ -45,8 +45,9 @@ func Login(c *gin.Context) {
 		c.HTML(http.StatusBadRequest, "admin/error.html", gin.H{
 			"error": fmt.Sprintf("server has exploded. %v", err),
 		})
-		return
+		panic(err)
 	}
+
 	c.Header("HX-Location", "/admin/panel")
 	c.String(http.StatusOK, "")
 }

@@ -23,7 +23,7 @@ func Logout(c *gin.Context) {
 		c.HTML(http.StatusBadRequest, "admin/error.html", gin.H{
 			"error": fmt.Sprintf("server has exploded. %v", err),
 		})
-		return
+		panic(err)
 	}
 
 	c.Redirect(http.StatusFound, "/admin")

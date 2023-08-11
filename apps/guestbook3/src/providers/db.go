@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	"github.com/go-gorp/gorp"
 	_ "github.com/go-sql-driver/mysql"
-	"log"
 	"os"
 	"strings"
 	"x-t/guestbook3/src/models"
@@ -26,7 +25,7 @@ func initDb() *gorp.DbMap {
 
 	db, err := sql.Open("mysql", connectionString)
 	if err != nil {
-		log.Fatalf("couldn't open database: %v", err)
+		panic(err)
 	}
 	dbMap := &gorp.DbMap{Db: db, Dialect: gorp.MySQLDialect{Engine: "InnoDB", Encoding: "UTF8"}}
 	dbMap.AddTableWithName(models.Post{}, "post").SetKeys(true, "id")

@@ -22,8 +22,9 @@ func Edit(c *gin.Context) {
 			"admin/error.html", gin.H{
 				"error": fmt.Sprintf("🤷‍♂️ %v", err),
 			})
-		return
+		panic(err)
 	}
+
 	c.HTML(http.StatusOK, "admin/edit.html", gin.H{
 		"post": thisPost,
 	})

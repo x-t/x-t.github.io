@@ -23,7 +23,7 @@ func Delete(c *gin.Context) {
 			"admin/error.html", gin.H{
 				"error": fmt.Sprintf("uh oh %v", err),
 			})
-		return
+		panic(err)
 	}
 
 	_, err = providers.DBMap.Delete(&postToDelete)
@@ -33,7 +33,7 @@ func Delete(c *gin.Context) {
 			"admin/error.html", gin.H{
 				"error": fmt.Sprintf("AAAAAAAAA!! %v", err),
 			})
-		return
+		panic(err)
 	}
 
 	c.Header("HX-Location", "/admin/panel")
