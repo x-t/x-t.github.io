@@ -1,8 +1,13 @@
+html,
+body,
+img {
+  cursor: url("/img/Pointer.png") 6 2, auto;
+}
+
 body {
   font-family: "Garamond", "Times New Roman", Times, serif;
   background-image: url("/img/chillibk.gif");
   background-color: #ffffca;
-  cursor: url("/img/Pointer.png") 6 2, auto;
   font-size: 18.5px;
 }
 
@@ -23,44 +28,43 @@ a:visited {
   color: #0000ff;
 }
 
-img {
-  cursor: url("/img/Pointer.png") 6 2, auto;
-}
-
-table.LINKS > tbody > tr > td:nth-child(2) > p {
-  text-align: left;
-}
-
-table.LINKS > tbody > tr > td > p {
-  margin: 0;
-}
-
-#AL {
-  margin-bottom: 40px;
-}
-
 table {
   margin-left: auto;
   margin-right: auto;
 }
 
-#guestbookPosts > table > tbody > tr > td {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
 #FSP {
+  position: relative;
+  display: inline-block;
   border-bottom: 1px dotted;
   cursor: url("/img/Help.png") 6 2, auto;
 }
 
-#W {
-  width: 100vw;
+#FSP #FSPP {
+  visibility: hidden;
+  width: 150px;
+  background-color: #22221c;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 0.9em;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -75px;
 }
 
-.error_cl {
-  color: rgb(173 57 57);
-  font-size: small;
+#FSP:hover #FSPP {
+  visibility: visible;
+}
+
+#FSP #FSPP a {
+  color: lightskyblue;
+}
+
+#W {
+  width: 100vw;
 }
 
 .arrow_lg {
@@ -71,12 +75,6 @@ table {
   letter-spacing: -3px;
 }
 
-#emailContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 @media (prefers-color-scheme: dark) {
   body {
     background-image: url("/img/darkbg.jpeg");
@@ -84,15 +82,8 @@ table {
     background-color: #000;
   }
 
-  a {
-    color: lightskyblue;
-  }
-
+  a,
   a:visited {
     color: lightskyblue;
-  }
-
-  .error_cl {
-    color: rgb(207 160 160);
   }
 }

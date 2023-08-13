@@ -10,6 +10,12 @@ CGO_CPPFLAGS ?= -D_FORTIFY_SOURCE=2 -fstack-protector-all
 build: clean
 	CGO_ENABLED=1 CGO_CPPFLAGS="$(CGO_CPPFLAGS)" go build -o $(BINARY_NAME) $(GOFLAGS) $(BUILD_DIR)
 
+run: build
+	./$(BINARY_NAME)
+
+serve:
+	find "./src/" -name "*.go" | entr -r make run
+
 docker-build: clean
 	docker build -t $(BINARY_NAME) .
 
