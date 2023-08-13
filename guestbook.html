@@ -42,7 +42,6 @@
       crossorigin="anonymous"
    ></script>
    <script src="/js/thirdparty/htmx.min.js"></script>
-   <script src="/js/thirdparty/_hyperscript.min.js"></script>
    <X-SAS-WINDOW TOP=53 BOTTOM=600 LEFT=152 RIGHT=682 />
 </HEAD>
 <BODY BGCOLOR="#FFFFCA" BACKGROUND="/img/chillibk.gif">
@@ -101,14 +100,18 @@
          <DIV hx-get="https://old-flower-8394.fly.dev/api/guestbook_posts"
               hx-trigger="load"
               hx-swap="innerHTML"
-              _="on htmx:sendError put 'failed to load the guestbook :(' into the next <div/>">
+              id="posts">
               <div style="text-align: center;">
                  loading...
                </div>
               </DIV>
-              <div style="text-align: center;"></div>
       </TD></TR>
 </TABLE></P>
+<script defer>
+document.addEventListener("htmx:sendError", function(evt) {
+   document.querySelector("#posts > div").innerHTML = 'failed to load the guestbook :(';
+});
+</script>
 <P>(c) zxyz. <SPAN ID="FSP" TITLE="Icons & cursor licensed under the MIT license, by Haiku.">copy it</SPAN>. i won't be mad.</P>
 <script src="/js/htmx_error.js" defer></script>
 </BODY>
