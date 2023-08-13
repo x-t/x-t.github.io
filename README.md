@@ -2,7 +2,7 @@
 
 my personal site. it's cool. trust me.
 
-designed with [Claris Home Page 2.0](https://www.macintoshrepository.org/932-claris-home-page-2-0), uses [htmx](https://htmx.org/) and [hyperscript](https://hyperscript.org/).
+designed with [Claris Home Page 2.0](https://www.macintoshrepository.org/932-claris-home-page-2-0), uses [htmx](https://htmx.org/).
 
 all parts of the site are preferred to be in-house.
 
