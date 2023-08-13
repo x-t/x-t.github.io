@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <!--This file created 4/26/21 8:35 PM by Claris Home Page version 2.0-->
 <HTML LANG="en">
-<HEAD>
+<HEAD PREFIX="og: http://ogp.me/ns#">
+   <META CHARSET="utf-8" />
    <TITLE>zxyz's guestbook</TITLE>
    <META NAME=GENERATOR CONTENT="Claris Home Page 2.0" />
    <META NAME="viewport" CONTENT="width=device-width,initial-scale=1" />
@@ -29,13 +30,18 @@
    <link rel="stylesheet" href="/css/font.css">
    <link rel="stylesheet" href="/css/style.css">
    <STYLE>
-      #guestbookPosts {
-         padding-top: 40px;
-      }
+   #guestbookPosts {
+      padding-top: 40px;
+   }
 
-      #postDialog > form > table > tbody > tr > td:first-of-type > p {
-         text-align: left;
-      }
+   #postDialog > form > table > tbody > tr > td:first-of-type > p {
+      text-align: left;
+   }
+   
+   #guestbookPosts > table > tbody > tr > td {
+     padding-left: 5px;
+     padding-right: 5px;
+   }
    </STYLE>
    <script
       src="https://js.sentry-cdn.com/792ad45f5f6aecfc71f4af227c8969e9.min.js"
@@ -48,11 +54,13 @@
 <P id="W"><TABLE WIDTH="80%">
    <TR>
       <TD HEIGHT=438>
-         <H1>
-            <A HREF="/" ARIA-LABEL="Go back"><PICTURE><SOURCE SRCSET="/img/guestbook.webp" TYPE="image/webp" /><IMG SRC="/img/guestbook.png" WIDTH=30 HEIGHT=33 ALT=""
+<nav>
+         <P>
+            <A HREF="/" ARIA-LABEL="Go back"><PICTURE><SOURCE SRCSET="/img/guestbook.webp" TYPE="image/webp" /><IMG SRC="/img/guestbook.png" WIDTH=30 HEIGHT=33 ALT="guestbook icon"
                X-SAS-UseImageWidth X-SAS-UseImageHeight ALIGN=bottom /></PICTURE></A>
-         </H1>
-
+         </P>
+</nav>
+<main>
          <H1>guestbook</H1>
 
          <noscript>
@@ -91,10 +99,6 @@
                   <input type="submit"
                      style="width:100px;" value="post" /></TD></TR>
          </TABLE>
-         <template x-if="error">
-            <p class="error_cl"
-            x-text="error"></p>
-         </template>
       </form>
       </DIV></P>
          <DIV hx-get="https://old-flower-8394.fly.dev/api/guestbook_posts"
@@ -105,14 +109,19 @@
                  loading...
                </div>
               </DIV>
-      </TD></TR>
+      </TD>
+</main>
+   </TR>
 </TABLE></P>
+
+<footer>
+         <P>(c) zxyz. <SPAN ID="FSP">copy it <SPAN ID="FSPP">Icons & cursor licensed under the MIT license, by <A HREF="https://www.haiku-os.org/" TARGET="_blank">Haiku</A>.<BR/><A HREF="https://github.com/x-t/x-t.github.io">Source <span class="arrow_sm">~></span></A></SPAN></SPAN>. i won't be mad.</P>
+</footer>
+<script src="/js/htmx_error.js" defer></script>
 <script defer>
-document.addEventListener("htmx:sendError", function(evt) {
+document.addEventListener('htmx:sendError', function(evt) {
    document.querySelector("#posts > div").innerHTML = 'failed to load the guestbook :(';
 });
 </script>
-<P>(c) zxyz. <SPAN ID="FSP" TITLE="Icons & cursor licensed under the MIT license, by Haiku.">copy it</SPAN>. i won't be mad.</P>
-<script src="/js/htmx_error.js" defer></script>
 </BODY>
 </HTML>
