@@ -9,7 +9,7 @@
 package settings
 
 // EnvDatabaseConnection Connection string used to connect to MySQL
-const EnvDatabaseConnection = "DSN"
+const EnvDatabaseConnection = "DATABASE_URL"
 
 // EnvCorsList List (separated by ",") of valid CORS endpoints
 // by Origin, fails with 403 if request is not from one.

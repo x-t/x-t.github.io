@@ -21,9 +21,9 @@ func Panel(c *gin.Context) {
 	var posts []models.Post
 
 	_, err := providers.DBMap.Select(&posts,
-		"select `id`, coalesce(`name`, '') `name`, "+
-			"`comment`, `created_at`, coalesce(`created_ip`, '') "+
-			"`created_ip` from post")
+		"select id, name, "+
+			"comment, created_at, "+
+			"created_ip from post")
 
 	if err != nil {
 		c.String(http.StatusInternalServerError,

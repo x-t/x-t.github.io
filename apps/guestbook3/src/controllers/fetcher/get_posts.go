@@ -24,7 +24,7 @@ func GetPosts(c *gin.Context) {
 	var posts []models.Post
 
 	_, err := providers.DBMap.Select(&posts,
-		"select coalesce(`name`, '') `name`, `comment`, `created_at` from post")
+		"select name, comment, created_at from post")
 
 	if err != nil {
 		log.Printf("couldn't get posts: %v", err)

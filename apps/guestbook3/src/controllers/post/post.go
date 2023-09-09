@@ -119,7 +119,7 @@ func isPostValid(c *gin.Context, postRequest *models.PostRequest, referer string
 func isRateLimited(c *gin.Context, referer string) bool {
 	var lastPost models.Post
 	err := providers.DBMap.SelectOne(&lastPost,
-		"select `created_at` from post where `created_ip` = ? order by `created_at` desc limit 1",
+		"select created_at from post where created_ip = $1 order by created_at desc limit 1",
 		c.ClientIP())
 
 	if err != nil {
