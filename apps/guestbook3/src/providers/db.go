@@ -10,25 +10,36 @@ package providers
 
 import (
 	"database/sql"
-	"github.com/go-gorp/gorp"
-	_ "github.com/lib/pq"
+	"log"
 	"os"
 	"x-t/guestbook3/src/models"
 	"x-t/guestbook3/src/settings"
+
+	"github.com/go-gorp/gorp"
+	_ "github.com/jackc/pgx/v4/stdlib"
 )
 
-var DBMap = initDb()
+var DBMap *gorp.DbMap
 
-func initDb() *gorp.DbMap {
+func InitDb() *gorp.DbMap {
 	connectionString := os.Getenv(settings.EnvDatabaseConnection)
 
-	db, err := sql.Open("postgres", connectionString)
+	db, err := sql.Open("pgx", connectionString)
 	if err != nil {
 		panic(err)
 	}
+
+    if err = db.Ping(); err != nil {
+        log.Fatal("DB unreachable:", err)
+        panic(err)
+    }
+
 	dbMap := &gorp.DbMap{Db: db, Dialect: gorp.PostgresDialect{}}
 	dbMap.AddTableWithName(models.Post{}, "post").SetKeys(true, "id")
-	dbMap.CreateTablesIfNotExists()
+	err = dbMap.CreateTablesIfNotExists()
+	if err != nil {
+		panic(err)
+	}
 
 	return dbMap
 }

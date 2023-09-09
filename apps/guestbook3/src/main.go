@@ -9,11 +9,13 @@
 package main
 
 import (
-	"github.com/getsentry/sentry-go"
 	"log"
 	"os"
 	"x-t/guestbook3/src/mappings"
+	"x-t/guestbook3/src/providers"
 	"x-t/guestbook3/src/settings"
+
+	"github.com/getsentry/sentry-go"
 )
 
 func main() {
@@ -29,6 +31,9 @@ func main() {
 	}); err != nil {
 		log.Printf("Sentry initialization failed: %v", err)
 	}
+
+	providers.DBMap = providers.InitDb()
+	defer providers.DBMap.Db.Close()
 
 	mappings.CreateUrlMappings()
 	mappings.CreateTemplateMappings()
