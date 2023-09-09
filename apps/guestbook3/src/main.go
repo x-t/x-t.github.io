@@ -37,6 +37,7 @@ func main() {
 
 	mappings.CreateUrlMappings()
 	mappings.CreateTemplateMappings()
+	mappings.CreateStaticMappings()
 	err := mappings.Router.Run(":" + os.Getenv(settings.EnvPort))
 	if err != nil {
 		panic(err)
