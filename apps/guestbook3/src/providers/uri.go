@@ -6,9 +6,20 @@
 // send a letter to Creative Commons, PO Box 1866,
 // Mountain View, CA 94042, USA.
 
-package settings
+package providers
+	
+import (
+	"net/url"
+	"fmt"
+)
 
-// RedirectHTML Name of HTML document (endpoint) where
-// the post controller (/api/post) will redirect/point to
-// in a concat of Headers[Referer] + RedirectHTML.
-const RedirectHTML = "guestbook.html"
+func RemovePathSegments(uri string) (string, error) {
+	u, err := url.Parse(uri)
+	if err != nil {
+		return "", err
+	}
+
+	baseURI := fmt.Sprintf("%s://%s", u.Scheme, u.Host)
+
+	return baseURI, nil
+}

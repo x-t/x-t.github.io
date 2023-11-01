@@ -9,19 +9,28 @@
 package post
 
 import (
-	goaway "github.com/TwiN/go-away"
-	"github.com/gin-gonic/gin"
+	"fmt"
 	"log"
 	"net/http"
 	"time"
 	"x-t/guestbook3/src/models"
 	"x-t/guestbook3/src/providers"
 	"x-t/guestbook3/src/settings"
+
+	goaway "github.com/TwiN/go-away"
+	"github.com/gin-gonic/gin"
 )
 
 func Post(c *gin.Context) {
 	postRequest := &models.PostRequest{}
-	referer := c.Request.Referer() + settings.RedirectHTML
+
+	baseReferer, err := providers.RemovePathSegments(c.Request.Referer())
+	if err != nil {
+		fmt.Println("Error:", err)
+		panic(err)
+	}
+
+	referer := baseReferer + settings.RedirectHTML
 
 	if err := c.Bind(postRequest); err != nil {
 		c.HTML(http.StatusBadRequest,
