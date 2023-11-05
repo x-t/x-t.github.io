@@ -11,4 +11,4 @@ package settings
 // RedirectHTML Name of HTML document (endpoint) where
 // the post controller (/api/post) will redirect/point to
 // in a concat of Headers[Referer] + RedirectHTML.
-const RedirectHTML = "guestbook.html"
+const RedirectHTML = "/guestbook.html"
