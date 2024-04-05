@@ -37,7 +37,7 @@ jobs:
           find -name '*.html' -exec sed -i 's|</BODY>|<!-- Cloudflare Web Analytics --><script defer src='\''https://static.cloudflareinsights.com/beacon.min.js'\'' data-cf-beacon='\''{"token": "ebc7fbd034354f089166b7c3c142291a"}'\''></script><!-- End Cloudflare Web Analytics -->\n</BODY>|g' {} +
 
       - name: Mirror to Neocities
-        uses: bcomnes/deploy-to-neocities@v1
+        uses: bcomnes/deploy-to-neocities@v2
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
           api_token: ${{ secrets.NEOCITIES_API_KEY }}
