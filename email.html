@@ -101,7 +101,7 @@ function downloadKey() {
    let el = document.createElement('a');
    el.setAttribute('href', 'data:text/plain;charset=utf-8,'
          + encodeURIComponent(document.getElementById('pgpKey').innerText));
-   el.setAttribute('download', 'publickey.xdasht@pm.me.asc');
+   el.setAttribute('download', 'publickey.asc');
    el.style.display = 'none';
    document.body.appendChild(el);
    el.click();
