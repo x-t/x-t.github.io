@@ -40,7 +40,6 @@ func CreateUrlMappings() {
 
 	api := Router.Group("/api")
 	{
-		api.GET("/get_posts", fetcher.GetPosts)
 		api.POST("/post", post.Post)
 		api.POST("/email_verify", mailguard.EmailVerify)
 		api.GET("/guestbook_posts", fetcher.GetPostsHyper)
