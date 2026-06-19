@@ -24,7 +24,7 @@ jobs:
         uses: styfle/cancel-workflow-action@0.12.1
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.6.3
